@@ -1,22 +1,38 @@
-$font-stack:    Helvetica, sans-serif
-$primary-color: #3367aa
+$fontStack: Helvetica, sans-serif
+$primaryColor: #0277bd
+$secondaryColor: #7986cb
+$secondaryColorLigth: #aab6fe
+$secondaryColorDark: #49599a
+$darkColor: #004c8c
+$ligthColor: #58a5f0
+$fontColor: #ffffff
+$fontColorDark: #000000
 
-.navBar
-  background-color: $primary-color
+
+#navBar
+  background-color: $primaryColor
   color: white
   margin: 0
   padding: 0
   height: 50px
-  width: 100%
-  display: flex
 
-.brandName
-  flex: 25%
+#navBarDropdown
+  text-decoration: none
+  color: $fontColor
 
-.items
-  flex: 70%
+.navBarBrand
+  text-decoration: none
+  font: bolder
+  font-weight: bold
+  color: $fontColor
 
-.itemNav
-  font: bold
-  margin-right: 10px
-  color: white
+.navBarItem
+  text-decoration: none
+  color: $fontColor
+  margin-right: 5px
+  margin-top: 8px
+  padding: auto
+  
+#footer
+  background-color: $ligthColor
+  color: $fontColorDark
