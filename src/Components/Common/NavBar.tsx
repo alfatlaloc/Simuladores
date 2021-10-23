@@ -9,16 +9,20 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-          <NavLink to='/simulador' className="navBarItem">Gestor empresas</NavLink>
+          <NavLink to='/simulador' className="navBarItem">
+            Gestor empresas
+          </NavLink>
+
             <NavDropdown title="Mas opciones" id="navBarDropdown" >
-            <NavLink to='/unaempresa'><p>Una empresa</p></NavLink>
-            <NavLink to='/variosproductos'><p>Varios productos</p></NavLink>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Item href="/unaempresa">
+                Una empresa
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated lin
+              <NavDropdown.Item href="/variosproductos">
+                Varios productos
               </NavDropdown.Item>
             </NavDropdown>
+
           </Nav>
         </Navbar.Collapse>
       </Container>

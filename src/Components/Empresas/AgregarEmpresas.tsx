@@ -111,6 +111,7 @@ const Simulador = () => {
         >
           <Form.Label>Nombre de la empresa</Form.Label>
           <Form.Control
+            size="lg"
             className="empresaInput"
             type="text"
             placeholder="Nombre de la empresa"
