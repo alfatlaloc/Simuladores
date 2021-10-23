@@ -41,7 +41,7 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
         break;
       }
     }
-  }, [inicial]);
+  }, []);
   const calcularApalancamiento = () => {
     if (inicial < 1 || final < 1) return;
 

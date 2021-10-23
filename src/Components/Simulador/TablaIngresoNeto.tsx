@@ -31,7 +31,7 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
 
   const calcularPuntoEquilibrio = () => {
     let { puntoEquilibrioPesos, puntoEquilibrioUnidades } = puntoEquilibrio;
-
+    console.log(producto.costosTotales());
     puntoEquilibrioUnidades =
       empresa.costoFijoTotal() / (producto.precio - producto.costosTotales());
     puntoEquilibrioPesos =

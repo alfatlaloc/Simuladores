@@ -34,6 +34,12 @@ export class Producto {
     if (precio) this.precio = precio;
   }
 
+  static jsonToProducto(producto: Producto): Producto {
+    let aux = new Producto(producto.nombre, producto.precio);
+    aux.costosVariablesUnitario = producto.costosVariablesUnitario;
+    return aux;
+  }
+
   /** AGrega un objeto de tipo costo a los CVU */
   agregarCosto(newCosto: Costo) {
     const costoYaExiste = this.costosVariablesUnitario.find(
@@ -66,6 +72,13 @@ class Empresa {
     this.costosFijos = [];
   }
 
+  static jsonToEmpresa(empresa: Empresa): Empresa {
+    let aux = new Empresa(empresa.nombre);
+    aux.costosFijos = empresa.costosFijos;
+    aux.productos = empresa.productos;
+    return aux;
+  }
+
   agregarCostoFijo(costoFijo: Costo) {
     const costoFijoYaExiste = this.costosFijos.find(
       (costo) => costo.nombre === costoFijo.nombre
@@ -94,7 +107,7 @@ class Empresa {
       return producto;
     });
 
-    this.productos=auxArr;
+    this.productos = auxArr;
   }
 
   eliminarProducto(productoNombre: string) {

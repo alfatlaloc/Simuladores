@@ -8,19 +8,26 @@ import TablaIngresoNeto from "./TablaIngresoNeto";
 const UnaEmpresa = () => {
   const empresas = useSelector((state: EmpresaState) => state.empresas);
 
-  const [empresaA, setEmpresaA] = useState<Empresa>(empresas[0]);
-  const [productoO, setProductoO] = useState<Producto>(empresaA.productos[0]);
+  const [empresaA, setEmpresaA] = useState<Empresa>();
+  const [productoO, setProductoO] = useState<Producto>();
+
+  useEffect(() => {
+    if(!empresaA) setEmpresaA(empresas[0]);
+    if(empresaA) setProductoO(empresaA.productos[0]);
+  }, [empresaA]);
 
   const hanldeChange = (e: React.FormEvent<HTMLSelectElement>) => {
     const empresaChange = empresas.find(
       (emp) => emp.nombre === e.currentTarget.value
     );
-    if (empresaChange) setEmpresaA(empresaChange);
-    console.log(empresaA);
-    setProductoO(empresaA.productos[0]);
+    if (empresaChange) {
+      setEmpresaA(empresaChange);
+      console.log(empresaA);
+      console.log(productoO);
+    }
   };
 
-  if (empresaA)
+  if (empresaA && productoO)
     return (
       <div className="pagina">
         <h2>Calculo del punto de equilibrio</h2>
@@ -59,6 +66,9 @@ const UnaEmpresa = () => {
           </Form.Group>
         </Form>
         <TablaIngresoNeto empresa={empresaA} producto={productoO} />
+
+        {JSON.stringify(empresaA)}
+        {JSON.stringify(productoO)}
       </div>
     );
   return null;
