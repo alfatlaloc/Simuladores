@@ -3,10 +3,6 @@ import { Form, Button, Table, Tab, Tabs } from "react-bootstrap";
 import Empresa, { Producto } from "../Classes/Empresa";
 import GradoApalancamientoOperativo from "./GradoApalancamientoOperativo";
 import GraficaPuntoEquilibrio from "./GraficaPuntoEquilibrio";
-import FormProducto from "../Empresas/FormProducto";
-import TablaProductos from "../Empresas/TablaProductos";
-import FormCosto from "../Empresas/FormCosto";
-import TablaCostos from "../Empresas/TablaCostos";
 
 interface props {
   empresa: Empresa;
