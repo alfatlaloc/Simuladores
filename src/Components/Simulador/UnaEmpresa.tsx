@@ -24,8 +24,6 @@ const UnaEmpresa = () => {
     );
     if (empresaChange) {
       setEmpresaA(empresaChange);
-      console.log(empresaA);
-      console.log(productoO);
     }
   };
 
@@ -68,9 +66,6 @@ const UnaEmpresa = () => {
           </Form.Group>
         </Form>
         <TablaIngresoNeto empresa={empresaA} producto={productoO} />
-
-        {JSON.stringify(empresaA)}
-        {JSON.stringify(productoO)}
       </div>
     );
   else if (empresaA)
