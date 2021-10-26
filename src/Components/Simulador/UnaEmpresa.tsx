@@ -12,8 +12,8 @@ const UnaEmpresa = () => {
   const [productoO, setProductoO] = useState<Producto>();
 
   useEffect(() => {
-    if(!empresaA) setEmpresaA(empresas[0]);
-    if(empresaA) setProductoO(empresaA.productos[0]);
+    if (!empresaA) setEmpresaA(empresas[0]);
+    if (empresaA) setProductoO(empresaA.productos[0]);
   }, [empresaA]);
 
   const hanldeChange = (e: React.FormEvent<HTMLSelectElement>) => {
@@ -69,6 +69,27 @@ const UnaEmpresa = () => {
 
         {JSON.stringify(empresaA)}
         {JSON.stringify(productoO)}
+      </div>
+    );
+  else if (empresaA)
+    return (
+      <div className="pagina">
+        <h2>La empresa seleccionada no tiene productos</h2>
+        <h4>Por favor seleccione otra o agregue productos</h4>
+        <Form className="align-items-center">
+          <Form.Group className="mb-3 justify-content-center">
+            <Form.Label>Empresa</Form.Label>
+            <Form.Select
+              aria-label="Empresa"
+              className="select"
+              onChange={(e) => hanldeChange(e)}
+            >
+              {empresas.map((empresa) => {
+                return <option value={empresa.nombre}>{empresa.nombre}</option>;
+              })}
+            </Form.Select>
+          </Form.Group>
+        </Form>
       </div>
     );
   return null;

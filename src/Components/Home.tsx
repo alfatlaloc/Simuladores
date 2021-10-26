@@ -30,7 +30,7 @@ const Home = () => {
                 <Button className="buttonPrimary m-2"
                         onClick={() => {
                             history.push("tabla");
-                        }}>Ir a Tablas</Button>
+                        }}>Ir</Button>
             </Card.Body>
         </Card>
 
@@ -44,7 +44,7 @@ const Home = () => {
                 <Button className="buttonPrimary m-2"
                         onClick={() => {
                             history.push("instrucciones");
-                        }}>Ir a Instrucciones</Button>
+                        }}>Ir</Button>
             </Card.Body>
         </Card>
 
@@ -58,7 +58,7 @@ const Home = () => {
                 <Button className="buttonPrimary m-2"
                         onClick={() => {
                             history.push("simulador");
-                        }}>Ir a Simulador</Button>
+                        }}>Ir</Button>
             </Card.Body>
         </Card>
 

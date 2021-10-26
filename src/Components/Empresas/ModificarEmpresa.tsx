@@ -8,6 +8,7 @@ import FormCosto from "./FormCosto";
 import TablaCostos from "./TablaCostos";
 import TablaProductos from "./TablaProductos";
 import { useSelector } from "react-redux";
+import ModificarNombre from "./ModificarNombre";
 
 const ModificarEmpresa = () => {
   const history = useHistory();
@@ -44,11 +45,14 @@ const ModificarEmpresa = () => {
         </Tab>
         <Tab eventKey="costosFijos" title="Costos Fijos">
           <FormCosto empresa={empresaA} />
-          <h5 className="m-2">Costos Fijos Totales: {empresaA.costoFijoTotal()} </h5>
+          <h5 className="m-2">
+            Costos Fijos Totales: {empresaA.costoFijoTotal()}{" "}
+          </h5>
           <TablaCostos empresa={empresaA} />
         </Tab>
         <Tab eventKey="Nombre" title="Nombre empresa">
-          <h5>Combiar Nombre</h5>
+          <h5>Cambiar Nombre</h5>
+          <ModificarNombre empresa={empresaA} />
         </Tab>
       </Tabs>
     </div>

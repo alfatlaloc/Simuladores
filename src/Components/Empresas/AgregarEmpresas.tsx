@@ -7,6 +7,7 @@ import Empresa, { Costo, Producto } from "../Classes/Empresa";
 import "../../Styles/Tablas.sass";
 import { useHistory } from "react-router";
 import { BsFillTrashFill, BsPencil } from "react-icons/bs";
+import BotonRegresar from "../Common/BotonRegresar";
 
 interface propsListaCosto {
   arregloCostos: Costo[];
@@ -31,8 +32,9 @@ interface propsLista {
 const ListaProductos: React.FC<propsLista> = ({ arregloP }) => {
   return arregloP.length > 0 ? (
     <p>
-      {arregloP.map((e) => {
-        return e.nombre + ", ";
+      {arregloP.map((e, index) => {
+        if (index === 0) return e.nombre;
+        return ", " + e.nombre;
       })}
     </p>
   ) : (
@@ -48,7 +50,7 @@ const MapearEmpresas: React.FC<mapearEmpresasProps> = ({ empresas }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   return empresas.length > 0 ? (
-    <Table striped bordered={true} className="tablaEmpresas" hover>
+    <Table responsive={true} striped bordered={true} className="tablaEmpresas" hover>
       <thead>
         <tr>
           <th>Nombre</th>
@@ -102,7 +104,8 @@ const Simulador = () => {
 
   return (
     <div className="pagina">
-      <h2>Gestor de empresas</h2>
+      <BotonRegresar />
+      <h2 className="m-4">Gestor de empresas</h2>
 
       <Form>
         <Form.Group
@@ -136,6 +139,7 @@ const Simulador = () => {
       </Button>
 
       <MapearEmpresas empresas={Empresas} />
+      
     </div>
   );
 };
