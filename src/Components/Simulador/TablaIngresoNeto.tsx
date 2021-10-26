@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Table } from "react-bootstrap";
+import { Form, Button, Table, Tab, Tabs } from "react-bootstrap";
 import Empresa, { Producto } from "../Classes/Empresa";
 import GradoApalancamientoOperativo from "./GradoApalancamientoOperativo";
 import GraficaPuntoEquilibrio from "./GraficaPuntoEquilibrio";
@@ -52,11 +52,9 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
         auxUnidades.push(puntoEquilibrio.puntoEquilibrioUnidades);
     }
     setArrayUnidades(auxUnidades);
-    console.log(arrayUnidades);
     let auxIngresoVentas: number[] = [];
     let auxCostoVariable: number[] = [];
     let auxUtilidad: number[] = [];
-    console.log(producto);
     auxUnidades.forEach((unidad) => {
       auxIngresoVentas.push(producto.precio * unidad);
       auxCostoVariable.push(producto.costosTotales() * unidad);
@@ -100,109 +98,124 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
     if (empresa && producto) calcularPuntoEquilibrio();
   }, [empresa, producto]);
 
+  const formularioYPuntodeEquilibrio = () => {
+    return (
+        <div>
+          <p>
+            Punto de equilibrio en unidades:{" "}
+            {puntoEquilibrio.puntoEquilibrioUnidades}
+          </p>
+          <p>
+            Punto de equilibrio en pesos: $
+            {puntoEquilibrio.puntoEquilibrioPesos}
+          </p>
+          <h5>Calculo del Ingreso Neto</h5>
+
+          <Form className=" d-flex flex-row justify-content-around flex-wrap">
+            <Form.Group className="mb-3">
+              <Form.Label>Venta inicial</Form.Label>
+              <Form.Control
+                  type="number"
+                  value={inicio}
+                  onChange={(e) => {
+                    setInicio(Number.parseInt(e.currentTarget.value));
+                  }}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Final</Form.Label>
+              <Form.Control
+                  type="number"
+                  value={final}
+                  onChange={(e) => {
+                    setFinal(Number.parseInt(e.currentTarget.value));
+                  }}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              <Form.Label>Intervalo: {intervalo}</Form.Label>
+              <Form.Control
+                  type="number"
+                  value={intervalo}
+                  onChange={(e) => {
+                    const interv = Number.parseInt(e.currentTarget.value);
+                    if (interv > 0 && interv <= final) {
+                      setIntervalo(interv);
+                    }
+                  }}
+              />
+            </Form.Group>
+          </Form>
+
+          <Button className="buttonPrimary m-3" onClick={calcularUnidades}>
+            Calcular datos
+          </Button>
+
+          <Table striped bordered hover className="overflowForce">
+            <thead>
+            <tr>
+              <th>Unidades</th>
+              {arrayUnidades.map((numero) => {
+                if (numero === puntoEquilibrio.puntoEquilibrioUnidades)
+                  return <th className="peUnidades">{numero}</th>;
+                return <th>{numero}</th>;
+              })}
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td className="tdTitulo">Ingreso/Ventas</td>
+              {ingresoVentas.map((ingreso) => {
+                return <td>{ingreso}</td>;
+              })}
+            </tr>
+            <tr>
+              <td className="tdTitulo">Costo Variable</td>
+              {arrayUnidades?.map((numero) => {
+                return <td>{numero * producto.costosTotales()}</td>;
+              })}
+            </tr>
+            <tr>
+              <td className="tdTitulo">Margen de Contribucion</td>
+              {arrayUnidades?.map((numero) => {
+                return (
+                    <td>
+                      {numero * producto.precio - numero * producto.costosTotales()}
+                    </td>
+                );
+              })}
+            </tr>
+            <tr>
+              <td className="tdTitulo">Costos fijos</td>
+              {arrayUnidades?.map((numero) => {
+                return <td>{empresa.costoFijoTotal()}</td>;
+              })}
+            </tr>
+            <tr>
+              <td className="tdTitulo">Utilidad</td>
+              {utilidad?.map((numero) => {
+                return <td>{numero}</td>;
+              })}
+            </tr>
+            </tbody>
+          </Table>
+        </div>
+    );
+  };
+
   return empresa && producto ? (
     <div id="ingresoNeto">
-      <p>
-        Punto de equilibrio en unidades:{" "}
-        {puntoEquilibrio.puntoEquilibrioUnidades}
-      </p>
-      <p>
-        Punto de equilibrio en pesos: $ {puntoEquilibrio.puntoEquilibrioPesos}
-      </p>
-
-      <h5>Calculo del Ingreso Neto</h5>
-
-      <Form className=" d-flex flex-row justify-content-around flex-wrap">
-        <Form.Group className="mb-3">
-          <Form.Label>Venta inicial</Form.Label>
-          <Form.Control
-            type="number"
-            value={inicio}
-            onChange={(e) => {
-              setInicio(Number.parseInt(e.currentTarget.value));
-            }}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Final</Form.Label>
-          <Form.Control
-            type="number"
-            value={final}
-            onChange={(e) => {
-              setFinal(Number.parseInt(e.currentTarget.value));
-            }}
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Label>Intervalo: {intervalo}</Form.Label>
-          <Form.Control
-            type="number"
-            value={intervalo}
-            onChange={(e) => {
-              const interv = Number.parseInt(e.currentTarget.value);
-              if (interv > 0 && interv <= final) {
-                setIntervalo(interv);
-              }
-            }}
-          />
-        </Form.Group>
-      </Form>
-
-      <Button className="buttonPrimary m-3" onClick={calcularUnidades}>
-        Calcular datos
-      </Button>
-
-      <Table striped bordered hover className="overflowForce">
-        <thead>
-          <tr>
-            <th>Unidades</th>
-            {arrayUnidades.map((numero) => {
-              if (numero === puntoEquilibrio.puntoEquilibrioUnidades)
-                return <th className="peUnidades">{numero}</th>;
-              return <th>{numero}</th>;
-            })}
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="tdTitulo">Ingreso/Ventas</td>
-            {ingresoVentas.map((ingreso) => {
-              return <td>{ingreso}</td>;
-            })}
-          </tr>
-          <tr>
-            <td className="tdTitulo">Costo Variable</td>
-            {arrayUnidades?.map((numero) => {
-              return <td>{numero * producto.costosTotales()}</td>;
-            })}
-          </tr>
-          <tr>
-            <td className="tdTitulo">Margen de Contribucion</td>
-            {arrayUnidades?.map((numero) => {
-              return (
-                <td>
-                  {numero * producto.precio - numero * producto.costosTotales()}
-                </td>
-              );
-            })}
-          </tr>
-          <tr>
-            <td className="tdTitulo">Costos fijos</td>
-            {arrayUnidades?.map((numero) => {
-              return <td>{empresa.costoFijoTotal()}</td>;
-            })}
-          </tr>
-          <tr>
-            <td className="tdTitulo">Utilidad</td>
-            {utilidad?.map((numero) => {
-              return <td>{numero}</td>;
-            })}
-          </tr>
-        </tbody>
-      </Table>
-
-      {chart()}
-      {apalancamiento()}
+      <Tabs
+          defaultActiveKey="pEquilibrio"
+          className="mb-3 justify-content-center">
+        <Tab eventKey="pEquilibrio" title="Punto de Equilibrio">
+          {formularioYPuntodeEquilibrio()}
+          {chart()}
+        </Tab>
+        <Tab eventKey="apalancamiento" title="Apalancamiento">
+          {apalancamiento()}
+        </Tab>
+      </Tabs>
     </div>
   ) : null;
 };

@@ -37,8 +37,7 @@ const ModificarEmpresa = () => {
       <Tabs
         defaultActiveKey="products"
         id="uncontrolled-tab-example"
-        className="mb-3 justify-content-center"
-      >
+        className="mb-3 justify-content-center">
         <Tab eventKey="products" title="Productos">
           <FormProducto empresa={empresaA} />
           <TablaProductos empresa={empresaA} />
