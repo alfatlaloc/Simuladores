@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form,Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { EmpresaState } from "../../Redux/types";
@@ -98,7 +98,15 @@ const UnaEmpresa = () => {
     <div className="pagina">
       <h2>No hay ninguna empresa</h2>
       <h4>Por favor agregue una empresa en el Gestor de Empresas</h4>
-      <Button onClick={()=> {history.push("/simulador")}}> Gestor Empresas</Button>
+      <Button
+        className="m-4"
+        onClick={() => {
+          history.push("/simulador");
+        }}
+      >
+        {" "}
+        Gestor Empresas
+      </Button>
     </div>
   );
 };
