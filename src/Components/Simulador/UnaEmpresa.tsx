@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form,Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import { EmpresaState } from "../../Redux/types";
 import Empresa, { Producto } from "../Classes/Empresa";
 import TablaIngresoNeto from "./TablaIngresoNeto";
@@ -10,6 +11,7 @@ const UnaEmpresa = () => {
 
   const [empresaA, setEmpresaA] = useState<Empresa>();
   const [productoO, setProductoO] = useState<Producto>();
+  const history = useHistory();
 
   useEffect(() => {
     if (!empresaA) setEmpresaA(empresas[0]);
@@ -92,7 +94,13 @@ const UnaEmpresa = () => {
         </Form>
       </div>
     );
-  return null;
+  return (
+    <div className="pagina">
+      <h2>No hay ninguna empresa</h2>
+      <h4>Por favor agregue una empresa en el Gestor de Empresas</h4>
+      <Button onClick={()=> {history.push("/simulador")}}> Gestor Empresas</Button>
+    </div>
+  );
 };
 
 export default UnaEmpresa;
