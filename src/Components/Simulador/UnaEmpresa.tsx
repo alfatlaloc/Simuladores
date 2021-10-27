@@ -16,7 +16,7 @@ const UnaEmpresa = () => {
   useEffect(() => {
     if (!empresaA) setEmpresaA(empresas[0]);
     if (empresaA) setProductoO(empresaA.productos[0]);
-  }, [empresaA]);
+  }, [empresaA, empresas]);
 
   const hanldeChange = (e: React.FormEvent<HTMLSelectElement>) => {
     const empresaChange = empresas.find(
@@ -37,6 +37,7 @@ const UnaEmpresa = () => {
             <Form.Select
               aria-label="Empresa"
               className="select"
+              value={empresaA.nombre}
               onChange={(e) => hanldeChange(e)}
             >
               {empresas.map((empresa) => {
@@ -79,6 +80,7 @@ const UnaEmpresa = () => {
             <Form.Select
               aria-label="Empresa"
               className="select"
+              value={empresaA.nombre}
               onChange={(e) => hanldeChange(e)}
             >
               {empresas.map((empresa) => {
