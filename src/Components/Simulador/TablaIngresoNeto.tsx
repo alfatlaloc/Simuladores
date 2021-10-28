@@ -97,6 +97,7 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
           puntoEquilibrioUnidades={puntoEquilibrio.unidades}
         />
       );
+    return <h4>Aun no se generan datos en la tabla</h4>
   };
 
   useEffect(() => {

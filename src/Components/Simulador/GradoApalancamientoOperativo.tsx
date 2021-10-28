@@ -1,6 +1,5 @@
-import Button from "@restart/ui/esm/Button";
 import { useEffect, useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 /**
  * Costo Promedio por unidad
  * (De un producto)
@@ -27,21 +26,20 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
   unidades,
   puntoEquilibrioUnidades,
 }) => {
-  const [inicial, setInicial] = useState<number>(0);
+  const [inicial, setInicial] = useState<number>(0); /** Posicion en I */
   const [final, setFinal] = useState<number>(0);
   const [incrementoUnidades, setIncrementoUnidades] = useState<number>(0);
   const [incrementoUtilidades, setIncrementoUtilidades] = useState<number>(0);
 
   useEffect(() => {
+    if (inicial === unidades.length - 1) return;
     if (inicial === 0)
-      for (let i = 0; i < unidades.length; i++) {
-        if (unidades[i] > puntoEquilibrioUnidades)
-          if (unidades[i + 1]) {
-            setInicial(unidades[i]);
-            setFinal(unidades[i + 1]);
-          }
-      }
-    
+      for (let i = 0; i < unidades.length; i++)
+        if (unidades[i] > puntoEquilibrioUnidades) {
+          setInicial(i);
+          setFinal(unidades.length - 1);
+        }
+
     return;
   }, [inicial, puntoEquilibrioUnidades, unidades]);
 
@@ -69,12 +67,15 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
               aria-label="Intervalo Menor"
               className="select"
               value={inicial}
-              onChange={(e) =>
-                setInicial(unidades[Number.parseInt(e.currentTarget.value)])
-              }
+              onChange={(e) => {
+                setInicial(Number.parseInt(e.currentTarget.value));
+              }}
             >
               {unidades.map((unidad, index) => {
-                if (unidad > puntoEquilibrioUnidades)
+                if (
+                  unidad > puntoEquilibrioUnidades &&
+                  index !== unidades.length - 1
+                )
                   return <option value={index}>{unidad}</option>;
               })}
             </Form.Select>
@@ -93,28 +94,34 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
               }}
             >
               {unidades.map((unidad, index) => {
-                if (unidad > inicial)
+                if (index > inicial)
                   return <option value={index}>{unidad}</option>;
               })}
             </Form.Select>
           </Form.Group>
         </Form>
-        <Button onClick={calcularApalancamiento}>
-          {" "}
-          Calcula Apalancamiento
+        <Button onClick={calcularApalancamiento} className="buttonPrimary m-3">
+          Calcular
         </Button>
 
         <p>
-          Unidades 1: {unidades[inicial]} Utilidades 1: ${utilidades[inicial]}
+          <strong>Unidades 1:</strong> {unidades[inicial]}{" "}
+          <strong>Utilidades 1:</strong> $ {utilidades[inicial]}
         </p>
         <br />
         <p>
-          Unidades 2: {unidades[final]} Utilidades 2: ${utilidades[final]}
+          <strong>Unidades 2:</strong> {unidades[final]}{" "}
+          <strong>Utilidades 2:</strong> ${utilidades[final]}
         </p>
         <br />
 
-        <p>Incremento unidades: {incrementoUnidades}%</p>
-        <p>Incremento utilidades: {incrementoUtilidades}%</p>
+        <p>
+          <strong>Incremento unidades:</strong> {incrementoUnidades.toFixed(4)}%
+        </p>
+        <p>
+          <strong>Incremento utilidades:</strong>{" "}
+          {incrementoUtilidades.toFixed(4)}%
+        </p>
       </div>
     );
   return <p>Aun no se han calculado datos</p>;

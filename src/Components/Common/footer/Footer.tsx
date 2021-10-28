@@ -22,49 +22,17 @@ const Footer = () => {
             </div>
 
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Products</h6>
+              <h6 className="text-uppercase fw-bold mb-4">Developers</h6>
               <p>
+                <strong>Marco Antonio Castro Gutiérrez</strong> <br />
                 <a href="#!" className="text-reset">
-                  Angular
+                  https://github.com/alfatlaloc
                 </a>
               </p>
               <p>
+                <strong>Arturo Jimenez Morgado</strong> <br />
                 <a href="#!" className="text-reset">
-                  React
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Vue
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Laravel
-                </a>
-              </p>
-            </div>
-
-            <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
-              <p>
-                <a href="#!" className="text-reset">
-                  Pricing
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Settings
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Orders
-                </a>
-              </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Help
+                  https://github.com/LordMorgado
                 </a>
               </p>
             </div>
@@ -89,13 +57,8 @@ const Footer = () => {
         </div>
       </section>
 
-      <div
-        className="text-center p-4"
-      >
-        © 2021 Copyright:
-        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-          MDBootstrap.com
-        </a>
+      <div className="text-center p-4">
+        © {new Date().getFullYear()} Copyright: Simulador financiero
       </div>
     </footer>
   );

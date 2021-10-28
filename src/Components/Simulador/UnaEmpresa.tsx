@@ -89,6 +89,14 @@ const UnaEmpresa = () => {
             </Form.Select>
           </Form.Group>
         </Form>
+        <Button
+          className="m-4"
+          onClick={() => {
+            history.push("/simulador");
+          }}
+        >
+          Gestor empresas
+        </Button>
       </div>
     );
   return (
@@ -101,7 +109,7 @@ const UnaEmpresa = () => {
           history.push("/simulador");
         }}
       >
-        Gestor Empresas
+        Gestor empresas
       </Button>
     </div>
   );
