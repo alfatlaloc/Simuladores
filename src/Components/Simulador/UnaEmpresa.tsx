@@ -101,7 +101,6 @@ const UnaEmpresa = () => {
           history.push("/simulador");
         }}
       >
-        {" "}
         Gestor Empresas
       </Button>
     </div>

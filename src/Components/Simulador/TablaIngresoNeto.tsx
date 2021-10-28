@@ -10,14 +10,14 @@ interface props {
 }
 
 interface puntoE {
-  puntoEquilibrioUnidades: number;
-  puntoEquilibrioPesos: number;
+  unidades: number;
+  pesos: number;
 }
 
 const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
-  const [inicio, setInicio] = useState<number>(0);
-  const [final, setFinal] = useState<number>(0);
-  const [intervalo, setIntervalo] = useState<number>(0);
+  const [inicio, setInicio] = useState<string>("0");
+  const [final, setFinal] = useState<string>("0");
+  const [intervalo, setIntervalo] = useState<string>("1");
 
   const [arrayUnidades, setArrayUnidades] = useState<number[]>([]);
   const [ingresoVentas, setIngresoVentas] = useState<number[]>([]);
@@ -25,31 +25,36 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
   const [utilidad, setUtilidad] = useState<number[]>([]);
 
   const [puntoEquilibrio, setPuntoEquilibrio] = useState<puntoE>({
-    puntoEquilibrioPesos: 0,
-    puntoEquilibrioUnidades: 0,
+    pesos: 0,
+    unidades: 0,
   });
 
   const calcularPuntoEquilibrio = () => {
-    let { puntoEquilibrioPesos, puntoEquilibrioUnidades } = puntoEquilibrio;
+    let { pesos, unidades } = puntoEquilibrio;
     console.log(producto.costosTotales());
-    puntoEquilibrioUnidades =
+    unidades =
       empresa.costoFijoTotal() / (producto.precio - producto.costosTotales());
-    puntoEquilibrioPesos =
+    pesos =
       empresa.costoFijoTotal() /
       (1 - producto.costosTotales() / producto.precio);
 
-    setPuntoEquilibrio({ puntoEquilibrioUnidades, puntoEquilibrioPesos });
+    setPuntoEquilibrio({ unidades, pesos });
   };
 
   const calcularUnidades = () => {
+    if ( Number.parseInt(final) <= Number.parseInt(inicio)) return;
     let auxUnidades: number[] = [];
-    for (let i = inicio; i <= final; i += intervalo) {
+    for (
+      let i = Number.parseInt(inicio);
+      i <= Number.parseInt(final);
+      i += Number.parseInt(intervalo)
+    ) {
       auxUnidades.push(i);
       if (
-        puntoEquilibrio.puntoEquilibrioUnidades > i &&
-        puntoEquilibrio.puntoEquilibrioUnidades < i + intervalo
+        puntoEquilibrio.unidades > i &&
+        puntoEquilibrio.unidades < i + Number.parseInt(intervalo)
       )
-        auxUnidades.push(puntoEquilibrio.puntoEquilibrioUnidades);
+        auxUnidades.push(puntoEquilibrio.unidades);
     }
     setArrayUnidades(auxUnidades);
     let auxIngresoVentas: number[] = [];
@@ -73,8 +78,8 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
     if (utilidad.length > 0)
       return (
         <GraficaPuntoEquilibrio
-          puntoEquilibrioPesos={puntoEquilibrio.puntoEquilibrioPesos}
-          puntoEquilibrioUnidades={puntoEquilibrio.puntoEquilibrioUnidades}
+          puntoEquilibrioPesos={puntoEquilibrio.pesos}
+          puntoEquilibrioUnidades={puntoEquilibrio.unidades}
           intervalo={arrayUnidades}
           costosVariablesTotales={costoVariable}
           ingresoTotal={ingresoVentas}
@@ -89,7 +94,7 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
         <GradoApalancamientoOperativo
           utilidades={utilidad}
           unidades={arrayUnidades}
-          puntoEquilibrioUnidades={puntoEquilibrio.puntoEquilibrioUnidades}
+          puntoEquilibrioUnidades={puntoEquilibrio.unidades}
         />
       );
   };
@@ -100,69 +105,79 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
 
   const formularioYPuntodeEquilibrio = () => {
     return (
-        <div>
-          <p>
-            Punto de equilibrio en unidades:{" "}
-            {puntoEquilibrio.puntoEquilibrioUnidades}
-          </p>
-          <p>
-            Punto de equilibrio en pesos: $
-            {puntoEquilibrio.puntoEquilibrioPesos}
-          </p>
-          <h5>Calculo del Ingreso Neto</h5>
+      <div>
+        <p>
+          Punto de equilibrio en unidades: {Math.ceil(puntoEquilibrio.unidades)}
+        </p>
+        <p>
+          Punto de equilibrio en pesos: $ {Math.ceil(puntoEquilibrio.pesos)}
+        </p>
+        <h5>Calculo del Ingreso Neto</h5>
 
-          <Form className=" d-flex flex-row justify-content-around flex-wrap">
-            <Form.Group className="mb-3">
-              <Form.Label>Venta inicial</Form.Label>
-              <Form.Control
-                  type="number"
-                  value={inicio}
-                  onChange={(e) => {
-                    setInicio(Number.parseInt(e.currentTarget.value));
-                  }}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Final</Form.Label>
-              <Form.Control
-                  type="number"
-                  value={final}
-                  onChange={(e) => {
-                    setFinal(Number.parseInt(e.currentTarget.value));
-                  }}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-              <Form.Label>Intervalo: {intervalo}</Form.Label>
-              <Form.Control
-                  type="number"
-                  value={intervalo}
-                  onChange={(e) => {
-                    const interv = Number.parseInt(e.currentTarget.value);
-                    if (interv > 0 && interv <= final) {
-                      setIntervalo(interv);
-                    }
-                  }}
-              />
-            </Form.Group>
-          </Form>
+        <Form className=" d-flex flex-row justify-content-around flex-wrap">
+          <Form.Group className="mb-3">
+            <Form.Label>Venta inicial</Form.Label>
+            <Form.Control
+              type="text"
+              value={inicio}
+              onChange={(e) => {
+                const valorInicio = e.currentTarget.value;
+                if(Number.parseInt(valorInicio) < puntoEquilibrio.unidades )
 
-          <Button className="buttonPrimary m-3" onClick={calcularUnidades}>
-            Calcular datos
-          </Button>
+                if (/^\d+$/.test(valorInicio)) setInicio(valorInicio);
+              }}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Final</Form.Label>
+            <Form.Control
+              type="text"
+              value={final}
+              onChange={(e) => {
+                const entrada = e.currentTarget.value;
+                if (
+                  /^\d+$/.test(entrada) &&
+                  Number.parseInt(entrada) > Number.parseInt(inicio)
+                ) {
+                  setFinal(entrada);
+                }
+              }}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Label>Intervalo: {intervalo}</Form.Label>
+            <Form.Control
+              type="text"
+              value={intervalo}
+              onChange={(e) => {
+                const interv = Number.parseInt(e.currentTarget.value);
+                if (
+                  /^\d+$/.test(interv.toString()) &&
+                  interv > 0 &&
+                  interv < Number.parseInt(final)
+                )
+                  setIntervalo(interv.toString());
+              }}
+            />
+          </Form.Group>
+        </Form>
 
-          <Table striped bordered hover className="overflowForce">
-            <thead>
+        <Button className="buttonPrimary m-3" onClick={calcularUnidades}>
+          Calcular datos
+        </Button>
+
+        <Table striped bordered hover className="overflowForce">
+          <thead>
             <tr>
               <th>Unidades</th>
               {arrayUnidades.map((numero) => {
-                if (numero === puntoEquilibrio.puntoEquilibrioUnidades)
+                if (numero === puntoEquilibrio.unidades)
                   return <th className="peUnidades">{numero}</th>;
-                return <th>{numero}</th>;
+                return <th key={numero}>{numero}</th>;
               })}
             </tr>
-            </thead>
-            <tbody>
+          </thead>
+          <tbody>
             <tr>
               <td className="tdTitulo">Ingreso/Ventas</td>
               {ingresoVentas.map((ingreso) => {
@@ -179,9 +194,10 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
               <td className="tdTitulo">Margen de Contribucion</td>
               {arrayUnidades?.map((numero) => {
                 return (
-                    <td>
-                      {numero * producto.precio - numero * producto.costosTotales()}
-                    </td>
+                  <td>
+                    {numero * producto.precio -
+                      numero * producto.costosTotales()}
+                  </td>
                 );
               })}
             </tr>
@@ -197,17 +213,33 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
                 return <td>{numero}</td>;
               })}
             </tr>
-            </tbody>
-          </Table>
-        </div>
+          </tbody>
+        </Table>
+      </div>
     );
   };
 
   return empresa && producto ? (
     <div id="ingresoNeto">
+      <Table striped bordered hover className="infoProducto">
+        <tbody>
+          <tr>
+            <td className="tdTitulo">Precio</td>
+            <td>{producto.precio}</td>
+          </tr>
+          <tr className="tablaCostosVar">
+            <td>Costos Variables</td>
+            <tr><td>Costo</td> <td>Valor</td></tr>
+            {producto.costosVariablesUnitario?.map((costo) => {
+              return <tr><td>{costo.nombre}</td> <td>{costo.valor}</td></tr>;
+            })}
+          </tr>
+        </tbody>
+      </Table>
       <Tabs
-          defaultActiveKey="pEquilibrio"
-          className="mb-3 justify-content-center">
+        defaultActiveKey="pEquilibrio"
+        className="mb-3 justify-content-center"
+      >
         <Tab eventKey="pEquilibrio" title="Punto de Equilibrio">
           {formularioYPuntodeEquilibrio()}
           {chart()}

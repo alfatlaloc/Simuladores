@@ -6,7 +6,9 @@ import { useParams } from "react-router-dom";
 import { actualizarEmpresa } from "../../Redux/Reducers/actions";
 import { EmpresaState } from "../../Redux/types";
 import Empresa, { Costo, Producto } from "../Classes/Empresa";
-import { useForm } from "../customHooks/useForm";
+import BotonRegresar from "../Common/BotonRegresar";
+import ModificarNombreProducto from "./ModificarNombreProducto";
+import ModificarPrecioProducto from "./ModificarPrecioProducto";
 
 interface props {
   empresa: Empresa;
@@ -14,11 +16,13 @@ interface props {
 }
 
 const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
-  const { form, handleChange } = useForm(new Costo());
+  const [nombre, setNombre] = useState<string>("");
+  const [valor, setValor] = useState<string>("0");
   const dispatch = useDispatch();
 
   const agregarCV = () => {
-    producto.agregarCosto(new Costo(form.nombre, form.valor));
+    if(valor === "") return;
+    producto.agregarCosto(new Costo(nombre, Number.parseFloat(valor)));
     empresa.actualizarCostosVariablesProducto(producto);
     dispatch(actualizarEmpresa(empresa));
   };
@@ -34,9 +38,13 @@ const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
           className="empresaInputForm"
           type="text"
           name="nombre"
-          placeholder="Costo Variable"
-          value={form.nombre}
-          onChange={handleChange}
+          placeholder="Nombre de Costo"
+          value={nombre}
+          onChange={(e) => {
+            const nuevoNombre = e.currentTarget.value;
+            if (/^[a-zA-Z0-9_.ÑñáéíóúÁÉÍÓÚüÜ\s]{0,60}$/.test(nuevoNombre))
+              setNombre(nuevoNombre);
+          }}
         />
       </Form.Group>
 
@@ -47,12 +55,15 @@ const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
         <Form.Label>Precio</Form.Label>
         <Form.Control
           className="empresaInputForm"
-          type="number"
+          type="text"
           name="valor"
           placeholder="Valor"
           min={0}
-          value={form.valor}
-          onChange={handleChange}
+          value={valor}
+          onChange={(e) => {
+            const nuevoValor = e.currentTarget.value;
+            if (/^\d+\.?\d*$/.test(nuevoValor)) setValor(nuevoValor);
+          }}
         />
       </Form.Group>
       <Button
@@ -134,21 +145,29 @@ const ModificarProducto = () => {
 
   return empresaA && productoS !== undefined ? (
     <div className="pagina">
-      <h1>Modificar Producto</h1>
-
+      <h2 className="m-4">
+        Producto {productoS.nombre} en {empresaA.nombre}
+      </h2>
+      <BotonRegresar />
       <Tabs
         defaultActiveKey="costosVariables"
         className="mb-3 justify-content-center"
       >
         <Tab eventKey="costosVariables" title="Costos Variables">
-        <FormCostoVariableUnitario empresa={empresaA} producto={productoS} />
+          <h5 className="m-2">Nuevo costo variable</h5>
+          <FormCostoVariableUnitario empresa={empresaA} producto={productoS} />
 
-        <h5 className="m-2">Costo variable unitario: {productoS.costosTotales()} </h5>
+          <h5 className="m-2">
+            Costo variable unitario: {productoS.costosTotales()}{" "}
+          </h5>
           <MapearCostosVariables empresa={empresaA} producto={productoS} />
-          
         </Tab>
-        <Tab eventKey="Nombre" title="Nombre producto">
-          <h5>Combiar Nombre</h5>
+        <Tab eventKey="Nombre" title="Cambiar Nombre">
+          <ModificarNombreProducto empresa={empresaA} producto={productoS} />
+        </Tab>
+        <Tab eventKey="Precio" title="Cambiar Precio">
+          <p>Precio actual: $ {productoS.precio}</p>
+          <ModificarPrecioProducto empresa={empresaA} producto={productoS} />
         </Tab>
       </Tabs>
     </div>

@@ -7,7 +7,7 @@ import Empresa, { Costo, Producto } from "../Classes/Empresa";
 import "../../Styles/Tablas.sass";
 import { useHistory } from "react-router";
 import { BsFillTrashFill, BsPencil } from "react-icons/bs";
-import BotonRegresar from "../Common/BotonRegresar";
+import BotonHome from "../Common/BotonHome";
 
 interface propsListaCosto {
   arregloCostos: Costo[];
@@ -50,7 +50,13 @@ const MapearEmpresas: React.FC<mapearEmpresasProps> = ({ empresas }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   return empresas.length > 0 ? (
-    <Table responsive={true} striped bordered={true} className="tablaEmpresas" hover>
+    <Table
+      responsive={true}
+      striped
+      bordered={true}
+      className="tablaEmpresas"
+      hover
+    >
       <thead>
         <tr>
           <th>Nombre</th>
@@ -100,11 +106,11 @@ const MapearEmpresas: React.FC<mapearEmpresasProps> = ({ empresas }) => {
 const Simulador = () => {
   const Empresas = useSelector((state: EmpresaState) => state.empresas);
   const dispatch = useDispatch();
-  const [name, setname] = useState("default");
+  const [name, setName] = useState("default");
 
   return (
     <div className="pagina">
-      <BotonRegresar />
+      <BotonHome />
       <h2 className="m-4">Gestor de empresas</h2>
 
       <Form>
@@ -120,7 +126,8 @@ const Simulador = () => {
             placeholder="Nombre de la empresa"
             value={name}
             onChange={(e) => {
-              setname(e.target.value);
+              if (/^[a-zA-Z0-9_.ÑñáéíóúÁÉÍÓÚüÜ\s]{0,60}$/.test(e.currentTarget.value))
+                setName(e.target.value);
             }}
           />
           <Form.Text className="text-muted">
@@ -139,7 +146,6 @@ const Simulador = () => {
       </Button>
 
       <MapearEmpresas empresas={Empresas} />
-      
     </div>
   );
 };

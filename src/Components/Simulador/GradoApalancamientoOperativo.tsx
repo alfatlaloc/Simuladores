@@ -33,15 +33,18 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
   const [incrementoUtilidades, setIncrementoUtilidades] = useState<number>(0);
 
   useEffect(() => {
-    for (let i = 0; i < unidades.length; i++) {
-      if (unidades[i] > puntoEquilibrioUnidades) {
-        setInicial(unidades[i]);
-        if (unidades[i+1])
-          setFinal(unidades[i+1]);
-        break;
+    if (inicial === 0)
+      for (let i = 0; i < unidades.length; i++) {
+        if (unidades[i] > puntoEquilibrioUnidades)
+          if (unidades[i + 1]) {
+            setInicial(unidades[i]);
+            setFinal(unidades[i + 1]);
+          }
       }
-    }
-  }, []);
+    
+    return;
+  }, [inicial, puntoEquilibrioUnidades, unidades]);
+
   const calcularApalancamiento = () => {
     if (inicial < 1 || final < 1) return;
 
@@ -53,60 +56,68 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
       ((utilidades[final] - utilidades[inicial]) / utilidades[inicial]) * 100
     );
   };
+  if (puntoEquilibrioUnidades)
+    return (
+      <div>
+        <h2>Apalancamiento operativo</h2>
 
-  return (
-    <div>
-      <h2>Apalancamiento operativo</h2>
+        <Form className="align-items-center">
+          <Form.Group className="mb-3 justify-content-center">
+            <Form.Label>Intervalo Menor</Form.Label>
 
-      <Form className="align-items-center">
-        <Form.Group className="mb-3 justify-content-center">
-          <Form.Label>Empresa</Form.Label>
+            <Form.Select
+              aria-label="Intervalo Menor"
+              className="select"
+              value={inicial}
+              onChange={(e) =>
+                setInicial(unidades[Number.parseInt(e.currentTarget.value)])
+              }
+            >
+              {unidades.map((unidad, index) => {
+                if (unidad > puntoEquilibrioUnidades)
+                  return <option value={index}>{unidad}</option>;
+              })}
+            </Form.Select>
+          </Form.Group>
 
-          <Form.Select
-            aria-label="Intervalo Menor"
-            className="select"
-            onChange={(e) => setInicial(Number.parseInt(e.currentTarget.value))}
-          >
-            {unidades.map((unidad, index) => {
-              if (unidad > puntoEquilibrioUnidades)
-                return <option value={index}>{unidad}</option>;
-            })}
-          </Form.Select>
-        </Form.Group>
+          <Form.Group className="mb-3 justify-content-center">
+            <Form.Label>Intervalo Mayor</Form.Label>
 
-        <Form.Group className="mb-3 justify-content-center">
-          <Form.Label>Empresa</Form.Label>
+            <Form.Select
+              aria-label="Intervalo Mayor"
+              className="select"
+              value={final}
+              onChange={(e) => {
+                if (Number.parseInt(e.currentTarget.value) > inicial)
+                  setFinal(Number.parseInt(e.currentTarget.value));
+              }}
+            >
+              {unidades.map((unidad, index) => {
+                if (unidad > inicial)
+                  return <option value={index}>{unidad}</option>;
+              })}
+            </Form.Select>
+          </Form.Group>
+        </Form>
+        <Button onClick={calcularApalancamiento}>
+          {" "}
+          Calcula Apalancamiento
+        </Button>
 
-          <Form.Select
-            aria-label="Intervalo Mayor"
-            className="select"
-            onChange={(e) => {
-              if (Number.parseInt(e.currentTarget.value) > inicial)
-                setFinal(Number.parseInt(e.currentTarget.value));
-            }}
-          >
-            {unidades.map((unidad, index) => {
-              if (unidad > inicial)
-                return <option value={index}>{unidad}</option>;
-            })}
-          </Form.Select>
-        </Form.Group>
-      </Form>
+        <p>
+          Unidades 1: {unidades[inicial]} Utilidades 1: ${utilidades[inicial]}
+        </p>
+        <br />
+        <p>
+          Unidades 2: {unidades[final]} Utilidades 2: ${utilidades[final]}
+        </p>
+        <br />
 
-      <p>
-        Unidades 1: {unidades[inicial]} Utilidades 1: ${utilidades[inicial]}
-      </p>
-      <br />
-      <p>
-        Unidades 2: {unidades[final]} Utilidades 2: ${utilidades[final]}
-      </p>
-      <br />
-      <Button onClick={calcularApalancamiento}> Calcula Apalancamiento</Button>
-
-      <p>Incremento unidades: {incrementoUnidades}%</p>
-      <p>Incremento utilidades: {incrementoUtilidades}%</p>
-    </div>
-  );
+        <p>Incremento unidades: {incrementoUnidades}%</p>
+        <p>Incremento utilidades: {incrementoUtilidades}%</p>
+      </div>
+    );
+  return <p>Aun no se han calculado datos</p>;
 };
 
 export default GradoApalancamientoOperativo;

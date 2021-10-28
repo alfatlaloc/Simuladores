@@ -9,6 +9,7 @@ import TablaCostos from "./TablaCostos";
 import TablaProductos from "./TablaProductos";
 import { useSelector } from "react-redux";
 import ModificarNombre from "./ModificarNombre";
+import BotonRegresar from "../Common/BotonRegresar";
 
 const ModificarEmpresa = () => {
   const history = useHistory();
@@ -33,11 +34,14 @@ const ModificarEmpresa = () => {
 
   return (
     <div className="pagina">
-      <h3 className="mt-2">Empresa {empresaA.nombre}</h3>
+      <BotonRegresar />
+
+      <h2 className="mt-4">Empresa {empresaA.nombre}</h2>
       <Tabs
         defaultActiveKey="products"
         id="uncontrolled-tab-example"
-        className="mb-3 justify-content-center">
+        className="mb-3 justify-content-center"
+      >
         <Tab eventKey="products" title="Productos">
           <FormProducto empresa={empresaA} />
           <TablaProductos empresa={empresaA} />

@@ -1,32 +1,39 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import Empresa from "../Classes/Empresa";
-import { agregarEmpresa, eliminarEmpresa } from "../../Redux/Reducers/actions";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
+import { eliminarEmpresa, agregarEmpresa } from "../../Redux/Reducers/actions";
+import Empresa, { Producto } from "../Classes/Empresa";
 
 interface props {
   empresa: Empresa;
+  producto: Producto;
 }
 
-const ModificarNombre: React.FC<props> = ({ empresa }) => {
+const ModificarNombreProducto: React.FC<props> = ({ empresa, producto }) => {
   const dispatch = useDispatch();
   const [nuevoNombre, setNuevoNombre] = useState<string>("Nuevo nombre");
   const history = useHistory();
 
   const cambiarNombre = () => {
-    if (nuevoNombre === "") return;
+    if (nuevoNombre === "" || nuevoNombre === "Nuevo nombre") return;
     let auxEmpresa = empresa;
-    auxEmpresa.nombre = nuevoNombre;
+    let auxProducto = producto;
+    auxProducto.nombre = nuevoNombre;
+
+    auxEmpresa.productos.map((producto) => {
+      if (producto.nombre !== auxProducto.nombre) return producto;
+      return auxProducto;
+    });
     dispatch(eliminarEmpresa(empresa));
     dispatch(agregarEmpresa(empresa));
-    history.push(`/empresa/${auxEmpresa.nombre}`);
+    history.push(`/empresa/${auxEmpresa.nombre}/producto/${nuevoNombre}`);
   };
 
   return (
     <Form>
       <Form.Group className="empresaInput" controlId="formBasicEmail">
-        <Form.Label>Nuevo nombre de la empresa</Form.Label>
+        <Form.Label>Nuevo nombre del producto</Form.Label>
         <Form.Control
           type="text"
           value={nuevoNombre}
@@ -40,14 +47,13 @@ const ModificarNombre: React.FC<props> = ({ empresa }) => {
 
       <Button
         variant="primary"
-        type="submit"
         className="m-3"
         onClick={cambiarNombre}
       >
-        Submit
+        Aceptar
       </Button>
     </Form>
   );
 };
 
-export default ModificarNombre;
+export default ModificarNombreProducto;
