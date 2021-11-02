@@ -9,10 +9,12 @@ interface props {
 }
 
 const FormCosto: React.FC<props> = ({ empresa }) => {
-  const { form, handleChange } = useForm(new Costo("default", 0));
+  const { form, handleChange } = useForm(new Costo("", 0));
   const dispatch = useDispatch();
 
   const agregarCosto = () => {
+    if(form.valor < 1) return;
+    if(form.nombre === "") return;
     empresa.agregarCostoFijo(form);
     dispatch(actualizarEmpresa(empresa));
   };
@@ -28,7 +30,7 @@ const FormCosto: React.FC<props> = ({ empresa }) => {
           className="empresaInputForm"
           type="text"
           name="nombre"
-          placeholder="Nombre del producto"
+          placeholder="Nombre del costo fijo"
           value={form.nombre}
           onChange={handleChange}
         />

@@ -12,7 +12,7 @@ interface props {
 
 const ModificarNombreProducto: React.FC<props> = ({ empresa, producto }) => {
   const dispatch = useDispatch();
-  const [nuevoNombre, setNuevoNombre] = useState<string>("Nuevo nombre");
+  const [nuevoNombre, setNuevoNombre] = useState<string>("");
   const history = useHistory();
 
   const cambiarNombre = () => {
@@ -33,11 +33,11 @@ const ModificarNombreProducto: React.FC<props> = ({ empresa, producto }) => {
   return (
     <Form>
       <Form.Group className="empresaInput" controlId="formBasicEmail">
-        <Form.Label>Nuevo nombre del producto</Form.Label>
+        <Form.Label>Nuevo nombre</Form.Label>
         <Form.Control
           type="text"
           value={nuevoNombre}
-          placeholder="Nueva nombre"
+          placeholder="Nuevo nombre  del producto"
           onChange={(e) => {
             if (/^[a-zA-Z0-9_.ÑñáéíóúÁÉÍÓÚüÜ\s]{0,60}$/.test(e.currentTarget.value))
               setNuevoNombre(e.currentTarget.value);

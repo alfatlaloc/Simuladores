@@ -51,6 +51,7 @@ const UnaEmpresa = () => {
             <Form.Select
               aria-label="Producto"
               className="select"
+              value={productoO.nombre}
               onChange={(e) => {
                 let res = empresaA.productos.find(
                   (pr) => pr.nombre === e.currentTarget.value

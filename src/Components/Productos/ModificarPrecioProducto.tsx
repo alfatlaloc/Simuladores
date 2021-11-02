@@ -12,7 +12,7 @@ interface props {
 
 const ModificarPrecioProducto: React.FC<props> = ({ empresa, producto }) => {
   const dispatch = useDispatch();
-  const [nuevoPrecio, setNuevoPrecio] = useState<string>("0");
+  const [nuevoPrecio, setNuevoPrecio] = useState<string>("");
   const history = useHistory();
 
   const cambiarPrecio = () => {

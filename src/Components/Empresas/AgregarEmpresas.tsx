@@ -16,8 +16,9 @@ interface propsListaCosto {
 const ListaCostos: React.FC<propsListaCosto> = ({ arregloCostos }) => {
   return arregloCostos.length > 0 ? (
     <p>
-      {arregloCostos.map((e) => {
-        return e.nombre + ", ";
+      {arregloCostos.map((e, index) => {
+        if (index === 0) return e.nombre;
+        else return `, ${e.nombre}`;
       })}
     </p>
   ) : (
@@ -126,7 +127,11 @@ const Simulador = () => {
             placeholder="Nombre de la empresa"
             value={name}
             onChange={(e) => {
-              if (/^[a-zA-Z0-9_.ÑñáéíóúÁÉÍÓÚüÜ\s]{0,60}$/.test(e.currentTarget.value))
+              if (
+                /^[a-zA-Z0-9_.ÑñáéíóúÁÉÍÓÚüÜ\s]{0,60}$/.test(
+                  e.currentTarget.value
+                )
+              )
                 setName(e.target.value);
             }}
           />
@@ -140,6 +145,7 @@ const Simulador = () => {
         className="m-1 buttonPrimary"
         onClick={() => {
           dispatch(agregarEmpresa(new Empresa(name)));
+          setName("");
         }}
       >
         Agregar Empresa

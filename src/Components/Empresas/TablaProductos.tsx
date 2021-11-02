@@ -12,8 +12,9 @@ interface propsLista {
 const ListaCostosVariables: React.FC<propsLista> = ({ arregloP }) => {
   return arregloP.length > 0 ? (
     <p>
-      {arregloP.map((e) => {
-        return e.nombre + ", ";
+      {arregloP.map((e,index) => {
+        if( index === 0) return e.nombre;
+        else return `, ${e.nombre}`;
       })}
     </p>
   ) : (

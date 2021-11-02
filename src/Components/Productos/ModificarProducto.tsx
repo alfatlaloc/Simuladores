@@ -25,6 +25,8 @@ const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
     producto.agregarCosto(new Costo(nombre, Number.parseFloat(valor)));
     empresa.actualizarCostosVariablesProducto(producto);
     dispatch(actualizarEmpresa(empresa));
+    setNombre("");
+    setValor("0");
   };
 
   return (

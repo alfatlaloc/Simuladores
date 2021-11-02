@@ -77,6 +77,7 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
                   index !== unidades.length - 1
                 )
                   return <option value={index}>{unidad}</option>;
+                return null;
               })}
             </Form.Select>
           </Form.Group>
@@ -96,6 +97,7 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
               {unidades.map((unidad, index) => {
                 if (index > inicial)
                   return <option value={index}>{unidad}</option>;
+                return null;
               })}
             </Form.Select>
           </Form.Group>

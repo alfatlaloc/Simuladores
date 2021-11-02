@@ -14,10 +14,12 @@ const FormProducto: React.FC<props> = ({ empresa }) => {
   const dispatch = useDispatch();
 
   const agregarProducto = () => {
-    if (precio === "" || Number.parseInt(precio) === 0) return;
+    if (precio === "" || Number.parseFloat(precio) === 0) return;
     if (nombre === "") return;
-    empresa.agregarProducto(new Producto(nombre, Number.parseInt(precio)));
+    empresa.agregarProducto(new Producto(nombre, Number.parseFloat(precio)));
     dispatch(actualizarEmpresa(empresa));
+    setPrecio("0");
+    setNombre("");
   };
 
   return (
