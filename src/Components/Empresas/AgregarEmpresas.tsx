@@ -15,12 +15,11 @@ interface propsListaCosto {
 
 const ListaCostos: React.FC<propsListaCosto> = ({ arregloCostos }) => {
   return arregloCostos.length > 0 ? (
-    <p>
-      {arregloCostos.map((e, index) => {
-        if (index === 0) return e.nombre;
-        else return `, ${e.nombre}`;
-      })}
-    </p>
+          <ul>
+              {arregloCostos.map((e) => {
+                  return <li> {e.nombre} </li>;
+              })}
+          </ul>
   ) : (
     <p>Aun no hay costos [ ]</p>
   );
@@ -32,12 +31,11 @@ interface propsLista {
 
 const ListaProductos: React.FC<propsLista> = ({ arregloP }) => {
   return arregloP.length > 0 ? (
-    <p>
-      {arregloP.map((e, index) => {
-        if (index === 0) return e.nombre;
-        return ", " + e.nombre;
+    <ul>
+      {arregloP.map((e) => {
+          return <li> {e.nombre} </li>;
       })}
-    </p>
+    </ul>
   ) : (
     <p>Aun no hay productos [ ]</p>
   );
@@ -71,16 +69,16 @@ const MapearEmpresas: React.FC<mapearEmpresasProps> = ({ empresas }) => {
         {empresas.map((empresa, index) => {
           return (
             <tr key={"Empresa" + index}>
-              <td>{empresa.nombre}</td>
-              <td>
+              <td className="centerText">{empresa.nombre}</td>
+              <td className="centerText">
                 <ListaProductos arregloP={empresa.productos} />
               </td>
-              <td>
+              <td className="centerText">
                 <p>Costos Totales: {empresa.costoFijoTotal()}</p>
 
                 <ListaCostos arregloCostos={empresa.costosFijos} />
               </td>
-              <td>
+              <td className="centerText">
                 <Button
                   onClick={() => history.push(`/empresa/${empresa.nombre}`)}
                   className="buttonSecondaryDark"
@@ -88,7 +86,7 @@ const MapearEmpresas: React.FC<mapearEmpresasProps> = ({ empresas }) => {
                   <BsPencil />
                 </Button>
               </td>
-              <td>
+              <td className="centerText">
                 <Button
                   onClick={() => dispatch(eliminarEmpresa(empresa))}
                   variant="danger"

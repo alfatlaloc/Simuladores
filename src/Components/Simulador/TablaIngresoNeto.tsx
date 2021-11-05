@@ -237,18 +237,20 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
             <td className="tdTitulo">Precio</td>
             <td>{producto.precio}</td>
           </tr>
-          <tr className="tablaCostosVar">
-            <td>Costos Variables</td>
-            <tr>
-              <td>Costo</td> <td>Valor</td>
-            </tr>
-            {producto.costosVariablesUnitario?.map((costo) => {
-              return (
-                <tr>
-                  <td>{costo.nombre}</td> <td>{costo.valor}</td>
-                </tr>
-              );
-            })}
+          <tr>
+            <td className="centerText">Costos Variables</td>
+            <td>
+              <tr className="tdTitulo">
+                <td className="tablaCostosVar">Costo</td> <td className="tablaCostosVar">Valor</td>
+              </tr>
+              {producto.costosVariablesUnitario?.map((costo) => {
+                return (
+                    <tr>
+                      <td>{costo.nombre}</td> <td>{costo.valor}</td>
+                    </tr>
+                );
+              })}
+            </td>
           </tr>
         </tbody>
       </Table>

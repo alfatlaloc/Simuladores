@@ -30,9 +30,9 @@ const TablaCostos: React.FC<props> = ({ empresa }) => {
         {empresa.costosFijos.map((costo, index) => {
           return (
             <tr key={"producto/" + index}>
-              <td>{costo.nombre}</td>
-              <td>{costo.valor}</td>
-              <td>
+              <td className="centerText">{costo.nombre}</td>
+              <td className="centerText">{costo.valor}</td>
+              <td className="centerText">
                 <Button
                   onClick={() => eliminarProducto(costo.nombre)}
                   variant="danger"

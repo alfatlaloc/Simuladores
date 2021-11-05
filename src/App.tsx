@@ -17,27 +17,29 @@ function App() {
     <div className="App">
       <Router>
         <NavBar />
-        <Switch>
-          <Route path="/simulador" component={Simulador} />
+        <section className="generalBody">
+          <Switch>
+            <Route path="/simulador" component={Simulador} />
 
-          <Route path="/instrucciones" component={Instrucciones} />
+            <Route path="/instrucciones" component={Instrucciones} />
 
-          <Route path="/simulador" component={Simulador} />
-          <Route path="/variosproductos" component={VariosProductos} />
-          <Route path="/unaempresa" component={UnaEmpresa} />
+            <Route path="/simulador" component={Simulador} />
+            <Route path="/variosproductos" component={VariosProductos} />
+            <Route path="/unaempresa" component={UnaEmpresa} />
 
-          <Route
-            path="/empresa/:_id/producto/:_pr"
-            component={ModificarProducto}
-          />
+            <Route
+                path="/empresa/:_id/producto/:_pr"
+                component={ModificarProducto}
+            />
 
-          <Route path="/empresa/:_id" component={ModificarEmpresa} />
+            <Route path="/empresa/:_id" component={ModificarEmpresa} />
 
-          <Route path="/error404" component={Error404} />
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+            <Route path="/error404" component={Error404} />
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </section>
         <Footer />
       </Router>
     </div>
