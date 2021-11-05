@@ -57,7 +57,7 @@ export class Producto {
   costosTotales(): number {
     return this.costosVariablesUnitario.reduce((acc, next) => {
       return acc + Number(next.valor);
-    }, 0);
+    }, 0.00);
   }
 }
 
@@ -119,7 +119,7 @@ class Empresa {
   costoFijoTotal(): number {
     return this.costosFijos.reduce((acummulator, costoFijo) => {
       return acummulator + Number(costoFijo.valor);
-    }, 0);
+    }, 0.00);
   }
 
   obtenerProducto(nombreProducto: string) {

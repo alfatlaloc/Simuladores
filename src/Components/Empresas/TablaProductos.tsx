@@ -50,31 +50,29 @@ const TablaProductos: React.FC<props> = ({ empresa }) => {
         {empresa.productos.map((producto, index) => {
           return (
             <tr key={"producto/" + index}>
-              <td>{producto.nombre}</td>
+              <td className="centerText">{producto.nombre}</td>
               <td>
                 <p>Costos variables: {producto.costosTotales()}</p>
                 <ListaCostosVariables
                   arregloP={producto.costosVariablesUnitario}
                 />
               </td>
-              <td>{producto.precio}</td>
-              <td>
+              <td className="centerText">{producto.precio}</td>
+              <td className="centerText">
                 <Button
                   onClick={() =>
                     history.push(
                       `/empresa/${empresa.nombre}/producto/${producto.nombre}`
                     )
                   }
-                  className="editButto buttonPrimary"
-                >
+                  className="editButto buttonPrimary">
                   <BsPencil />
                 </Button>
               </td>
-              <td>
+              <td className="centerText">
                 <Button
                   onClick={() => eliminarProducto(producto.nombre)}
-                  variant="danger"
-                >
+                  variant="danger">
                   <BsFillTrashFill />
                 </Button>
               </td>
