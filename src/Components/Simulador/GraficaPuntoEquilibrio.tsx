@@ -36,11 +36,13 @@ const GraficaPuntoEquilibrio: React.FC<props> = ({
 
       row.push(ingresoTotal[i]);
       if (intervalo[i] === puntoEquilibrioUnidades)
-      row.push(
-        `Unidades: ${intervalo[i]}
-        Costos Totales: $ ${costosVariablesTotales[i] + costosFijos}
-        Ingresos Totales: $ ${ingresoTotal[i]}`
-      );
+        row.push(
+          `Unidades: ${intervalo[i].toFixed(2)}
+        Costos Totales: $ ${(costosVariablesTotales[i] + costosFijos).toFixed(
+          2
+        )}
+        Ingresos Totales: $ ${ingresoTotal[i].toFixed(2)}`
+        );
       else row.push("");
       row.push(costosFijos);
       array.push(row);
@@ -55,7 +57,6 @@ const GraficaPuntoEquilibrio: React.FC<props> = ({
       loader={<div>Loading Chart</div>}
       data={acomodarDatos()}
       options={{
-
         hAxis: {
           title: "Unidades",
         },

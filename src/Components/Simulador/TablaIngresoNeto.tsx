@@ -112,9 +112,9 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
     return (
       <div>
         <p>
-          Punto de equilibrio en unidades: {puntoEquilibrio.unidades.toFixed(2)}
+          <strong>Punto de equilibrio en unidades:</strong> {puntoEquilibrio.unidades.toFixed(2)}
         </p>
-        <p>Punto de equilibrio en pesos: $ {puntoEquilibrio.pesos.toFixed}</p>
+        <p><strong>Punto de equilibrio en pesos:</strong> $ {puntoEquilibrio.pesos.toFixed(2)}</p>
         <h5>Calculo del Ingreso Neto</h5>
 
         <Form className=" d-flex flex-row justify-content-around flex-wrap">

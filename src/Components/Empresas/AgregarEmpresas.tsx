@@ -15,11 +15,11 @@ interface propsListaCosto {
 
 const ListaCostos: React.FC<propsListaCosto> = ({ arregloCostos }) => {
   return arregloCostos.length > 0 ? (
-          <ul>
-              {arregloCostos.map((e) => {
-                  return <li> {e.nombre} </li>;
-              })}
-          </ul>
+    <ul>
+      {arregloCostos.map((e) => {
+        return <li> {e.nombre} </li>;
+      })}
+    </ul>
   ) : (
     <p>Aun no hay costos [ ]</p>
   );
@@ -33,7 +33,7 @@ const ListaProductos: React.FC<propsLista> = ({ arregloP }) => {
   return arregloP.length > 0 ? (
     <ul>
       {arregloP.map((e) => {
-          return <li> {e.nombre} </li>;
+        return <li> {e.nombre} </li>;
       })}
     </ul>
   ) : (
@@ -105,7 +105,7 @@ const MapearEmpresas: React.FC<mapearEmpresasProps> = ({ empresas }) => {
 const Simulador = () => {
   const Empresas = useSelector((state: EmpresaState) => state.empresas);
   const dispatch = useDispatch();
-  const [name, setName] = useState("default");
+  const [name, setName] = useState("");
 
   return (
     <div className="pagina">
@@ -117,7 +117,7 @@ const Simulador = () => {
           className="mb-3 justify-content-center"
           controlId="formBasicEmail"
         >
-          <Form.Label>Nombre de la empresa</Form.Label>
+          <Form.Label>Empresa</Form.Label>
           <Form.Control
             size="lg"
             className="empresaInput"
@@ -142,6 +142,7 @@ const Simulador = () => {
       <Button
         className="m-1 buttonPrimary"
         onClick={() => {
+          if (name !== "") return;
           dispatch(agregarEmpresa(new Empresa(name)));
           setName("");
         }}

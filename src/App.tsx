@@ -11,6 +11,7 @@ import Error404 from "./Components/Common/Error404";
 import UnaEmpresa from "./Components/Simulador/UnaEmpresa";
 import ModificarProducto from "./Components/Productos/ModificarProducto";
 import VariosProductos from "./Components/VariosProductos/VariosProductos";
+import Metodologia from "./Components/HomeFiles/Metodologia";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/simulador" component={Simulador} />
             <Route path="/variosproductos" component={VariosProductos} />
             <Route path="/unaempresa" component={UnaEmpresa} />
+            <Route path="/metodologia" component={Metodologia} />
 
             <Route
                 path="/empresa/:_id/producto/:_pr"
