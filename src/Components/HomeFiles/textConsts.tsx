@@ -21,5 +21,10 @@ export const Texto = {
     "los costos fijos y los costos variables, obteniendo información para su análisis dirigida a la toma de " +
     "decisiones económicas de la empresa.",
   metodologia:
-    "Con el uso de esta herramienta digital para el cálculo del punto de equilibrio lograrás favorecer tu aprendizaje autónomo, lo que posibilitará que las estrategias dentro del aula se modifiquen y se centren en actividades de aprendizaje que te permitan desarrollar otras competencias como por ejemplo: la de análisis, la argumentativa, propositiva, solución de problemas, trabajo colaborativo y la toma de decisiones, entre otras.  ",
+    "Con el uso de esta herramienta digital para el cálculo del punto de equilibrio lograrás favorecer tu " +
+      "aprendizaje autónomo, lo que posibilitará que las estrategias dentro del aula se modifiquen y se " +
+      "centren en actividades de aprendizaje que te permitan desarrollar otras competencias como por ejemplo: " +
+      "la de análisis, la argumentativa, propositiva, solución de problemas, trabajo colaborativo y la " +
+      "toma de decisiones, entre otras.  ",
+
 };
