@@ -2,7 +2,7 @@ import { ListGroup } from "react-bootstrap";
 
 const Metodologia = () => {
   return (
-    <div className="pagina m-4">
+    <section className="textosEncuadre">
       <h3 className="mb-2">Metodologia</h3>
       <p>
         Con el uso de esta herramienta digital para el cálculo del punto de
@@ -35,13 +35,17 @@ const Metodologia = () => {
         A continuación se describen brevemente las secciones antes
         mencionadas:  
       </p>
-      <ListGroup as="ol" className="bgDarkColor">
+      <ListGroup as="ol" >
         <ListGroup.Item as="li">
-          <strong>Contenidos.</strong> En este apartado encontrarás los
+          <strong>Contenidos.</strong>
+          <br/>
+          En este apartado encontrarás los
           fundamentos teóricos del tema.
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          <strong>Simulador.</strong> En esta sección podrás ingresar el nombre
+          <strong>Simulador.</strong>
+          <br/>
+          En esta sección podrás ingresar el nombre
           de la empresa y del producto o productos; los costos variables
           unitarios, los costos fijos y el volumen de producción y ventas. Dando
           clic en un botón podrás obtener el cálculo del punto de equilibrio en
@@ -49,19 +53,25 @@ const Metodologia = () => {
           del escenario simulado para su respectivo análisis.
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          <strong>Actividades de aprendizaje.</strong> Las actividades de
+          <strong>Actividades de aprendizaje.</strong>
+          <br/>
+          Las actividades de
           aprendizaje tienen valor para la evaluación; se realizarán en el
           aula (en el horario de clase); se desarrollarán en
           forma individual o en equipo y se subirán en la plataforma indicada
           por el profesor(a).
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          <strong>Glosario. </strong>En esta parte del menú, encontrarás el
+          <strong>Glosario.</strong>
+          <br/>
+          En esta parte del menú, encontrarás el
           significado de algunos términos que hemos considerado importantes para
           el aprendizaje del tema.
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          <strong>Referencias. </strong> En esta opción del menú encontrarás las
+          <strong>Referencias. </strong>
+          <br/>
+          En esta opción del menú encontrarás las
           fuentes de consulta que se utilizaron como base para el desarrollo de
           este tema.
         </ListGroup.Item>
@@ -74,7 +84,7 @@ const Metodologia = () => {
       apartado fuentes de consulta y con su respectiva referencia a lo largo de
       los textos, respetando así, su autoría para el desarrollo de este
       recurso.</p> 
-    </div>
+    </section>
   );
 };
 

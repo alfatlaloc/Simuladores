@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./Components/Common/NavBar";
 import Footer from "./Components/Common/footer/Footer";
 import Simulador from "./Components/Empresas/AgregarEmpresas";
-import Instrucciones from "./Components/Instrucciones";
+import Glosario from "./Components/HomeFiles/glosario";
 import "./Styles/Navbar.sass";
 import "./Styles/main.sass";
 import ModificarEmpresa from "./Components/Empresas/ModificarEmpresa";
@@ -12,6 +12,9 @@ import UnaEmpresa from "./Components/Simulador/UnaEmpresa";
 import ModificarProducto from "./Components/Productos/ModificarProducto";
 import VariosProductos from "./Components/VariosProductos/VariosProductos";
 import Metodologia from "./Components/HomeFiles/Metodologia";
+import ActividadesAprendizaje from "./Components/HomeFiles/actividadesAprendizaje";
+import Referencias from "./Components/HomeFiles/referencias";
+import PuntoEquilibrio from "./Components/HomeFiles/puntoEquilibrio";
 
 function App() {
   return (
@@ -22,7 +25,10 @@ function App() {
           <Switch>
             <Route path="/simulador" component={Simulador} />
 
-            <Route path="/instrucciones" component={Instrucciones} />
+            <Route path="/glosario" component={Glosario} />
+            <Route path="/actividadesA" component={ActividadesAprendizaje} />
+            <Route path="/teoriaPuntoEq" component={PuntoEquilibrio} />
+            <Route path="/referencias" component={Referencias} />
 
             <Route path="/simulador" component={Simulador} />
             <Route path="/variosproductos" component={VariosProductos} />

@@ -55,7 +55,7 @@ const TablaEvaluacion = () => {
 const Carrusel = () => {
   const history = useHistory();
   return (
-    <Carousel className="carrusel" variant="dark">
+    <Carousel variant="dark">
       <Carousel.Item>
         <img
           className="d-block w-100 imgC"
@@ -63,7 +63,7 @@ const Carrusel = () => {
           alt="Second slide"
         />
 
-        <Carousel.Caption>
+        <Carousel.Caption className="carrusel">
           <h3>Introducción</h3>
           <p>{Texto.introduccion}</p>
         </Carousel.Caption>
@@ -74,7 +74,7 @@ const Carrusel = () => {
           src="https://fondosmil.com/fondo/17538.jpg"
           alt="First slide"
         />
-        <Carousel.Caption>
+        <Carousel.Caption className="carrusel">
           <h3>Bienvenida</h3>
           <p>{Texto.bienvenida}</p>
         </Carousel.Caption>
@@ -83,7 +83,7 @@ const Carrusel = () => {
       <Carousel.Item>
         <img className="d-block w-100 imgC" src={whiteBack} alt="Third slide" />
 
-        <Carousel.Caption>
+        <Carousel.Caption className="carrusel">
           <h3>Objetivo</h3>
           <GiStairsGoal size="2.5em" />
           <p>{Texto.objetivoAprendizaje}</p>
@@ -92,7 +92,7 @@ const Carrusel = () => {
       <Carousel.Item>
         <img className="d-block w-100 imgC" src={whiteBack} alt="Third slide" />
 
-        <Carousel.Caption>
+        <Carousel.Caption className="carrusel">
           <h3>Metología</h3>
           <p>{Texto.metodologia}</p>
           <Button
@@ -108,7 +108,7 @@ const Carrusel = () => {
       <Carousel.Item>
         <img className="d-block w-100 imgC" src={whiteBack} alt="Third slide" />
 
-        <Carousel.Caption>
+        <Carousel.Caption className="carrusel">
           <h4>Evaluación</h4>
           La evaluación de los aprendizajes se llevará a cabo como se muestra en
           la siguiente tabla: <TablaEvaluacion />
@@ -133,7 +133,7 @@ const Home = () => {
           <Button
             className="buttonPrimary m-2"
             onClick={() => {
-              history.push("tabla");
+              history.push("teoriaPuntoEq");
             }}
           >
             <ImEnter />
@@ -151,7 +151,7 @@ const Home = () => {
           <Button
             className="buttonPrimary m-2"
             onClick={() => {
-              history.push("instrucciones");
+              history.push("glosario");
             }}
           >
             <ImEnter />
@@ -171,7 +171,7 @@ const Home = () => {
           <Button
             className="buttonPrimary m-2"
             onClick={() => {
-              history.push("simulador");
+              history.push("actividadesA");
             }}
           >
             <ImEnter />
@@ -188,7 +188,7 @@ const Home = () => {
           <Button
             className="buttonPrimary m-2"
             onClick={() => {
-              history.push("simulador");
+              history.push("referencias");
             }}
           >
             <ImEnter />
