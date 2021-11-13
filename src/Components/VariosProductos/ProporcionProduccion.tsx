@@ -19,13 +19,14 @@ const ProporcionProduccion: React.FC<props> = ({
     e: React.ChangeEvent<HTMLInputElement>,
     index: number
   ) => {
-    let sumaProporciones = proporciones.reduce((prev, current) => {
+    let newArr = [...proporciones];
+    newArr[index] = Number.parseFloat(e.currentTarget.value);
+
+    let sumaProporciones = newArr.reduce((prev, current) => {
       return prev + current;
     });
 
     if (sumaProporciones <= 100) {
-      let newArr = [...proporciones];
-      newArr[index] = Number.parseFloat(e.currentTarget.value);
       setProporciones(newArr);
     }
   };
