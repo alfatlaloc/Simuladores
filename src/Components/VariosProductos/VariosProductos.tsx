@@ -11,6 +11,7 @@ const VariosProductos = () => {
   const empresas = useSelector((state: EmpresaState) => state.empresas);
   const [empresa, setEmpresa] = useState<Empresa>();
   const [productos, setProductos] = useState<Producto[]>([]);
+  const [proporciones, setProporciones] = useState<number[]>([]);
 
   const hanldeChange = (e: React.FormEvent<HTMLSelectElement>) => {
     const empresaChange = empresas.find(
@@ -46,7 +47,11 @@ const VariosProductos = () => {
             onChange={(e) => hanldeChange(e)}
           >
             {empresas.map((empresa) => {
-              return <option value={empresa.nombre}>{empresa.nombre}</option>;
+              return (
+                <option key={empresa.nombre} value={empresa.nombre}>
+                  {empresa.nombre}
+                </option>
+              );
             })}
           </Form.Select>
         </Form.Group>
@@ -55,6 +60,8 @@ const VariosProductos = () => {
         empresa={empresa}
         productos={productos}
         setProductos={setProductos}
+        proporciones={proporciones}
+        setProporciones={setProporciones}
       />
 
       <p>Tabla</p>

@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router";
+import {RiHomeHeartLine} from "react-icons/ri"
 
 const BotonHome = () => {
   const history = useHistory();
@@ -11,7 +12,7 @@ const BotonHome = () => {
         history.push("/home");
       }}
     >
-      Volver
+      <RiHomeHeartLine size={"1.25em"} />
     </Button>
   );
 };

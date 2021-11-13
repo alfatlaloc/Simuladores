@@ -1,6 +1,8 @@
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router";
 
+import { BiArrowBack } from "react-icons/bi";
+
 const BotonRegresar = () => {
   const history = useHistory();
 
@@ -11,7 +13,7 @@ const BotonRegresar = () => {
         history.goBack();
       }}
     >
-      Volver
+      <BiArrowBack />
     </Button>
   );
 };

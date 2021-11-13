@@ -6,7 +6,7 @@ const NavBar = () => {
   return (
     <Navbar id="navBar" sticky="top" expand="lg">
       <Container>
-      <img
+        <img
           alt=""
           src={logoIPN}
           width="30"
@@ -22,30 +22,28 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link className="ms-2">
-              <NavLink to="/manualUsuario" className="navBarItem">
-                Manual de usuario
-              </NavLink>
-            </Nav.Link>
-            <Nav.Link className="ms-2">
-              <NavLink to="/simulador" className="navBarItem">
-                Gestor empresas
-              </NavLink>
-            </Nav.Link>
+            <NavLink to="/manualUsuario" className="navBarItem ms-2">
+              Manual de usuario
+            </NavLink>
+
+            <NavLink to="/simulador" className="navBarItem">
+              Gestor empresas
+            </NavLink>
 
             <NavDropdown
-              className="ms-2"
+              className="d-flex ms-2"
               title="Mas opciones"
               id="navBarDropdown"
             >
-              <NavDropdown.Item>
-                <NavLink to="/unaempresa">Una empresa</NavLink>
-              </NavDropdown.Item>
+              <NavLink className="dropdownItem" to="/unaempresa">
+                Una empresa
+              </NavLink>
 
               <NavDropdown.Divider />
-              <NavDropdown.Item>
-                <NavLink to="/variosproductos">Varios productos</NavLink>
-              </NavDropdown.Item>
+
+              <NavLink className="dropdownItem" to="/variosproductos">
+                Varios productos
+              </NavLink>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
