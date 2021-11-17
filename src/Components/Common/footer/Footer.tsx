@@ -2,7 +2,9 @@ const Footer = () => {
   return (
     <footer className="text-center text-lg-start" id="footer">
 
-      <section className="d-flex justify-content-center justify-content-lg-between p-4 ">
+      <section className="d-block justify-content-center justify-content-lg-between p-4 ">
+        <h3>Herramienta digital para el cálculo del punto de equilibrio operativo</h3>
+        
         <div className="container text-center text-md-start mt-5">
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">

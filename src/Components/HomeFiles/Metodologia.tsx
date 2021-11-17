@@ -3,7 +3,7 @@ import { ListGroup } from "react-bootstrap";
 const Metodologia = () => {
   return (
     <section className="textosEncuadre">
-      <h3 className="mb-2">Metodologia</h3>
+      <h3 className="mb-2">Metodología</h3>
       <p>
         Con el uso de esta herramienta digital para el cálculo del punto de
         equilibrio lograrás favorecer tu aprendizaje autónomo, lo que
@@ -37,13 +37,13 @@ const Metodologia = () => {
       </p>
       <ListGroup as="ol" >
         <ListGroup.Item as="li">
-          <strong>Contenidos.</strong>
+          <strong>Contenidos</strong>
           <br/>
           En este apartado encontrarás los
           fundamentos teóricos del tema.
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          <strong>Simulador.</strong>
+          <strong>Simulador</strong>
           <br/>
           En esta sección podrás ingresar el nombre
           de la empresa y del producto o productos; los costos variables
@@ -53,7 +53,7 @@ const Metodologia = () => {
           del escenario simulado para su respectivo análisis.
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          <strong>Actividades de aprendizaje.</strong>
+          <strong>Actividades de aprendizaje</strong>
           <br/>
           Las actividades de
           aprendizaje tienen valor para la evaluación; se realizarán en el
@@ -62,14 +62,14 @@ const Metodologia = () => {
           por el profesor(a).
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          <strong>Glosario.</strong>
+          <strong>Glosario</strong>
           <br/>
           En esta parte del menú, encontrarás el
           significado de algunos términos que hemos considerado importantes para
           el aprendizaje del tema.
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          <strong>Referencias. </strong>
+          <strong>Referencias </strong>
           <br/>
           En esta opción del menú encontrarás las
           fuentes de consulta que se utilizaron como base para el desarrollo de

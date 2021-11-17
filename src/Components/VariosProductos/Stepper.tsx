@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Empresa, { Producto } from "../Classes/Empresa";
-import ProporcionProduccion from "./ProporcionProduccion";
+import ProporcionProduccion from "./Proporciones/ProporcionProduccion";
 import ProductoCheckBox from "./ProductoCheckBox";
 import ContribucionMarginal from "./ContribucionMarginal";
 import PuntoEquilibrioMezclado from "./PuntoEquilibrioMezclado";

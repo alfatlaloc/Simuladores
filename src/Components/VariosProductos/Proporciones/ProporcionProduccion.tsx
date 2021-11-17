@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
-import Empresa, { Producto } from "../Classes/Empresa";
+import Empresa, { Producto } from "../../Classes/Empresa";
+import InformacionProporciones from "./InformacionProporciones";
 
 interface props {
   productos: Producto[];
@@ -32,6 +33,8 @@ const ProporcionProduccion: React.FC<props> = ({
   };
 
   useEffect(() => {
+    if (proporciones.length === productos.length) return;
+    setProporciones([]);
     let auxArr: number[] = [];
     productos.forEach((prd) => {
       auxArr.push(0);
@@ -66,6 +69,7 @@ const ProporcionProduccion: React.FC<props> = ({
           </Form>
         );
       })}
+      <InformacionProporciones />
     </div>
   );
 };

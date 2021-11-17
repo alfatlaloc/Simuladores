@@ -127,8 +127,9 @@ const Home = () => {
         <Card.Header className="cardHeader">Punto de equilibrio</Card.Header>
         <Card.Body>
           <Card.Text>
-            With supporting text below as a natural lead-in to additional
-            content.
+            Teoria sobre el punto de equilibrio.
+            <br/>
+            <br/>
           </Card.Text>
           <Button
             className="buttonPrimary m-2"
@@ -145,8 +146,7 @@ const Home = () => {
         <Card.Header className="cardHeader">Glosario</Card.Header>
         <Card.Body>
           <Card.Text>
-            With supporting text below as a natural lead-in to additional
-            content.
+          Significados de términos que se consideran importantes para el aprendizaje del tema.
           </Card.Text>
           <Button
             className="buttonPrimary m-2"
@@ -165,8 +165,7 @@ const Home = () => {
         </Card.Header>
         <Card.Body>
           <Card.Text>
-            With supporting text below as a natural lead-in to additional
-            content.
+            Definición de las actividades de aprendizaje que tienen valor para la evaluación.
           </Card.Text>
           <Button
             className="buttonPrimary m-2"
@@ -182,8 +181,7 @@ const Home = () => {
         <Card.Header className="cardHeader">Referencias</Card.Header>
         <Card.Body>
           <Card.Text>
-            With supporting text below as a natural lead-in to additional
-            content.
+            Fuentes de consulta utilizadas como base para el desarrollo de los temas.
           </Card.Text>
           <Button
             className="buttonPrimary m-2"

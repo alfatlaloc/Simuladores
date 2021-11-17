@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import logoIPN from "../../img/ipn-logo-80x50.png";
-
+import logoESCOM from "../../img/logoESCOM80x120.png";
 const NavBar = () => {
   return (
     <Navbar id="navBar" sticky="top" expand="lg">
       <Container>
+      
         <img
           alt=""
           src={logoIPN}
@@ -13,9 +14,16 @@ const NavBar = () => {
           height="30"
           className="d-inline-block align-top"
         />
+        <img
+          alt=""
+          src={logoESCOM}
+          width="45"
+          height="25"
+          className="d-inline-block align-top"
+        />
         <Navbar.Brand>
           <NavLink to="/home" className="navBarBrand">
-            Simulador financiero
+            Simulador punto de equilibrio
           </NavLink>
         </Navbar.Brand>
 

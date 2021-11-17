@@ -63,9 +63,6 @@ const VariosProductos = () => {
         proporciones={proporciones}
         setProporciones={setProporciones}
       />
-
-      <p>Tabla</p>
-      <p>Calculos</p>
     </div>
   );
 };
