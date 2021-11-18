@@ -1,6 +1,11 @@
 import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import Empresa, { Producto } from "../../Classes/Empresa";
+import {
+  numerosEnterosConCero,
+  numerosFlotantes,
+  numerosFlotantesConCero,
+} from "../../Common/Validaciones";
 import InformacionProporciones from "./InformacionProporciones";
 
 interface props {
@@ -16,12 +21,21 @@ const ProporcionProduccion: React.FC<props> = ({
   proporciones,
   setProporciones,
 }) => {
+  const [auxProporciones, setAuxProporciones] = useState<string[]>([]);
+
   const agregarProporcion = (
     e: React.ChangeEvent<HTMLInputElement>,
     index: number
   ) => {
+    let newValue = e.currentTarget.value;
+    if (!numerosFlotantesConCero(newValue)) return;
+    let newArrS = [...auxProporciones];
+    newArrS[index] = newValue;
+
     let newArr = [...proporciones];
-    newArr[index] = Number.parseFloat(e.currentTarget.value);
+    newArr[index] = Number.parseFloat(newValue);
+
+    if (newValue === "") newArr[index] = 0;
 
     let sumaProporciones = newArr.reduce((prev, current) => {
       return prev + current;
@@ -29,6 +43,7 @@ const ProporcionProduccion: React.FC<props> = ({
 
     if (sumaProporciones <= 100) {
       setProporciones(newArr);
+      setAuxProporciones(newArrS);
     }
   };
 
@@ -36,9 +51,12 @@ const ProporcionProduccion: React.FC<props> = ({
     if (proporciones.length === productos.length) return;
     setProporciones([]);
     let auxArr: number[] = [];
+    let auxArrS: string[] = [];
     productos.forEach((prd) => {
       auxArr.push(0);
+      auxArrS.push("0");
     });
+    setAuxProporciones(auxArrS);
     setProporciones(auxArr);
   }, [productos, setProporciones]);
 
@@ -46,20 +64,18 @@ const ProporcionProduccion: React.FC<props> = ({
   return (
     <div className="stepCard">
       <h5>Elige los porcentajes de cada producto</h5>
-      <p>{JSON.stringify(productos)}</p>
-      <p>Eligir porcentajes</p>
-      {JSON.stringify(proporciones)}
 
+      {JSON.stringify(proporciones)}
       {productos.map((prd, index) => {
         return (
           <Form>
             <Form.Group className="mb-3 inputPorcentajes mx-auto">
               <Form.Label key={prd.nombre} className="m-2">
-                Proporción {prd.nombre}:{" "}
+                {prd.nombre}:
               </Form.Label>
               <Form.Control
                 type="text"
-                value={proporciones[index]}
+                value={auxProporciones[index]}
                 placeholder="0.0%"
                 onChange={(e) => {
                   agregarProporcion(e as any, index);
@@ -69,7 +85,11 @@ const ProporcionProduccion: React.FC<props> = ({
           </Form>
         );
       })}
-      <InformacionProporciones />
+      <InformacionProporciones
+        costosFijos={empresa.costoFijoTotal()}
+        proporciones={proporciones}
+        productos={productos}
+      />
     </div>
   );
 };

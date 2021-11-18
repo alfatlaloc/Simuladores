@@ -41,13 +41,13 @@ const UnaEmpresa = () => {
               onChange={(e) => hanldeChange(e)}
             >
               {empresas.map((empresa) => {
-                return <option value={empresa.nombre}>{empresa.nombre}</option>;
+                return <option key={empresa.nombre} value={empresa.nombre}>{empresa.nombre}</option>;
               })}
             </Form.Select>
           </Form.Group>
 
           <Form.Group className="mb-3 justify-content-center">
-            <Form.Label>Prodcuto</Form.Label>
+            <Form.Label>Producto</Form.Label>
             <Form.Select
               aria-label="Producto"
               className="select"
@@ -61,7 +61,7 @@ const UnaEmpresa = () => {
             >
               {empresaA.productos.map((producto) => {
                 return (
-                  <option value={producto.nombre}>{producto.nombre}</option>
+                  <option key={producto.nombre} value={producto.nombre}>{producto.nombre}</option>
                 );
               })}
             </Form.Select>
@@ -85,7 +85,7 @@ const UnaEmpresa = () => {
               onChange={(e) => hanldeChange(e)}
             >
               {empresas.map((empresa) => {
-                return <option value={empresa.nombre}>{empresa.nombre}</option>;
+                return <option key={empresa.nombre} value={empresa.nombre}>{empresa.nombre}</option>;
               })}
             </Form.Select>
           </Form.Group>

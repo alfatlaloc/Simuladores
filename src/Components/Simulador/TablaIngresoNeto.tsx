@@ -1,8 +1,10 @@
 import { useEffect, useState, useCallback } from "react";
 import { Form, Button, Table, Tab, Tabs } from "react-bootstrap";
 import Empresa, { Producto } from "../Classes/Empresa";
+import { numerosEnteros, numerosEnterosConCero } from "../Common/Validaciones";
 import GradoApalancamientoOperativo from "./GradoApalancamientoOperativo";
 import GraficaPuntoEquilibrio from "./GraficaPuntoEquilibrio";
+import InstruccionesUaEmpresa from "./InstruccionesUnaEmpresa";
 
 interface props {
   empresa: Empresa;
@@ -15,9 +17,9 @@ interface puntoE {
 }
 
 const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
-  const [inicio, setInicio] = useState<string>("0");
-  const [final, setFinal] = useState<string>("0");
-  const [intervalo, setIntervalo] = useState<string>("1");
+  const [inicio, setInicio] = useState<string>("");
+  const [final, setFinal] = useState<string>("");
+  const [intervalo, setIntervalo] = useState<string>("");
 
   const [arrayUnidades, setArrayUnidades] = useState<number[]>([]);
   const [ingresoVentas, setIngresoVentas] = useState<number[]>([]);
@@ -44,6 +46,9 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
   }, [producto, puntoEquilibrio, empresa]);
 
   const calcularUnidades = () => {
+    if (inicio === "" || final === "" || intervalo === "") return;
+    if (Number.parseInt(final) <= puntoEquilibrio.unidades) return;
+
     if (Number.parseInt(final) <= Number.parseInt(inicio)) return;
     setToogle(false);
     let auxUnidades: number[] = [];
@@ -112,53 +117,74 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
     return (
       <div>
         <p>
-          <strong>Punto de equilibrio en unidades:</strong> {puntoEquilibrio.unidades.toFixed(2)}
+          <strong>Punto de equilibrio en unidades:</strong>
+          {puntoEquilibrio.unidades.toFixed(2).toString()}
         </p>
-        <p><strong>Punto de equilibrio en pesos:</strong> $ {puntoEquilibrio.pesos.toFixed(2)}</p>
+        <p>
+          <strong>Punto de equilibrio en pesos:</strong> $
+          {puntoEquilibrio.pesos.toFixed(2)}
+        </p>
         <h5>Calculo del Ingreso Neto</h5>
+        <InstruccionesUaEmpresa />
 
         <Form className=" d-flex flex-row justify-content-around flex-wrap">
           <Form.Group className="mb-3">
             <Form.Label>Venta inicial</Form.Label>
             <Form.Control
               type="text"
+              placeholder="Ej. 1-500-2000"
               value={inicio}
               onChange={(e) => {
                 const valorInicio = e.currentTarget.value;
-                if (Number.parseInt(valorInicio) < puntoEquilibrio.unidades)
-                  if (/^\d+$/.test(valorInicio)) setInicio(valorInicio);
-              }}
-            />
-          </Form.Group>
-          <Form.Group className="mb-3">
-            <Form.Label>Final</Form.Label>
-            <Form.Control
-              type="text"
-              value={final}
-              onChange={(e) => {
-                const entrada = e.currentTarget.value;
-                if (
-                  /^\d+$/.test(entrada) &&
-                  Number.parseInt(entrada) > Number.parseInt(inicio)
-                ) {
-                  setFinal(entrada);
+                if (valorInicio === "") {
+                  setInicio("");
+                  return;
+                }
+                if (numerosEnterosConCero(valorInicio)) {
+                  if (
+                    Number.parseInt(valorInicio) < puntoEquilibrio.unidades &&
+                    Number.parseInt(valorInicio) < Number.parseInt(final)
+                  )
+                    setInicio(valorInicio);
                 }
               }}
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Label>Intervalo: {intervalo}</Form.Label>
+          <Form.Group className="mb-3">
+            <Form.Label>Venta final</Form.Label>
             <Form.Control
               type="text"
+              value={final}
+              placeholder="Ej. 1-500-2000"
+              onChange={(e) => {
+                const entrada = e.currentTarget.value;
+                if (numerosEnteros(entrada)) setFinal(entrada);
+              }}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Label>
+              Maximo intervalo:
+              {Number.parseInt(final) - Number.parseInt(inicio)}
+            </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Ej. 1-500-2000"
               value={intervalo}
               onChange={(e) => {
-                const interv = Number.parseInt(e.currentTarget.value);
-                if (
-                  /^\d+$/.test(interv.toString()) &&
-                  interv > 0 &&
-                  interv < Number.parseInt(final)
-                )
-                  setIntervalo(interv.toString());
+                const interv = e.currentTarget.value;
+                if (numerosEnteros(interv)) {
+                  if (interv === "") setIntervalo("");
+                  if (inicio === "" || final === "") {
+                    setIntervalo("");
+                    return;
+                  } else if (
+                    Number.parseInt(interv) > 0 &&
+                    Number.parseInt(interv) <=
+                      Number.parseInt(final) - Number.parseInt(inicio)
+                  )
+                    setIntervalo(interv);
+                }
               }}
             />
           </Form.Group>
@@ -179,7 +205,7 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
           <Table striped bordered hover className="overflowForce">
             <thead>
               <tr>
-                <th>Unidades</th>
+                <th className="celdaSticky">Unidades</th>
                 {arrayUnidades.map((numero) => {
                   if (numero === puntoEquilibrio.unidades)
                     return <th className="peUnidades">{numero.toFixed(2)}</th>;
@@ -189,20 +215,20 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
             </thead>
             <tbody>
               <tr>
-                <td className="tdTitulo">Ingreso/Ventas</td>
+                <td className="tdTitulo celdaSticky">Ingreso/Ventas</td>
                 {ingresoVentas.map((ingreso) => {
                   return <td>{ingreso.toFixed(2)}</td>;
                 })}
               </tr>
               <tr>
-                <td className="tdTitulo">Costo Variable</td>
+                <td className="tdTitulo celdaSticky">Costo Variable</td>
                 {arrayUnidades?.map((numero) => {
                   let costoVariable = numero * producto.costosTotales();
                   return <td>{costoVariable.toFixed(2)}</td>;
                 })}
               </tr>
               <tr>
-                <td className="tdTitulo">Margen de Contribucion</td>
+                <td className="tdTitulo celdaSticky">Margen de Contribucion</td>
                 {arrayUnidades?.map((numero) => {
                   let contribucion =
                     numero * producto.precio -
@@ -211,13 +237,13 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
                 })}
               </tr>
               <tr>
-                <td className="tdTitulo">Costos fijos</td>
+                <td className="tdTitulo celdaSticky">Costos fijos</td>
                 {arrayUnidades?.map((numero) => {
                   return <td>{empresa.costoFijoTotal().toFixed(2)}</td>;
                 })}
               </tr>
               <tr>
-                <td className="tdTitulo">Utilidad</td>
+                <td className="tdTitulo celdaSticky">Utilidad</td>
                 {utilidad?.map((utilidad) => {
                   return <td>{utilidad.toFixed(2)}</td>;
                 })}
@@ -234,22 +260,34 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
       <Table striped bordered hover className="infoProducto">
         <tbody>
           <tr>
-            <td className="tdTitulo">Precio</td>
-            <td>{producto.precio}</td>
+            <td className="tdTitulo">Producto</td>
+            <td>{producto.nombre}</td>
           </tr>
           <tr>
-            <td className="centerText">Costos Variables</td>
+            <td className="tdTitulo">Precio</td>
+            <td>$ {producto.precio}</td>
+          </tr>
+          <tr>
+            <td className="centerText">
+              <strong>Costos Variables</strong>
+            </td>
             <td>
-              <tr className="tdTitulo">
-                <td className="tablaCostosVar">Costo</td> <td className="tablaCostosVar">Valor</td>
-              </tr>
-              {producto.costosVariablesUnitario?.map((costo) => {
-                return (
-                    <tr>
-                      <td>{costo.nombre}</td> <td>{costo.valor}</td>
-                    </tr>
-                );
-              })}
+              <Table borderless className="no-margin" hover responsive size="sm">
+                <tbody>
+                  <tr className="tdTitulo">
+                    <td className="tablaCostosVar">Nombre del costo</td>
+                    <td className="tablaCostosVar">Valor</td>
+                  </tr>
+                  {producto.costosVariablesUnitario?.map((costo) => {
+                    return (
+                      <tr key={costo.nombre}>
+                        <td>{costo.nombre}</td>
+                        <td>$ {costo.valor}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </Table>
             </td>
           </tr>
         </tbody>

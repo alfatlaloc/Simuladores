@@ -32,14 +32,14 @@ const ProductoCheckBox: React.FC<props> = ({
 
             return (
               <Form.Check
-                key={`${empresa.nombre} ${producto.nombre}`}
+                key={`${producto.nombre}`}
                 className="checkBox"
                 checked={existe}
                 onClick={(event) => {
                   agregarProducto(producto, event.currentTarget.checked);
                 }}
-                id={`default-${producto.nombre}`}
-                label={`default ${producto.nombre}`}
+                id={`${producto.nombre}`}
+                label={` ${producto.nombre}`}
               />
             );
           })}

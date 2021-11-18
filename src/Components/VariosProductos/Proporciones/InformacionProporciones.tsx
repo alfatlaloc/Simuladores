@@ -1,33 +1,43 @@
 import { Table } from "react-bootstrap";
+import { Producto } from "../../Classes/Empresa";
 
-const InformacionProporciones = () => {
+interface props {
+  productos: Producto[];
+  proporciones: number[];
+  costosFijos: number;
+}
+
+const InformacionProporciones: React.FC<props> = ({
+  productos,
+  proporciones,
+  costosFijos,
+}) => {
   return (
-    <Table striped bordered hover>
+    <Table className="tablaEmpresas" striped bordered hover>
       <thead>
         <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
+          <th className="tdTitulo">Producto</th>
+          {productos.map((prd) => {
+            return <th>{prd.nombre}</th>;
+          })}
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
+          <td className="tdTitulo">Precio de venta</td>
+          {productos.map((prd) => {
+            return <td>{prd.precio}</td>;
+          })}
         </tr>
         <tr>
-          <td>2</td>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
+          <td className="tdTitulo">Proporción de Producción</td>
+          {proporciones.map((pro) => {
+            return <td>{pro} %</td>;
+          })}
         </tr>
         <tr>
-          <td>3</td>
-          <td >Larry the Bird</td>
-          <td>@twitter</td>
+          <td className="tdTitulo">Costos Fijos</td>
+          <td colSpan={productos.length}>{costosFijos}</td>
         </tr>
       </tbody>
     </Table>

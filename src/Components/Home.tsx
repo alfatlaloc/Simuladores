@@ -71,7 +71,7 @@ const Carrusel = () => {
       <Carousel.Item>
         <img
           className="d-block w-100 imgC"
-          src="https://fondosmil.com/fondo/17538.jpg"
+          src={whiteBack}
           alt="First slide"
         />
         <Carousel.Caption className="carrusel">

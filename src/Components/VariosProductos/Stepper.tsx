@@ -47,17 +47,26 @@ const Stepper: React.FC<props> = ({
         );
 
       case 2:
-        return (
-          <ProporcionProduccion
-            productos={productos}
-            empresa={empresa}
-            proporciones={proporciones}
-            setProporciones={setProporciones}
-          />
-        );
+        if (productos.length > 0)
+          return (
+            <ProporcionProduccion
+              productos={productos}
+              empresa={empresa}
+              proporciones={proporciones}
+              setProporciones={setProporciones}
+            />
+          );
+        else setStep(1);
+        break;
 
       case 3:
-        return <ContribucionMarginal />;
+        return (
+          <ContribucionMarginal
+            productos={productos}
+            costosFijos={empresa.costoFijoTotal()}
+            proporciones={proporciones}
+          />
+        );
 
       case 4:
         return <PuntoEquilibrioMezclado />;

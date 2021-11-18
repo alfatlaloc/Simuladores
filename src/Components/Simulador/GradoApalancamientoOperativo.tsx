@@ -34,14 +34,23 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
   useEffect(() => {
     if (inicial === unidades.length - 1) return;
     if (inicial === 0)
-      for (let i = 0; i < unidades.length; i++)
+      for (let i = 0; i < unidades.length -1; i++)
         if (unidades[i] > puntoEquilibrioUnidades) {
           setInicial(i);
+
           setFinal(unidades.length - 1);
+          console.log(final);
         }
 
     return;
   }, [inicial, puntoEquilibrioUnidades, unidades]);
+
+  const validacion = () => {
+    for (let i = 0; i < unidades.length; i++)
+      if (unidades[i] > puntoEquilibrioUnidades)
+        if (unidades.length - i > 1) return true;
+    return false;
+  };
 
   const calcularApalancamiento = () => {
     if (inicial < 1 || final < 1) return;
@@ -54,78 +63,86 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
       ((utilidades[final] - utilidades[inicial]) / utilidades[inicial]) * 100
     );
   };
+
   if (puntoEquilibrioUnidades)
-    return (
-      <div>
-        <h2>Apalancamiento operativo</h2>
+    if (validacion())
+      return (
+        <div>
+          <h2>Apalancamiento operativo</h2>
 
-        <Form className="align-items-center">
-          <Form.Group className="mb-3 justify-content-center">
-            <Form.Label>Intervalo Menor</Form.Label>
+          <Form className="align-items-center">
+            <Form.Group className="mb-3 justify-content-center">
+              <Form.Label>Intervalo Menor</Form.Label>
 
-            <Form.Select
-              aria-label="Intervalo Menor"
-              className="select"
-              value={inicial}
-              onChange={(e) => {
-                setInicial(Number.parseInt(e.currentTarget.value));
-              }}
-            >
-              {unidades.map((unidad, index) => {
-                if (
-                  unidad > puntoEquilibrioUnidades &&
-                  index !== unidades.length - 1
-                )
-                  return <option value={index}>{unidad}</option>;
-                return null;
-              })}
-            </Form.Select>
-          </Form.Group>
+              <Form.Select
+                aria-label="Intervalo Menor"
+                className="select"
+                value={inicial}
+                onChange={(e) => {
+                  setInicial(Number.parseInt(e.currentTarget.value));
+                }}
+              >
+                {unidades.map((unidad, index) => {
+                  if (
+                    unidad > puntoEquilibrioUnidades &&
+                    index !== unidades.length - 1
+                  )
+                    return <option value={index}>{unidad}</option>;
+                  return null;
+                })}
+              </Form.Select>
+            </Form.Group>
 
-          <Form.Group className="mb-3 justify-content-center">
-            <Form.Label>Intervalo Mayor</Form.Label>
+            <Form.Group className="mb-3 justify-content-center">
+              <Form.Label>Intervalo Mayor</Form.Label>
 
-            <Form.Select
-              aria-label="Intervalo Mayor"
-              className="select"
-              value={final}
-              onChange={(e) => {
-                if (Number.parseInt(e.currentTarget.value) > inicial)
-                  setFinal(Number.parseInt(e.currentTarget.value));
-              }}
-            >
-              {unidades.map((unidad, index) => {
-                if (index > inicial)
-                  return <option value={index}>{unidad}</option>;
-                return null;
-              })}
-            </Form.Select>
-          </Form.Group>
-        </Form>
-        <Button onClick={calcularApalancamiento} className="buttonPrimary m-3">
-          Calcular
-        </Button>
+              <Form.Select
+                aria-label="Intervalo Mayor"
+                className="select"
+                value={final}
+                onChange={(e) => {
+                  if (Number.parseInt(e.currentTarget.value) > inicial)
+                    setFinal(Number.parseInt(e.currentTarget.value));
+                }}
+              >
+                {unidades.map((unidad, index) => {
+                  if (index > inicial)
+                    return <option value={index}>{unidad}</option>;
+                  return null;
+                })}
+              </Form.Select>
+            </Form.Group>
+          </Form>
+          <Button
+            onClick={calcularApalancamiento}
+            className="buttonPrimary m-3"
+          >
+            Calcular
+          </Button>
 
-        <p>
-          <strong>Unidades 1:</strong> {unidades[inicial]}{" "}
-          <strong>Utilidades 1:</strong> $ {utilidades[inicial]}
-        </p>
-        <br />
-        <p>
-          <strong>Unidades 2:</strong> {unidades[final]}{" "}
-          <strong>Utilidades 2:</strong> ${utilidades[final]}
-        </p>
-        <br />
+          <p>
+            <strong>Unidades 1:</strong> {unidades[inicial]}{" "}
+            <strong>Utilidades 1:</strong> $ {utilidades[inicial]}
+          </p>
+          <br />
+          <p>
+            <strong>Unidades 2:</strong> {unidades[final]}{" "}
+            <strong>Utilidades 2:</strong> ${utilidades[final]}
+          </p>
+          <br />
 
-        <p>
-          <strong>Incremento unidades:</strong> {incrementoUnidades.toFixed(4)}%
-        </p>
-        <p>
-          <strong>Incremento utilidades:</strong>{" "}
-          {incrementoUtilidades.toFixed(4)}%
-        </p>
-      </div>
-    );
+          <p>
+            <strong>Incremento unidades:</strong>{" "}
+            {incrementoUnidades.toFixed(4)}%
+          </p>
+          <p>
+            <strong>Incremento utilidades:</strong>{" "}
+            {incrementoUtilidades.toFixed(4)}%
+          </p>
+        </div>
+      );
+    else return <p>Incrementa el valor final o reduce el intervalo</p>;
+
   return <p>Aun no se han calculado datos</p>;
 };
 

@@ -7,6 +7,7 @@ import { actualizarEmpresa } from "../../Redux/Reducers/actions";
 import { EmpresaState } from "../../Redux/types";
 import Empresa, { Costo, Producto } from "../Classes/Empresa";
 import BotonRegresar from "../Common/BotonRegresar";
+import { numerosEnteros, numerosFlotantes } from "../Common/Validaciones";
 import ModificarNombreProducto from "./ModificarNombreProducto";
 import ModificarPrecioProducto from "./ModificarPrecioProducto";
 
@@ -17,11 +18,12 @@ interface props {
 
 const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
   const [nombre, setNombre] = useState<string>("");
-  const [valor, setValor] = useState<string>("0");
+  const [valor, setValor] = useState<string>("");
   const dispatch = useDispatch();
 
   const agregarCV = () => {
-    if(valor === "") return;
+    if (valor === "" || nombre === "") return;
+
     producto.agregarCosto(new Costo(nombre, Number.parseFloat(valor)));
     empresa.actualizarCostosVariablesProducto(producto);
     dispatch(actualizarEmpresa(empresa));
@@ -30,7 +32,7 @@ const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
   };
 
   return (
-    <Form>
+    <Form    >
       <Form.Group
         className="mb-3 justify-content-center"
         controlId="formBasicEmail"
@@ -44,6 +46,7 @@ const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
           value={nombre}
           onChange={(e) => {
             const nuevoNombre = e.currentTarget.value;
+
             if (/^[a-zA-Z0-9_.ÑñáéíóúÁÉÍÓÚüÜ\s]{0,60}$/.test(nuevoNombre))
               setNombre(nuevoNombre);
           }}
@@ -59,12 +62,14 @@ const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
           className="empresaInputForm"
           type="text"
           name="valor"
-          placeholder="Valor"
+          placeholder="Valor Ej: 1.5"
           min={0}
           value={valor}
           onChange={(e) => {
             const nuevoValor = e.currentTarget.value;
-            if (/^\d+\.?\d*$/.test(nuevoValor)) setValor(nuevoValor);
+
+            if (numerosFlotantes(nuevoValor))
+              if (Number.parseFloat(nuevoValor) > 0) setValor(nuevoValor);
           }}
         />
       </Form.Group>

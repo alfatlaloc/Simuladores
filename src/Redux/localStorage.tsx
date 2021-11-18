@@ -8,7 +8,6 @@ export const loadState = () => {
     if (serializedState === null) {
       return undefined;
     }
-    console.log(serializedState);
 
     const Empresas = toEmpresaArray(serializedState);
     return Empresas;
@@ -38,6 +37,5 @@ export function toEmpresaArray(stringArray: string): EmpresaState {
     auxState.empresas.push(Empresa.jsonToEmpresa(empresa));
   });
 
-  console.log(auxState);
   return auxState;
 }

@@ -13,7 +13,7 @@ const FormCosto: React.FC<props> = ({ empresa }) => {
   const dispatch = useDispatch();
 
   const agregarCosto = () => {
-    if(form.valor < 1) return;
+    if(form.valor < 0) return;
     if(form.nombre === "") return;
     empresa.agregarCostoFijo(form);
     dispatch(actualizarEmpresa(empresa));

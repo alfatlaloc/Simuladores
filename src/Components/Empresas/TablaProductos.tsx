@@ -11,12 +11,11 @@ interface propsLista {
 
 const ListaCostosVariables: React.FC<propsLista> = ({ arregloP }) => {
   return arregloP.length > 0 ? (
-    <p>
-      {arregloP.map((e,index) => {
-        if( index === 0) return e.nombre;
-        else return `, ${e.nombre}`;
+    <ul className="listaElementos">
+      {arregloP.map((e, index) => {
+         return <li>{e.nombre}</li>;
       })}
-    </p>
+    </ul>
   ) : (
     <p>Aun no hay costos variables [ ]</p>
   );
@@ -65,14 +64,16 @@ const TablaProductos: React.FC<props> = ({ empresa }) => {
                       `/empresa/${empresa.nombre}/producto/${producto.nombre}`
                     )
                   }
-                  className="editButto buttonPrimary">
+                  className="editButto buttonPrimary"
+                >
                   <BsPencil />
                 </Button>
               </td>
               <td className="centerText">
                 <Button
                   onClick={() => eliminarProducto(producto.nombre)}
-                  variant="danger">
+                  variant="danger"
+                >
                   <BsFillTrashFill />
                 </Button>
               </td>

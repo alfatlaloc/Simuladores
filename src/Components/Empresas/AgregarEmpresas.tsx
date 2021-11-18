@@ -15,7 +15,7 @@ interface propsListaCosto {
 
 const ListaCostos: React.FC<propsListaCosto> = ({ arregloCostos }) => {
   return arregloCostos.length > 0 ? (
-    <ul>
+    <ul className="listaElementos">
       {arregloCostos.map((e) => {
         return <li> {e.nombre} </li>;
       })}
@@ -31,7 +31,7 @@ interface propsLista {
 
 const ListaProductos: React.FC<propsLista> = ({ arregloP }) => {
   return arregloP.length > 0 ? (
-    <ul>
+    <ul className="listaElementos">
       {arregloP.map((e) => {
         return <li> {e.nombre} </li>;
       })}
@@ -112,11 +112,12 @@ const Simulador = () => {
       <BotonHome />
       <h2 className="m-4">Gestor de empresas</h2>
 
-      <Form>
-        <Form.Group
-          className="mb-3 justify-content-center"
-          controlId="formBasicEmail"
-        >
+      <Form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
+        <Form.Group className="mb-3 justify-content-center">
           <Form.Label>Empresa</Form.Label>
           <Form.Control
             size="lg"
@@ -140,9 +141,11 @@ const Simulador = () => {
       </Form>
 
       <Button
+        type="button"
         className="m-1 buttonPrimary"
-        onClick={() => {
-          if (name !== "") return;
+        onClick={(e) => {
+          e.preventDefault();
+          if (name === " ") return;
           dispatch(agregarEmpresa(new Empresa(name)));
           setName("");
         }}
