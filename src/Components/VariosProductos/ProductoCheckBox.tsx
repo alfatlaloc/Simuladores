@@ -29,19 +29,21 @@ const ProductoCheckBox: React.FC<props> = ({
             let existe: boolean = productos.some(
               (prd) => prd.nombre === producto.nombre
             );
-
-            return (
-              <Form.Check
-                key={`${producto.nombre}`}
-                className="checkBox"
-                checked={existe}
-                onClick={(event) => {
-                  agregarProducto(producto, event.currentTarget.checked);
-                }}
-                id={`${producto.nombre}`}
-                label={` ${producto.nombre}`}
-              />
-            );
+            if (producto.costosTotales() > 0)
+              return (
+                <Form.Check
+                  key={`${producto.nombre}`}
+                  className="checkBox"
+                  checked={existe}
+                  
+                  onChange={(event) => {
+                    agregarProducto(producto, event.currentTarget.checked);
+                  }}
+                  id={`${producto.nombre}`}
+                  label={` ${producto.nombre}`}
+                />
+              );
+            return null;
           })}
         </div>
       </Form.Group>

@@ -12,6 +12,8 @@ const VariosProductos = () => {
   const [empresa, setEmpresa] = useState<Empresa>();
   const [productos, setProductos] = useState<Producto[]>([]);
   const [proporciones, setProporciones] = useState<number[]>([]);
+  const [contMarginal, setContMarginal] = useState<number[]>([]);
+  const [contMarginalPon, setContMarginalPon] = useState<number[]>([]);
 
   const hanldeChange = (e: React.FormEvent<HTMLSelectElement>) => {
     const empresaChange = empresas.find(
@@ -62,6 +64,11 @@ const VariosProductos = () => {
         setProductos={setProductos}
         proporciones={proporciones}
         setProporciones={setProporciones}
+        contMarginal={contMarginal}
+        setContMarginal={setContMarginal}
+        setContMarginalPon={setContMarginalPon}
+        contMarginalPon={contMarginalPon}
+        
       />
     </div>
   );

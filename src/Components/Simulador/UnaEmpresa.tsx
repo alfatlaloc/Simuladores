@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { EmpresaState } from "../../Redux/types";
 import Empresa, { Producto } from "../Classes/Empresa";
+import FormEyP from "./FormEyP";
 import TablaIngresoNeto from "./TablaIngresoNeto";
 
 const UnaEmpresa = () => {
@@ -18,7 +19,7 @@ const UnaEmpresa = () => {
     if (empresaA) setProductoO(empresaA.productos[0]);
   }, [empresaA, empresas]);
 
-  const hanldeChange = (e: React.FormEvent<HTMLSelectElement>) => {
+  const handleCHange = (e: React.FormEvent<HTMLSelectElement>) => {
     const empresaChange = empresas.find(
       (emp) => emp.nombre === e.currentTarget.value
     );
@@ -28,48 +29,36 @@ const UnaEmpresa = () => {
   };
 
   if (empresaA && productoO)
-    return (
-      <div className="pagina">
-        <h2>Calculo del punto de equilibrio</h2>
-        <Form className="align-items-center">
-          <Form.Group className="mb-3 justify-content-center">
-            <Form.Label>Empresa</Form.Label>
-            <Form.Select
-              aria-label="Empresa"
-              className="select"
-              value={empresaA.nombre}
-              onChange={(e) => hanldeChange(e)}
-            >
-              {empresas.map((empresa) => {
-                return <option key={empresa.nombre} value={empresa.nombre}>{empresa.nombre}</option>;
-              })}
-            </Form.Select>
-          </Form.Group>
-
-          <Form.Group className="mb-3 justify-content-center">
-            <Form.Label>Producto</Form.Label>
-            <Form.Select
-              aria-label="Producto"
-              className="select"
-              value={productoO.nombre}
-              onChange={(e) => {
-                let res = empresaA.productos.find(
-                  (pr) => pr.nombre === e.currentTarget.value
-                );
-                if (res) setProductoO(res);
-              }}
-            >
-              {empresaA.productos.map((producto) => {
-                return (
-                  <option key={producto.nombre} value={producto.nombre}>{producto.nombre}</option>
-                );
-              })}
-            </Form.Select>
-          </Form.Group>
-        </Form>
-        <TablaIngresoNeto empresa={empresaA} producto={productoO} />
-      </div>
-    );
+    if (productoO.costosTotales() > 0)
+      return (
+        <div className="pagina">
+          <h2>Calculo del punto de equilibrio</h2>
+          <FormEyP
+            handleChange={handleCHange}
+            empresa={empresaA}
+            producto={productoO}
+            empresas={empresas}
+            setProducto={setProductoO}
+          />
+          <TablaIngresoNeto empresa={empresaA} producto={productoO} />
+        </div>
+      );
+    else {
+      return (
+        <div className="pagina">
+          <h2>Calculo del punto de equilibrio</h2>
+          <FormEyP
+            handleChange={handleCHange}
+            empresa={empresaA}
+            producto={productoO}
+            empresas={empresas}
+            setProducto={setProductoO}
+          />
+          <h3>El producto no tiene Costos Variables</h3>
+          <h4>Por favor agregue alguno</h4>
+        </div>
+      );
+    }
   else if (empresaA)
     return (
       <div className="pagina">
@@ -82,10 +71,14 @@ const UnaEmpresa = () => {
               aria-label="Empresa"
               className="select"
               value={empresaA.nombre}
-              onChange={(e) => hanldeChange(e)}
+              onChange={(e) => handleCHange(e)}
             >
               {empresas.map((empresa) => {
-                return <option key={empresa.nombre} value={empresa.nombre}>{empresa.nombre}</option>;
+                return (
+                  <option key={empresa.nombre} value={empresa.nombre}>
+                    {empresa.nombre}
+                  </option>
+                );
               })}
             </Form.Select>
           </Form.Group>

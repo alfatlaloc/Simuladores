@@ -14,6 +14,10 @@ interface props {
   setProductos: (prd: Producto[]) => void;
   proporciones: number[];
   setProporciones: (prop: number[]) => void;
+  contMarginalPon: number[];
+  setContMarginalPon: (num: number[]) => void;
+  contMarginal: number[];
+  setContMarginal: (num: number[]) => void;
 }
 
 const Stepper: React.FC<props> = ({
@@ -22,6 +26,10 @@ const Stepper: React.FC<props> = ({
   setProductos,
   proporciones,
   setProporciones,
+  contMarginalPon,
+  setContMarginalPon,
+  contMarginal,
+  setContMarginal,
 }) => {
   const [step, setStep] = useState<number>(1);
 
@@ -60,13 +68,25 @@ const Stepper: React.FC<props> = ({
         break;
 
       case 3:
-        return (
-          <ContribucionMarginal
-            productos={productos}
-            costosFijos={empresa.costoFijoTotal()}
-            proporciones={proporciones}
-          />
-        );
+        if (
+          proporciones.reduce((prev, current) => {
+            return prev + current;
+          }) < 100
+        )
+          setStep(2);
+        else
+          return (
+            <ContribucionMarginal
+              productos={productos}
+              costosFijos={empresa.costoFijoTotal()}
+              proporciones={proporciones}
+              contMarginalPon={contMarginalPon}
+              setContMarginalPon={setContMarginalPon}
+              contMarginal={contMarginal}
+              setContMarginal={setContMarginal}
+            />
+          );
+        break;
 
       case 4:
         return <PuntoEquilibrioMezclado />;
@@ -76,7 +96,11 @@ const Stepper: React.FC<props> = ({
     }
   };
 
-  useEffect(() => {}, [empresa]);
+  useEffect(() => {
+    setStep(1);
+    setProductos([]);
+    setProporciones([]);
+  }, [empresa]);
 
   return (
     <div className="stepper">

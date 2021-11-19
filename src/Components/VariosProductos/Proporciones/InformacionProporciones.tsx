@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { Producto } from "../../Classes/Empresa";
 
@@ -12,6 +13,7 @@ const InformacionProporciones: React.FC<props> = ({
   proporciones,
   costosFijos,
 }) => {
+
   return (
     <Table className="tablaEmpresas" striped bordered hover>
       <thead>

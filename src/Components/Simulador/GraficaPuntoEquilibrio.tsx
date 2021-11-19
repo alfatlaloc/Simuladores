@@ -60,11 +60,17 @@ const GraficaPuntoEquilibrio: React.FC<props> = ({
         hAxis: {
           title: "Unidades",
         },
+        is3D:true,
         vAxis: {
           title: "Dinero",
         },
         series: {
           1: { curveType: "function" },
+        },
+        explorer: {
+          axis: "horizontal",
+          keepInBounds: true,
+          maxZoomIn: 8.0,
         },
       }}
       rootProps={{ "data-testid": "2" }}

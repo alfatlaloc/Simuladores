@@ -17,7 +17,7 @@ const ListaCostos: React.FC<propsListaCosto> = ({ arregloCostos }) => {
   return arregloCostos.length > 0 ? (
     <ul className="listaElementos">
       {arregloCostos.map((e) => {
-        return <li> {e.nombre} </li>;
+        return <li key={e.nombre}> {e.nombre} </li>;
       })}
     </ul>
   ) : (
@@ -33,7 +33,7 @@ const ListaProductos: React.FC<propsLista> = ({ arregloP }) => {
   return arregloP.length > 0 ? (
     <ul className="listaElementos">
       {arregloP.map((e) => {
-        return <li> {e.nombre} </li>;
+        return <li key={e.nombre}> {e.nombre} </li>;
       })}
     </ul>
   ) : (
