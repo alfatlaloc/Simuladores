@@ -60,7 +60,7 @@ const GraficaPuntoEquilibrio: React.FC<props> = ({
         hAxis: {
           title: "Unidades",
         },
-        is3D:true,
+        
         vAxis: {
           title: "Dinero",
         },
