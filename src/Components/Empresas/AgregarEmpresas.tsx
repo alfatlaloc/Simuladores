@@ -144,8 +144,7 @@ const Simulador = () => {
         type="button"
         className="m-1 buttonPrimary"
         onClick={(e) => {
-          e.preventDefault();
-          if (name === " ") return;
+          if (name === " " || name === "") return;
           dispatch(agregarEmpresa(new Empresa(name)));
           setName("");
         }}

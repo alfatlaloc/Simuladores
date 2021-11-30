@@ -7,24 +7,27 @@ const PuntoEquilibrio = () => {
 
   return (
     <section className="textosEncuadre">
-      <h1>Indice</h1>
+      <h1>Contenido</h1>
       {/* Indice */}
       <div>
         <ul>
-          <li><a href="#indice1">Modelo matemático del punto de equilibrio con un producto</a></li>
+        <li><a href="#indice1">1 Punto de equilibrio operacional</a></li>
           <ul>
-              <li><a href="#subindice1">Punto de equilibrio con un producto sin utilidad</a></li>
-              <li><a href="#subindice2">Punto de equilibrio con un producto con utilidad</a></li>
-          </ul>
-          <li><a href="#indice2">Modelo matemático del punto de equilibrio con multiproductos (mezcla de dos o más productos)</a></li>
-          <ul>
-              <li><a>Punto de equilibrio para una mezcla de productos sin utilidad</a></li>
-              <li><a>Punto de equilibrio para una mezcla de productos con utilidad</a></li>
+            <li><a href="#indice1">1.1 Modelo matemático del punto de equilibrio con un producto</a></li>
+            <ul>
+                <li><a href="#subindice1">1.1.1 Punto de equilibrio con un producto sin utilidad</a></li>
+                <li><a href="#subindice2">1.1.2 Punto de equilibrio con un producto con utilidad</a></li>
+            </ul>
+            <li><a href="#indice2">1.2 Modelo matemático del punto de equilibrio con multiproductos (mezcla de dos o más productos)</a></li>
+            <ul>
+                <li><a>1.2.1 Punto de equilibrio para una mezcla de productos sin utilidad</a></li>
+                <li><a>1.2.2 Punto de equilibrio para una mezcla de productos con utilidad</a></li>
+            </ul>
           </ul>
         </ul>
       </div>
 
-      <h1>Análisis del punto de equilibrio operacional </h1>
+      <h2>Punto de equilibrio operacional </h2>
       <div>
         <p>
             El Punto de equilibrio (PE) es una herramienta que nos da información acerca de cuántas unidades hay que producir y vender para no ganar ni perder; se encuentra cuando:
@@ -64,7 +67,22 @@ const PuntoEquilibrio = () => {
             <h5>Tabla 2. Datos producto 1 (hamburguesas sencillas) </h5>
             <Tabla2 />
             <p>Para calcular el Punto de equilibrio en número de unidades y en cantidad de dinero sin utilidad ocuparemos las fórmulas contenidas en la tabla 3.</p>
+            <Tabla3 />
+            <p>Sustituyendo los dator en las fórmulas tenemos:</p>
+            <ol type="I">
+              <li>Punto de equilibrio en número de unidades</li>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+              </Card>
+              <li>Punto de equilibrio en ingresos; es decir, la cantidad de dinero que se recibe por concepto de ventas: </li>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src="holder.js/100px180" />
+              </Card>
+            </ol>
+            <p>Entonces, el punto de equilibrio se alcanza al vender 1,500 hamburguesas recibiendo por esa venta $52,500 pesos </p>
+            <p>Conclusión: Al vender 1,500 hamburguesas solamente estaríamos recuperando el costo total pero no estaríamos ganando, comprobémoslo: </p>
           </div>
+
         <h4 id="subindice2">Punto de equilibrio con un producto con utilidad</h4>
           <div>
             <p></p>
@@ -80,7 +98,7 @@ const Tabla1 = () => {
         <Table striped bordered hover size="sm smallFont">
             <thead>
               <tr>
-                <th>Costos Fijos Mensuales</th>
+                <th colSpan={2}>Costos Fijos Mensuales</th>
               </tr>
             </thead>
             <tbody>
@@ -113,44 +131,66 @@ const Tabla2 = () => {
         <Table striped bordered hover size="sm smallFont">
             <thead>
             <tr>
-                <th>Hamburguesa sencilla</th>
+                <th colSpan={3}>Hamburguesa sencilla</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th>Precio de venta unitario (P)</th>
-                <th>$ 35.00</th>
-            </tr>
-            <tr>
-                <th>Costo variable unitario (CVU) </th>
-                <th>$ 15.00</th>
-            </tr>
-            <tr>
-                <th>Carne</th>
-                <th>$ 7.00</th>
-                <th></th>
-            </tr>
-            <tr>
-                <th>Pan</th>
-                <th>$ 4.00</th>
-                <th></th>
-            </tr>
-            <tr>
-                <th>Gas</th>
-                <th>$ 2.00</th>
-                <th></th>
-            </tr>
-            <tr>
-                <th>Varios</th>
-                <th>$ 2.00</th>
-                <th></th>
-            </tr>
-            <tr>
-                <th>Margen de contribución unitario (MCU) </th>
-                <th>$ 20.00</th>
-            </tr>
+              <tr>
+                  <th colSpan={2}>Precio de venta unitario (P)</th>
+                  <th>$ 35.00</th>
+              </tr>
+              <tr>
+                  <th colSpan={2}>Costo variable unitario (CVU) </th>
+                  <th>$ 15.00</th>
+              </tr>
+              <tr >
+                  <th className="alinearDerecha">Carne</th>
+                  <th>$ 7.00</th>
+                  <th></th>
+              </tr>
+              <tr>
+                  <th className="alinearDerecha">Pan</th>
+                  <th>$ 4.00</th>
+                  <th></th>
+              </tr>
+              <tr>
+                  <th className="alinearDerecha">Gas</th>
+                  <th>$ 2.00</th>
+                  <th></th>
+              </tr>
+              <tr>
+                  <th className="alinearDerecha">Varios</th>
+                  <th>$ 2.00</th>
+                  <th></th>
+              </tr>
+              <tr>
+                  <th colSpan={2}>Margen de contribución unitario (MCU) </th>
+                  <th>$ 20.00</th>
+              </tr>
             </tbody>
         </Table>
     );
+};
+
+const Tabla3 = () => {
+  return (
+      <Table striped bordered hover size="sm smallFont">
+          <thead>
+          <tr>
+              <th colSpan={2}>Punto de equilibrio para un producto sin utilidad</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <th>Punto de equilibrio en número de unidades </th>
+                <th>FORMULA Y VARIABLES</th>
+            </tr>
+            <tr>
+                <th>Punto de equilibrio expresado en cantidad de dinero (pesos) </th>
+                <th>FORMULA Y VARIABLES</th>
+            </tr>
+          </tbody>
+      </Table>
+  );
 };
 export default PuntoEquilibrio;

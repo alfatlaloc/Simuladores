@@ -44,7 +44,7 @@ const NavBar = () => {
               id="navBarDropdown"
             >
               <NavLink className="dropdownItem" to="/unaempresa">
-                Una empresa
+                Un producto
               </NavLink>
 
               <NavDropdown.Divider />

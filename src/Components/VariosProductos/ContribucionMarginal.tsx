@@ -27,9 +27,18 @@ const ContribucionMarginal: React.FC<props> = ({
 
   const pieChartM = () => {
     let finalArr = [];
-    finalArr.push(["Producto", "Proporcion"]);
+    finalArr.push([
+      "Producto",
+      "Proporcion",
+      { role: "tooltip", type: "string", p: { html: true } },
+    ]);
     productos.map((prd, index) => {
-      finalArr.push([prd.nombre, ((PE * contMarginalPon[index]))]);
+      let ingreso = PE * proporciones[index] / 100 * prd.precio;
+      finalArr.push([
+        prd.nombre,
+        ingreso,
+        `${prd.nombre}: $ ${ingreso.toFixed(2)}`
+      ]);
     });
     return finalArr;
   };
@@ -55,7 +64,7 @@ const ContribucionMarginal: React.FC<props> = ({
   }, []);
 
   return (
-    <div>
+    <div className="">
       <h5>Contribucion Marginal</h5>
       <Table className="tablaEmpresas" striped bordered hover>
         <thead>
@@ -70,13 +79,13 @@ const ContribucionMarginal: React.FC<props> = ({
           <tr>
             <td className="tdTitulo">Contribución Marginal</td>
             {contMarginal.map((cont) => (
-              <td>$ {cont}</td>
+              <td>$ {cont.toFixed(2)}</td>
             ))}
           </tr>
           <tr>
             <td className="tdTitulo">Contribución Marginal Ponderada</td>
             {contMarginalPon.map((cont) => (
-              <td>{cont} %</td>
+              <td>{cont.toFixed(2)} %</td>
             ))}
           </tr>
           <tr>
@@ -89,22 +98,36 @@ const ContribucionMarginal: React.FC<props> = ({
       </Table>
 
       <br />
-      <h5>Punto de equilibrio unidades mezcladas</h5>
-      <p>{PE}</p>
+      <h5>
+        Punto de equilibrio unidades mezcladas: <strong>{PE.toFixed(4)}</strong>
+      </h5>
 
-      {productos.map((prd, index) => {
-        return <p>{`${prd.nombre}: ${(PE * proporciones[index]) / 100}`}</p>;
-      })}
+      <ul className="listaElementos">
+        {productos.map((prd, index) => {
+          let porcentaje = (PE * proporciones[index]) / 100;
+          return (
+            <li>
+              <strong>{prd.nombre}</strong>
+              <ul>
+                <li>% participación: {`${porcentaje.toFixed(2)}`}</li>
+                <li>Ingreso: {(porcentaje * prd.precio).toFixed(2)}</li>
+                <li>CVU: {(porcentaje * prd.costosTotales()).toFixed(2)}</li>
+              </ul>
+            </li>
+          );
+        })}
+      </ul>
 
+      <br />
+      <h5>Proporción en los Ingresos Totales</h5>
       <Chart
-        width={"100vh"}
-        height={"300px"}
+        width={"100vw"}
+        height={"500px"}
         chartType="PieChart"
         loader={<div>Loading Chart</div>}
         data={pieChartM()}
         options={{
-          title: "Proporcion unidades",
-          is3D:true,
+          is3D: true,
         }}
         rootProps={{ "data-testid": "1" }}
       />
