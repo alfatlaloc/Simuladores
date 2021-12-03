@@ -34,16 +34,14 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
   useEffect(() => {
     if (inicial === unidades.length - 1) return;
     if (inicial === 0)
-      for (let i = 0; i < unidades.length -1; i++)
+      for (let i = 0; i < unidades.length - 1; i++)
         if (unidades[i] > puntoEquilibrioUnidades) {
           setInicial(i);
-
           setFinal(unidades.length - 1);
-          console.log(final);
         }
 
     return;
-  }, [inicial, puntoEquilibrioUnidades, unidades]);
+  }, [inicial, final, puntoEquilibrioUnidades, unidades]);
 
   const validacion = () => {
     for (let i = 0; i < unidades.length; i++)
@@ -87,7 +85,7 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
                     unidad > puntoEquilibrioUnidades &&
                     index !== unidades.length - 1
                   )
-                    return <option value={index}>{unidad}</option>;
+                    return <option key={index} value={index}>{unidad}</option>;
                   return null;
                 })}
               </Form.Select>
@@ -107,7 +105,7 @@ const GradoApalancamientoOperativo: React.FC<props> = ({
               >
                 {unidades.map((unidad, index) => {
                   if (index > inicial)
-                    return <option value={index}>{unidad}</option>;
+                    return <option key={`S-${index}`} value={index}>{unidad}</option>;
                   return null;
                 })}
               </Form.Select>

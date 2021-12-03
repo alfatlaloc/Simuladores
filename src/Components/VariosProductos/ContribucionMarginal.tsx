@@ -24,7 +24,7 @@ const ContribucionMarginal: React.FC<props> = ({
   contMarginal,
   setContMarginal,
   CMPP,
-  setCMPP
+  setCMPP,
 }) => {
   const [PE, setPE] = useState<number>(0);
 
@@ -35,7 +35,7 @@ const ContribucionMarginal: React.FC<props> = ({
       "Proporcion",
       { role: "tooltip", type: "string", p: { html: true } },
     ]);
-    productos.map((prd, index) => {
+    productos.forEach((prd, index) => {
       let ingreso = ((PE * proporciones[index]) / 100) * prd.precio;
       finalArr.push([
         prd.nombre,
@@ -63,7 +63,7 @@ const ContribucionMarginal: React.FC<props> = ({
       return contribucionMarginal * (proporciones[index] / 100);
     });
     setContMarginalPon(auxCMP);
-  },[]);
+  }, []);
 
   return (
     <div className="">
@@ -73,7 +73,7 @@ const ContribucionMarginal: React.FC<props> = ({
           <tr>
             <th className="tdTitulo">Producto</th>
             {productos.map((prd) => {
-              return <th>{prd.nombre}</th>;
+              return <th key={prd.nombre}>{prd.nombre}</th>;
             })}
           </tr>
         </thead>
@@ -81,13 +81,13 @@ const ContribucionMarginal: React.FC<props> = ({
           <tr>
             <td className="tdTitulo">Contribución Marginal</td>
             {contMarginal.map((cont) => (
-              <td>$ {cont.toFixed(2)}</td>
+              <td key={cont}>$ {cont.toFixed(2)}</td>
             ))}
           </tr>
           <tr>
             <td className="tdTitulo">Contribución Marginal Ponderada</td>
             {contMarginalPon.map((cont) => (
-              <td>$ {cont.toFixed(2)}</td>
+              <td key={cont}>$ {cont.toFixed(2)}</td>
             ))}
           </tr>
           <tr>
@@ -117,7 +117,7 @@ const ContribucionMarginal: React.FC<props> = ({
           {productos.map((prd, index) => {
             let unidadesTotales = (PE * proporciones[index]) / 100;
             return (
-              <tr>
+              <tr key={prd.nombre + "-2"}>
                 <td>
                   <strong>{prd.nombre}</strong>
                 </td>

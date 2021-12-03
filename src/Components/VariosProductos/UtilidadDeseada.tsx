@@ -16,7 +16,6 @@ const UtilidadDeseada: React.FC<props> = ({
   productos,
   proporciones,
 }) => {
-  let totalPrecio = 0;
   const [utilidadD, setUtilidadD] = useState<string>("0");
   const [PEU, setPEU] = useState<number>(0);
   const [unidades, setUnidades] = useState<number[]>([]);
@@ -33,7 +32,7 @@ const UtilidadDeseada: React.FC<props> = ({
     });
     setUnidades(auxUnidades);
     setPEU(auxPEU);
-  }, [utilidadD]);
+  }, [utilidadD, empresa, proporciones, CMPP]);
 
   if (unidades.length > 0)
     return (
@@ -68,7 +67,7 @@ const UtilidadDeseada: React.FC<props> = ({
           <tbody>
             {productos.map((prd, index) => {
               return (
-                <tr>
+                <tr key={prd.nombre}>
                   <td>{prd.nombre}</td>
                   <td>{unidades[index].toFixed(2)}</td>
                   <td>$ {(unidades[index] * prd.precio).toFixed(2)}</td>
@@ -84,19 +83,26 @@ const UtilidadDeseada: React.FC<props> = ({
               <td>{unidades.reduce((prev, current) => prev + current)}</td>
 
               <td>
-              $ {unidades.reduce(
-                  (partial_sum, element, index) => partial_sum + (element * productos[index].precio), 0)
-                  .toFixed(2)
-                }
+                ${" "}
+                {unidades
+                  .reduce(
+                    (partial_sum, element, index) =>
+                      partial_sum + element * productos[index].precio,
+                    0
+                  )
+                  .toFixed(2)}
               </td>
 
               <td>
-              $ {unidades.reduce(
-                  (partial_sum, element, index) => partial_sum + (element * productos[index].costosTotales()), 0)
-                .toFixed(2)
-                }
+                ${" "}
+                {unidades
+                  .reduce(
+                    (partial_sum, element, index) =>
+                      partial_sum + element * productos[index].costosTotales(),
+                    0
+                  )
+                  .toFixed(2)}
               </td>
-              
             </tr>
           </tbody>
         </Table>

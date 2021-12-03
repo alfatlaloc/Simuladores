@@ -34,7 +34,7 @@ const NavBar = () => {
               Manual de usuario
             </NavLink>
 
-            <NavLink to="/simulador" className="navBarItem">
+            <NavLink to="/simulador" className="navBarItem ms-2">
               Gestor empresas
             </NavLink>
 

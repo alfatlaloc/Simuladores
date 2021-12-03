@@ -54,40 +54,41 @@ const ProporcionProduccion: React.FC<props> = ({
     });
     setAuxProporciones(auxArrS);
     setProporciones(auxArr);
-  }, [productos, setProporciones]);
+  }, [productos, setProporciones, proporciones.length]);
 
   if (productos.length < 1) return <h4>Aun no se selecciona productos</h4>;
-  return (
-    <div className="stepCard">
-      <h5>Elige los porcentajes de cada producto</h5>
+  if (auxProporciones.length > 0)
+    return (
+      <div className="stepCard">
+        <h5>Elige los porcentajes de cada producto</h5>
 
-      {JSON.stringify(proporciones)}
-      {productos.map((prd, index) => {
-        return (
-          <Form>
-            <Form.Group className="mb-3 inputPorcentajes mx-auto">
-              <Form.Label key={prd.nombre} className="m-2">
-                {prd.nombre}:
-              </Form.Label>
-              <Form.Control
-                type="text"
-                value={auxProporciones[index]}
-                placeholder="0.0%"
-                onChange={(e) => {
-                  agregarProporcion(e as any, index);
-                }}
-              />
-            </Form.Group>
-          </Form>
-        );
-      })}
-      <InformacionProporciones
-        costosFijos={empresa.costoFijoTotal()}
-        proporciones={proporciones}
-        productos={productos}
-      />
-    </div>
-  );
+        {JSON.stringify(proporciones)}
+        {productos.map((prd, index) => {
+          return (
+            <Form key={prd.nombre}>
+              <Form.Group className="mb-3 inputPorcentajes mx-auto">
+                <Form.Label className="m-2">{prd.nombre}:</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={auxProporciones[index]}
+                  placeholder="0.0%"
+                  onChange={(e) => {
+                    agregarProporcion(e as any, index);
+                  }}
+                />
+              </Form.Group>
+            </Form>
+          );
+        })}
+        <InformacionProporciones
+          costosFijos={empresa.costoFijoTotal()}
+          proporciones={proporciones}
+          productos={productos}
+        />
+      </div>
+    );
+
+  return null;
 };
 
 export default ProporcionProduccion;

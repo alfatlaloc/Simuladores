@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Table } from "react-bootstrap";
 import { Producto } from "../../Classes/Empresa";
 
@@ -13,28 +12,29 @@ const InformacionProporciones: React.FC<props> = ({
   proporciones,
   costosFijos,
 }) => {
-
   return (
     <Table className="tablaEmpresas" striped bordered hover>
       <thead>
         <tr>
           <th className="tdTitulo">Producto</th>
           {productos.map((prd) => {
-            return <th>{prd.nombre}</th>;
+            return <th key={prd.nombre}>{prd.nombre}</th>;
           })}
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td className="tdTitulo">Precio de venta</td>
+          <td key="tit" className="tdTitulo">
+            Precio de venta
+          </td>
           {productos.map((prd) => {
-            return <td>{prd.precio}</td>;
+            return <td key={`${prd.nombre}-${prd.precio}`}>{prd.precio}</td>;
           })}
         </tr>
         <tr>
           <td className="tdTitulo">Proporción de Producción</td>
-          {proporciones.map((pro) => {
-            return <td>{pro} %</td>;
+          {proporciones.map((pro, index) => {
+            return <td key={`${pro}-${index}`}>{pro} %</td>;
           })}
         </tr>
         <tr>

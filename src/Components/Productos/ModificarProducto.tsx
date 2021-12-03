@@ -7,7 +7,7 @@ import { actualizarEmpresa } from "../../Redux/Reducers/actions";
 import { EmpresaState } from "../../Redux/types";
 import Empresa, { Costo, Producto } from "../Classes/Empresa";
 import BotonRegresar from "../Common/BotonRegresar";
-import { numerosEnteros, numerosFlotantes } from "../Common/Validaciones";
+import { numerosFlotantesConCero } from "../Common/Validaciones";
 import ModificarNombreProducto from "./ModificarNombreProducto";
 import ModificarPrecioProducto from "./ModificarPrecioProducto";
 
@@ -22,7 +22,7 @@ const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
   const dispatch = useDispatch();
 
   const agregarCV = () => {
-    if (valor === "" || nombre === "") return;
+    if (valor === "" || nombre === "" || valor === "0") return;
 
     producto.agregarCosto(new Costo(nombre, Number.parseFloat(valor)));
     empresa.actualizarCostosVariablesProducto(producto);
@@ -32,7 +32,7 @@ const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
   };
 
   return (
-    <Form    >
+    <Form>
       <Form.Group
         className="mb-3 justify-content-center"
         controlId="formBasicEmail"
@@ -67,9 +67,7 @@ const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
           value={valor}
           onChange={(e) => {
             const nuevoValor = e.currentTarget.value;
-
-            if (numerosFlotantes(nuevoValor))
-              if (Number.parseFloat(nuevoValor) > 0) setValor(nuevoValor);
+            if (numerosFlotantesConCero(nuevoValor)) setValor(nuevoValor);
           }}
         />
       </Form.Group>

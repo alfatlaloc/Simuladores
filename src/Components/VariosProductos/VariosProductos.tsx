@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Form, Button } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 import { EmpresaState } from "../../Redux/types";
 import Empresa, { Producto } from "../Classes/Empresa";
@@ -27,12 +27,12 @@ const VariosProductos = () => {
   useEffect(() => {
     if (!empresa) setEmpresa(empresas[0]);
     setProductos([]);
-  }, [empresa]);
+  }, [empresa, empresas]);
 
   if (!empresa)
     return (
-      <div>
-        <h2>Aun no se agregan empresas</h2>;
+      <div className="pagina">
+        <h2>Aun no se agregan empresas</h2>
       </div>
     );
 

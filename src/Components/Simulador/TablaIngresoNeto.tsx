@@ -35,7 +35,6 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
 
   const calcularPuntoEquilibrio = useCallback(() => {
     let { pesos, unidades } = puntoEquilibrio;
-    console.log(producto.costosTotales());
     unidades =
       empresa.costoFijoTotal() / (producto.precio - producto.costosTotales());
     pesos =
@@ -208,7 +207,11 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
                 <th className="celdaSticky">Unidades</th>
                 {arrayUnidades.map((numero) => {
                   if (numero === puntoEquilibrio.unidades)
-                    return <th className="peUnidades">{numero.toFixed(2)}</th>;
+                    return (
+                      <th key={numero} className="peUnidades">
+                        {numero.toFixed(2)}
+                      </th>
+                    );
                   return <th key={numero}>{numero}</th>;
                 })}
               </tr>
@@ -217,14 +220,14 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
               <tr>
                 <td className="tdTitulo celdaSticky">Ingreso/Ventas</td>
                 {ingresoVentas.map((ingreso) => {
-                  return <td>{ingreso.toFixed(2)}</td>;
+                  return <td key={ingreso}>{ingreso.toFixed(2)}</td>;
                 })}
               </tr>
               <tr>
                 <td className="tdTitulo celdaSticky">Costo Variable</td>
                 {arrayUnidades?.map((numero) => {
                   let costoVariable = numero * producto.costosTotales();
-                  return <td>{costoVariable.toFixed(2)}</td>;
+                  return <td key={numero}>{costoVariable.toFixed(2)}</td>;
                 })}
               </tr>
               <tr>
@@ -233,19 +236,23 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
                   let contribucion =
                     numero * producto.precio -
                     numero * producto.costosTotales();
-                  return <td>{contribucion.toFixed(2)}</td>;
+                  return <td key={numero}>{contribucion.toFixed(2)}</td>;
                 })}
               </tr>
               <tr>
                 <td className="tdTitulo celdaSticky">Costos fijos</td>
                 {arrayUnidades?.map((numero) => {
-                  return <td>{empresa.costoFijoTotal().toFixed(2)}</td>;
+                  return (
+                    <td key={`ct-${numero}`}>
+                      {empresa.costoFijoTotal().toFixed(2)}
+                    </td>
+                  );
                 })}
               </tr>
               <tr>
                 <td className="tdTitulo celdaSticky">Utilidad</td>
                 {utilidad?.map((utilidad) => {
-                  return <td>{utilidad.toFixed(2)}</td>;
+                  return <td key={utilidad}>{utilidad.toFixed(2)}</td>;
                 })}
               </tr>
             </tbody>
@@ -272,7 +279,13 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
               <strong>Costos Variables</strong>
             </td>
             <td>
-              <Table borderless className="no-margin" hover responsive size="sm">
+              <Table
+                borderless
+                className="no-margin"
+                hover
+                responsive
+                size="sm"
+              >
                 <tbody>
                   <tr className="tdTitulo">
                     <td className="tablaCostosVar">Nombre del costo</td>

@@ -15,7 +15,6 @@ const GraficaPuntoEquilibrio: React.FC<props> = ({
   costosVariablesTotales,
   costosFijos,
   puntoEquilibrioUnidades,
-  puntoEquilibrioPesos,
 }) => {
   const acomodarDatos = () => {
     const cabeceras = [
@@ -52,7 +51,7 @@ const GraficaPuntoEquilibrio: React.FC<props> = ({
   return (
     <Chart
       width={"100%"}
-      height={"100vh"}
+      className="minH100vh"
       chartType="LineChart"
       loader={<div>Loading Chart</div>}
       data={acomodarDatos()}

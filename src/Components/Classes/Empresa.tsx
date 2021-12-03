@@ -131,8 +131,4 @@ class Empresa {
   }
 }
 
-class Airline extends Empresa{
-  
-}
-
 export default Empresa;
