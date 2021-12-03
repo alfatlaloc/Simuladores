@@ -55,7 +55,7 @@ const TablaEvaluacion = () => {
 const Carrusel = () => {
   const history = useHistory();
   return (
-    <Carousel variant="dark">
+    <Carousel variant="dark" wrap fade>
       <Carousel.Item>
         <img
           className="d-block w-100 imgC"
@@ -79,7 +79,6 @@ const Carrusel = () => {
           <p>{Texto.bienvenida}</p>
         </Carousel.Caption>
       </Carousel.Item>
-
       <Carousel.Item>
         <img className="d-block w-100 imgC" src={whiteBack} alt="Third slide" />
 
@@ -121,78 +120,80 @@ const Home = () => {
   const history = useHistory();
   return (
     <Container className="pagina" fluid>
+
       <Carrusel />
 
-      <Card className="text-center tarjeta">
-        <Card.Header className="cardHeader">Punto de equilibrio</Card.Header>
-        <Card.Body>
-          <Card.Text>
-            Teoria sobre el punto de equilibrio.
-            <br/>
-            <br/>
-          </Card.Text>
-          <Button
-            className="buttonPrimary m-2"
-            onClick={() => {
-              history.push("teoriaPuntoEq");
-            }}
-          >
-            <ImEnter />
-          </Button>
-        </Card.Body>
-      </Card>
+      <div className="tarjetas">
+        <Card className="text-center tarjeta">
+          <Card.Header className="cardHeader">Punto de equilibrio</Card.Header>
+          <Card.Body>
+            <Card.Text className="textoTrjetas">
+              Teoria sobre el punto de equilibrio.
+            </Card.Text>
+            <Button
+                className="buttonPrimary m-2"
+                onClick={() => {
+                  history.push("teoriaPuntoEq");
+                }}
+            >
+              <ImEnter />
+            </Button>
+          </Card.Body>
+        </Card>
 
-      <Card className="text-center tarjeta">
-        <Card.Header className="cardHeader">Glosario</Card.Header>
-        <Card.Body>
-          <Card.Text>
-          Significados de términos que se consideran importantes para el aprendizaje del tema.
-          </Card.Text>
-          <Button
-            className="buttonPrimary m-2"
-            onClick={() => {
-              history.push("glosario");
-            }}
-          >
-            <ImEnter />
-          </Button>
-        </Card.Body>
-      </Card>
+        <Card className="text-center tarjeta">
+          <Card.Header className="cardHeader">Glosario</Card.Header>
+          <Card.Body>
+            <Card.Text className="textoTrjetas">
+              Significados de términos que se consideran importantes para el aprendizaje del tema.
+            </Card.Text>
+            <Button
+                className="buttonPrimary m-2"
+                onClick={() => {
+                  history.push("glosario");
+                }}
+            >
+              <ImEnter />
+            </Button>
+          </Card.Body>
+        </Card>
 
-      <Card className="text-center tarjeta">
-        <Card.Header className="cardHeader">
-          Actividades de aprendizaje
-        </Card.Header>
-        <Card.Body>
-          <Card.Text>
-            Definición de las actividades de aprendizaje que tienen valor para la evaluación.
-          </Card.Text>
-          <Button
-            className="buttonPrimary m-2"
-            onClick={() => {
-              history.push("actividadesA");
-            }}
-          >
-            <ImEnter />
-          </Button>
-        </Card.Body>
-      </Card>
-      <Card className="text-center tarjeta">
-        <Card.Header className="cardHeader">Referencias</Card.Header>
-        <Card.Body>
-          <Card.Text>
-            Fuentes de consulta utilizadas como base para el desarrollo de los temas.
-          </Card.Text>
-          <Button
-            className="buttonPrimary m-2"
-            onClick={() => {
-              history.push("referencias");
-            }}
-          >
-            <ImEnter />
-          </Button>
-        </Card.Body>
-      </Card>
+        <Card className="text-center tarjeta">
+          <Card.Header className="cardHeader">
+            Actividades de aprendizaje
+          </Card.Header>
+          <Card.Body>
+            <Card.Text className="textoTrjetas">
+              Definición de las actividades de aprendizaje que tienen valor para la evaluación.
+            </Card.Text>
+            <Button
+                className="buttonPrimary m-2"
+                onClick={() => {
+                  history.push("actividadesA");
+                }}
+            >
+              <ImEnter />
+            </Button>
+          </Card.Body>
+        </Card>
+
+        <Card className="text-center tarjeta">
+          <Card.Header className="cardHeader">Referencias</Card.Header>
+          <Card.Body>
+            <Card.Text className="textoTrjetas">
+              Fuentes de consulta utilizadas como base para el desarrollo de los temas.
+            </Card.Text>
+            <Button
+                className="buttonPrimary m-2"
+                onClick={() => {
+                  history.push("referencias");
+                }}
+            >
+              <ImEnter />
+            </Button>
+          </Card.Body>
+        </Card>
+      </div>
     </Container>
   );
 };
