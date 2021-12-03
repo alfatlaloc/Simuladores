@@ -61,6 +61,8 @@ export class Producto {
   }
 }
 
+
+
 class Empresa {
   public nombre: string;
   public productos: Producto[];
@@ -127,6 +129,10 @@ class Empresa {
       (producto) => producto.nombre === nombreProducto
     ) as Producto;
   }
+}
+
+class Airline extends Empresa{
+  
 }
 
 export default Empresa;

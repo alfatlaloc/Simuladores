@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import Empresa, { Producto } from "../../Classes/Empresa";
-import {
-  numerosEnterosConCero,
-  numerosFlotantes,
-  numerosFlotantesConCero,
-} from "../../Common/Validaciones";
+import { numerosFlotantesConCero } from "../../Common/Validaciones";
 import InformacionProporciones from "./InformacionProporciones";
 
 interface props {

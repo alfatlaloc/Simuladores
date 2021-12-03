@@ -11,6 +11,8 @@ interface props {
   setContMarginalPon: (num: number[]) => void;
   contMarginal: number[];
   setContMarginal: (num: number[]) => void;
+  CMPP: number;
+  setCMPP: (num: number) => void;
 }
 
 const ContribucionMarginal: React.FC<props> = ({
@@ -21,8 +23,9 @@ const ContribucionMarginal: React.FC<props> = ({
   setContMarginalPon,
   contMarginal,
   setContMarginal,
+  CMPP,
+  setCMPP
 }) => {
-  const [CMPP, setCMPP] = useState<number>(0);
   const [PE, setPE] = useState<number>(0);
 
   const pieChartM = () => {
@@ -33,18 +36,17 @@ const ContribucionMarginal: React.FC<props> = ({
       { role: "tooltip", type: "string", p: { html: true } },
     ]);
     productos.map((prd, index) => {
-      let ingreso = PE * proporciones[index] / 100 * prd.precio;
+      let ingreso = ((PE * proporciones[index]) / 100) * prd.precio;
       finalArr.push([
         prd.nombre,
         ingreso,
-        `${prd.nombre}: $ ${ingreso.toFixed(2)}`
+        `${prd.nombre}: $ ${ingreso.toFixed(2)}`,
       ]);
     });
     return finalArr;
   };
 
   useEffect(() => {
-    if (CMPP !== 0) return;
     let value: number = 0;
     productos.forEach((prd, index) => {
       let contribucionMarginal = prd.precio - prd.costosTotales();
@@ -61,7 +63,7 @@ const ContribucionMarginal: React.FC<props> = ({
       return contribucionMarginal * (proporciones[index] / 100);
     });
     setContMarginalPon(auxCMP);
-  }, []);
+  },[]);
 
   return (
     <div className="">
@@ -85,43 +87,53 @@ const ContribucionMarginal: React.FC<props> = ({
           <tr>
             <td className="tdTitulo">Contribución Marginal Ponderada</td>
             {contMarginalPon.map((cont) => (
-              <td>{cont.toFixed(2)} %</td>
+              <td>$ {cont.toFixed(2)}</td>
             ))}
           </tr>
           <tr>
             <td className="tdTitulo">
               Contribución Marginal Ponderada Promedio
             </td>
-            <td colSpan={productos.length}>{CMPP}</td>
+            <td colSpan={productos.length}>$ {CMPP.toFixed(2)}</td>
           </tr>
         </tbody>
       </Table>
 
       <br />
       <h5>
-        Punto de equilibrio unidades mezcladas: <strong>{PE.toFixed(4)}</strong>
+        Punto de equilibrio unidades mezcladas: <strong>{PE.toFixed(2)}</strong>
       </h5>
 
-      <ul className="listaElementos">
-        {productos.map((prd, index) => {
-          let porcentaje = (PE * proporciones[index]) / 100;
-          return (
-            <li>
-              <strong>{prd.nombre}</strong>
-              <ul>
-                <li>% participación: {`${porcentaje.toFixed(2)}`}</li>
-                <li>Ingreso: {(porcentaje * prd.precio).toFixed(2)}</li>
-                <li>CVU: {(porcentaje * prd.costosTotales()).toFixed(2)}</li>
-              </ul>
-            </li>
-          );
-        })}
-      </ul>
+      <Table className="tablaEmpresas" bordered striped hover size="sm">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Unidades totales</th>
+            <th>Ingreso</th>
+            <th>CVU</th>
+          </tr>
+        </thead>
+        <tbody>
+          {productos.map((prd, index) => {
+            let unidadesTotales = (PE * proporciones[index]) / 100;
+            return (
+              <tr>
+                <td>
+                  <strong>{prd.nombre}</strong>
+                </td>
+                <td>{`${unidadesTotales.toFixed(2)}`}</td>
+                <td>$ {(unidadesTotales * prd.precio).toFixed(2)}</td>
+                <td>$ {(unidadesTotales * prd.costosTotales()).toFixed(2)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </Table>
 
       <br />
       <h5>Proporción en los Ingresos Totales</h5>
       <Chart
-        width={"100vw"}
+        width={"auto"}
         height={"500px"}
         chartType="PieChart"
         loader={<div>Loading Chart</div>}

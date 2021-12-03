@@ -14,7 +14,7 @@ const VariosProductos = () => {
   const [proporciones, setProporciones] = useState<number[]>([]);
   const [contMarginal, setContMarginal] = useState<number[]>([]);
   const [contMarginalPon, setContMarginalPon] = useState<number[]>([]);
-
+  const [CMPP, setCMPP] = useState<number>(0);
   const hanldeChange = (e: React.FormEvent<HTMLSelectElement>) => {
     const empresaChange = empresas.find(
       (emp) => emp.nombre === e.currentTarget.value
@@ -68,7 +68,8 @@ const VariosProductos = () => {
         setContMarginal={setContMarginal}
         setContMarginalPon={setContMarginalPon}
         contMarginalPon={contMarginalPon}
-        
+        CMPP={CMPP}
+        setCMPP={setCMPP}
       />
     </div>
   );

@@ -3,7 +3,7 @@ import Empresa, { Producto } from "../Classes/Empresa";
 import ProporcionProduccion from "./Proporciones/ProporcionProduccion";
 import ProductoCheckBox from "./ProductoCheckBox";
 import ContribucionMarginal from "./ContribucionMarginal";
-import PuntoEquilibrioMezclado from "./PuntoEquilibrioMezclado";
+import UtilidadDeseada from "./UtilidadDeseada";
 import TablaResultados from "./TablaResultados";
 import { Button, ButtonGroup } from "react-bootstrap";
 import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from "react-icons/bs";
@@ -18,6 +18,8 @@ interface props {
   setContMarginalPon: (num: number[]) => void;
   contMarginal: number[];
   setContMarginal: (num: number[]) => void;
+  CMPP: number;
+  setCMPP: (num: number) => void;
 }
 
 const Stepper: React.FC<props> = ({
@@ -30,6 +32,8 @@ const Stepper: React.FC<props> = ({
   setContMarginalPon,
   contMarginal,
   setContMarginal,
+  CMPP,
+  setCMPP,
 }) => {
   const [step, setStep] = useState<number>(1);
 
@@ -84,12 +88,21 @@ const Stepper: React.FC<props> = ({
               setContMarginalPon={setContMarginalPon}
               contMarginal={contMarginal}
               setContMarginal={setContMarginal}
+              CMPP={CMPP}
+              setCMPP={setCMPP}
             />
           );
         break;
 
       case 4:
-        return <PuntoEquilibrioMezclado />;
+        return (
+          <UtilidadDeseada
+            productos={productos}
+            proporciones={proporciones}
+            CMPP={CMPP}
+            empresa={empresa}
+          />
+        );
 
       case 5:
         return <TablaResultados />;
