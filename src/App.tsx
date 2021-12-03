@@ -15,6 +15,11 @@ import Metodologia from "./Components/HomeFiles/Metodologia";
 import ActividadesAprendizaje from "./Components/HomeFiles/actividadesAprendizaje";
 import Referencias from "./Components/HomeFiles/referencias";
 import PuntoEquilibrio from "./Components/HomeFiles/puntoEquilibrio";
+import PuntoEquilibrioOperacional from "./Components/HomeFiles/indicePuntoEquilibrio/1PuntoDeEquilibrioOperacional";
+import PuntoEquilibrioOperacional1Producto
+  from "./Components/HomeFiles/indicePuntoEquilibrio/1PuntoDeEquilibrioOperacional1Prod";
+import PuntoEquilibrioOperacionalMultiplesProductos
+  from "./Components/HomeFiles/indicePuntoEquilibrio/1PuntoDeEquilibrioOperacionalMultProd";
 
 function App() {
   return (
@@ -28,6 +33,9 @@ function App() {
             <Route path="/glosario" component={Glosario} />
             <Route path="/actividadesA" component={ActividadesAprendizaje} />
             <Route path="/teoriaPuntoEq" component={PuntoEquilibrio} />
+                <Route path="/teoriaPuntoEq-1" component={PuntoEquilibrioOperacional} />
+                <Route path="/teoriaPuntoEq-1-1" component={PuntoEquilibrioOperacional1Producto} />
+                <Route path="/teoriaPuntoEq-1-2" component={PuntoEquilibrioOperacionalMultiplesProductos} />
             <Route path="/referencias" component={Referencias} />
 
             <Route path="/simulador" component={Simulador} />
