@@ -38,7 +38,7 @@ const UtilidadDeseada: React.FC<props> = ({
     return (
       <div className="pagina">
         <h4>Utilidad deseada</h4>
-        <Form>
+        <Form onSubmit={(e) => e.preventDefault()}>
           <Form.Group className="mb-3 inputPorcentajes mx-auto">
             <Form.Label className="m-2">Utilidad</Form.Label>
             <Form.Control

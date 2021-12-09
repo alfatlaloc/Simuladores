@@ -58,7 +58,7 @@ const Stepper: React.FC<props> = ({
         );
 
       case 2:
-        if (productos.length > 0)
+        if (productos.length > 1)
           return (
             <ProporcionProduccion
               productos={productos}

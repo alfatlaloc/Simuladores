@@ -64,16 +64,14 @@ const Carrusel = () => {
         />
 
         <Carousel.Caption className="carrusel">
-          <h3>Introducción</h3>
-          <p>{Texto.introduccion}</p>
+          <div className="scrollText">
+            <h3>Introducción</h3>
+            <p>{Texto.introduccion}</p>
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className="d-block w-100 imgC"
-          src={whiteBack}
-          alt="First slide"
-        />
+        <img className="d-block w-100 imgC" src={whiteBack} alt="First slide" />
         <Carousel.Caption className="carrusel">
           <h3>Bienvenida</h3>
           <p>{Texto.bienvenida}</p>
@@ -108,9 +106,11 @@ const Carrusel = () => {
         <img className="d-block w-100 imgC" src={whiteBack} alt="Third slide" />
 
         <Carousel.Caption className="carrusel">
-          <h4>Evaluación</h4>
-          La evaluación de los aprendizajes se llevará a cabo como se muestra en
-          la siguiente tabla: <TablaEvaluacion />
+          <div className="scrollText">
+            <h4>Evaluación</h4>
+            La evaluación de los aprendizajes se llevará a cabo como se muestra
+            en la siguiente tabla: <TablaEvaluacion />
+          </div>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
@@ -120,7 +120,6 @@ const Home = () => {
   const history = useHistory();
   return (
     <Container className="pagina" fluid>
-
       <Carrusel />
 
       <div className="tarjetas">
@@ -131,10 +130,10 @@ const Home = () => {
               Teoria sobre el punto de equilibrio.
             </Card.Text>
             <Button
-                className="buttonPrimary m-2"
-                onClick={() => {
-                  history.push("teoriaPuntoEq");
-                }}
+              className="buttonPrimary m-2"
+              onClick={() => {
+                history.push("teoriaPuntoEq");
+              }}
             >
               <ImEnter />
             </Button>
@@ -145,13 +144,14 @@ const Home = () => {
           <Card.Header className="cardHeader">Glosario</Card.Header>
           <Card.Body>
             <Card.Text className="textoTrjetas">
-              Significados de términos que se consideran importantes para el aprendizaje del tema.
+              Significados de términos que se consideran importantes para el
+              aprendizaje del tema.
             </Card.Text>
             <Button
-                className="buttonPrimary m-2"
-                onClick={() => {
-                  history.push("glosario");
-                }}
+              className="buttonPrimary m-2"
+              onClick={() => {
+                history.push("glosario");
+              }}
             >
               <ImEnter />
             </Button>
@@ -164,13 +164,14 @@ const Home = () => {
           </Card.Header>
           <Card.Body>
             <Card.Text className="textoTrjetas">
-              Definición de las actividades de aprendizaje que tienen valor para la evaluación.
+              Definición de las actividades de aprendizaje que tienen valor para
+              la evaluación.
             </Card.Text>
             <Button
-                className="buttonPrimary m-2"
-                onClick={() => {
-                  history.push("actividadesA");
-                }}
+              className="buttonPrimary m-2"
+              onClick={() => {
+                history.push("actividadesA");
+              }}
             >
               <ImEnter />
             </Button>
@@ -181,13 +182,14 @@ const Home = () => {
           <Card.Header className="cardHeader">Referencias</Card.Header>
           <Card.Body>
             <Card.Text className="textoTrjetas">
-              Fuentes de consulta utilizadas como base para el desarrollo de los temas.
+              Fuentes de consulta utilizadas como base para el desarrollo de los
+              temas.
             </Card.Text>
             <Button
-                className="buttonPrimary m-2"
-                onClick={() => {
-                  history.push("referencias");
-                }}
+              className="buttonPrimary m-2"
+              onClick={() => {
+                history.push("referencias");
+              }}
             >
               <ImEnter />
             </Button>

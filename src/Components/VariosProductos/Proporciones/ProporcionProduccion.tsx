@@ -65,7 +65,7 @@ const ProporcionProduccion: React.FC<props> = ({
         {JSON.stringify(proporciones)}
         {productos.map((prd, index) => {
           return (
-            <Form key={prd.nombre}>
+            <Form onSubmit={(e) => e.preventDefault()} key={prd.nombre}>
               <Form.Group className="mb-3 inputPorcentajes mx-auto">
                 <Form.Label className="m-2">{prd.nombre}:</Form.Label>
                 <Form.Control
