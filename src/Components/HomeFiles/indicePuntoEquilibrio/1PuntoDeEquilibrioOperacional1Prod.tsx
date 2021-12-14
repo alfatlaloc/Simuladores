@@ -6,6 +6,7 @@ import { Table, Card } from "react-bootstrap";
 import Image from 'react-bootstrap/Image'
 import puntoA from "../../../img/puntoA.png";
 import puntoB from "../../../img/puntoB.png";
+import formula3 from "../../../img/teoria1-2.png";
 
 const PuntoEquilibrioOperacional1Producto = () => {
     const history = useHistory();
@@ -13,7 +14,8 @@ const PuntoEquilibrioOperacional1Producto = () => {
         <section className="textosEncuadre">
             <h1 id="indice1">Modelo matemático del punto de equilibrio con un producto</h1>
             <div>
-                <p>Hay empresas que solo venden un tipo de artículo o prestan un servicio en particular, en tal caso podemos calcular el punto de equilibrio sin utilidad y con utilidad.</p>
+                <p>Hay empresas que solo venden un tipo de artículo o prestan un servicio en particular, en tal caso
+                    podemos calcular el punto de equilibrio sin utilidad y con utilidad.</p>
                 <h4 id="subindice1">Punto de equilibrio con un producto sin utilidad</h4>
                 <div>
                     <p>Supongamos que queremos saber cuántas hamburguesas tendríamos que vender en un lapso de un mes para no ganar ni perder. Tenemos los siguientes datos (tablas 1 y 2): </p>
@@ -22,6 +24,7 @@ const PuntoEquilibrioOperacional1Producto = () => {
                     <h5>Tabla 2. Datos producto 1 (hamburguesas sencillas) </h5>
                     <Tabla2 />
                     <p>Para calcular el Punto de equilibrio en número de unidades y en cantidad de dinero sin utilidad ocuparemos las fórmulas contenidas en la tabla 3.</p>
+                    <h5>Tabla 3. Fórmulas del punto de equilibrio para un producto sin utilidad </h5>
                     <Tabla3 />
                     <p>Sustituyendo los dator en las fórmulas tenemos:</p>
                     <ol type="I">
@@ -68,7 +71,19 @@ const PuntoEquilibrioOperacional1Producto = () => {
 
                 <h4 id="subindice2">Punto de equilibrio con un producto con utilidad</h4>
                 <div>
-                    <p></p>
+                    <p>También podemos calcular el punto de equilibrio con utilidad. Continuando con
+                        nuestro ejemplo (venta de hamburguesas sencillas) y considerando que se desea una
+                        utilidad de $40,000 mensuales, entonces el punto de equilibrio se calcula así: </p>
+                    <Card style={{ width: '72rem', margin: 'auto' }}>
+                        <Card.Img variant="top" src={formula3} />
+                    </Card>
+                    <br/>
+                    <p>Con la venta de 3,500 hamburguesas al mes se tendría la utilidad deseada, tal y como
+                        se puede observar en la siguiente tabla.</p>
+                    <h5>Tabla 5. Comprobación del punto de equilibrio con utilidad</h5>
+                    <Tabla5 />
+                    <p>Lo que significa que al vender 3,500 hamburguesas al mes se estaría recuperando el costo total y
+                        quedaría la utilidad deseada que es de $40,000.</p>
                 </div>
             </div>
         </section>
@@ -85,24 +100,24 @@ const Tabla1 = () => {
             </thead>
             <tbody>
             <tr>
-                <th>Renta</th>
-                <th>$ 10,000.00</th>
+                <td>Renta</td>
+                <td>$ 10,000.00</td>
             </tr>
             <tr>
-                <th>Sueldos</th>
-                <th>$ 18,000.00</th>
+                <td>Sueldos</td>
+                <td>$ 18,000.00</td>
             </tr>
             <tr>
-                <th>Productos de limpieza</th>
-                <th>$ 1,000.00</th>
+                <td>Productos de limpieza</td>
+                <td>$ 1,000.00</td>
             </tr>
             <tr>
-                <th>Servicios</th>
-                <th>$ 1,000.00</th>
+                <td>Servicios</td>
+                <td>$ 1,000.00</td>
             </tr>
             <tr>
-                <th>Total</th>
-                <th>$ 30,000.00</th>
+                <td>Total</td>
+                <td>$ 30,000.00</td>
             </tr>
             </tbody>
         </Table>
@@ -127,24 +142,24 @@ const Tabla2 = () => {
                 <th>$ 15.00</th>
             </tr>
             <tr className="alinearDerecha">
-                <th>Carne</th>
-                <th>$ 7.00</th>
-                <th></th>
+                <td>Carne</td>
+                <td>$ 7.00</td>
+                <td></td>
             </tr>
             <tr className="alinearDerecha">
-                <th >Pan</th>
-                <th>$ 4.00</th>
-                <th></th>
+                <td >Pan</td>
+                <td>$ 4.00</td>
+                <td></td>
             </tr>
             <tr className="alinearDerecha">
-                <th>Gas</th>
-                <th>$ 2.00</th>
-                <th></th>
+                <td>Gas</td>
+                <td>$ 2.00</td>
+                <td></td>
             </tr>
             <tr className="alinearDerecha">
-                <th>Varios</th>
-                <th>$ 2.00</th>
-                <th></th>
+                <td>Varios</td>
+                <td>$ 2.00</td>
+                <td></td>
             </tr>
             <tr>
                 <th colSpan={2}>Margen de contribución unitario (MCU) </th>
@@ -165,12 +180,12 @@ const Tabla3 = () => {
             </thead>
             <tbody>
             <tr>
-                <th className="alinearCentro">Punto de equilibrio en número de unidades </th>
-                <th><Image src={formula1} rounded style={{ margin: 'auto'}}/></th>
+                <td className="alinearCentro">Punto de equilibrio en número de unidades </td>
+                <td><Image src={formula1} rounded style={{ margin: 'auto'}}/></td>
             </tr>
             <tr>
-                <th className="alinearCentro">Punto de equilibrio expresado en cantidad de dinero (pesos) </th>
-                <th><Image src={formula2} rounded style={{ margin: 'auto'}}/></th>
+                <td className="alinearCentro">Punto de equilibrio expresado en cantidad de dinero (pesos) </td>
+                <td><Image src={formula2} rounded style={{ margin: 'auto'}}/></td>
             </tr>
             </tbody>
         </Table>
@@ -194,56 +209,90 @@ const Tabla4 = () => {
             </thead>
             <tbody>
               <tr>
-                <th>0</th>
-                <th>30,000</th>
-                <th>15</th>
-                <th>0</th>
-                <th>30,000</th>
-                <th>35</th>
-                <th>0</th>
-                <th>-30,000</th>
+                <td>0</td>
+                <td>30,000</td>
+                <td>15</td>
+                <td>0</td>
+                <td>30,000</td>
+                <td>35</td>
+                <td>0</td>
+                <td>-30,000</td>
               </tr>
               <tr>
-                  <th>500</th>
-                  <th>30,000</th>
-                  <th>15</th>
-                  <th>7,500</th>
-                  <th>37,500</th>
-                  <th>35</th>
-                  <th>17,500</th>
-                  <th>-20,000</th>
+                  <td>500</td>
+                  <td>30,000</td>
+                  <td>15</td>
+                  <td>7,500</td>
+                  <td>37,500</td>
+                  <td>35</td>
+                  <td>17,500</td>
+                  <td>-20,000</td>
               </tr>
               <tr>
-                  <th>1000</th>
-                  <th>30,000</th>
-                  <th>15</th>
-                  <th>15,000</th>
-                  <th>45,000</th>
-                  <th>35</th>
-                  <th>35,000</th>
-                  <th>-15,000</th>
+                  <td>1000</td>
+                  <td>30,000</td>
+                  <td>15</td>
+                  <td>15,000</td>
+                  <td>45,000</td>
+                  <td>35</td>
+                  <td>35,000</td>
+                  <td>-15,000</td>
               </tr>
               <tr>
-                  <th>1500</th>
-                  <th>30,000</th>
-                  <th>15</th>
-                  <th>22,500</th>
-                  <th>52,500</th>
-                  <th>35</th>
-                  <th>52,500</th>
-                  <th>0</th>
+                  <td>1500</td>
+                  <td>30,000</td>
+                  <td>15</td>
+                  <td>22,500</td>
+                  <td>52,500</td>
+                  <td>35</td>
+                  <td>52,500</td>
+                  <td>0</td>
               </tr>
               <tr>
-                  <th>2000</th>
-                  <th>30,000</th>
-                  <th>15</th>
-                  <th>30,000</th>
-                  <th>60,000</th>
-                  <th>35</th>
-                  <th>70,000</th>
-                  <th>10,000</th>
+                  <td>2000</td>
+                  <td>30,000</td>
+                  <td>15</td>
+                  <td>30,000</td>
+                  <td>60,000</td>
+                  <td>35</td>
+                  <td>70,000</td>
+                  <td>10,000</td>
               </tr>
 
+            </tbody>
+        </Table>
+    );
+};
+
+const Tabla5 = () => {
+    return (
+        <Table striped bordered hover size="sm" className="tabla1">
+            <thead>
+            <tr>
+                <th colSpan={2}>Comprobacion</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><b>+</b> Ventas = (3,500) ($35)</td>
+                <td>$ 122,500.00</td>
+            </tr>
+            <tr>
+                <td><b>-</b> Costo variable total  (CVT) = (3,500) (15)</td>
+                <td>$ 52,500.00</td>
+            </tr>
+            <tr>
+                <td className="alinearDerecha"><b>=</b> Margen de contribución (MC)</td>
+                <th>$ 70,000.00</th>
+            </tr>
+            <tr>
+                <td><b>-</b> Costos fijos (CF)</td>
+                <td>$ 30,000.00</td>
+            </tr>
+            <tr>
+                <td className="alinearDerecha"><b>=</b> Utilidad</td>
+                <th>$ 40,000.00</th>
+            </tr>
             </tbody>
         </Table>
     );
