@@ -31,12 +31,12 @@ const PuntoEquilibrioOperacional = () => {
                     <li><a onClick={() => {history.push("/glosario#CV");}}>
                         Costos y gastos variables (CV)
                     </a></li>
-                    <li><a href="glosario#CVU">Costo variable unitario (CVU)</a></li>
-                    <li><a href="glosario#CVT">Costo variable total (CVT)</a></li>
-                    <li><a href="glosario#CF">Costos y gastos fijos (CF)</a></li>
-                    <li><a href="glosario#CT">Costo total (CT) </a></li>
-                    <li><a href="glosario#IngresoVentas">Ingreso o ventas</a></li>
-                    <li><a href="glosario#MCU">Margen de contribución unitario (MCU) o contribución marginal unitaria (CMU) </a></li>
+                    <li><a onClick={() => {history.push("/glosario#CVU");}}>Costo variable unitario (CVU)</a></li>
+                    <li><a onClick={() => {history.push("/glosario#CVT");}}>Costo variable total (CVT)</a></li>
+                    <li><a onClick={() => {history.push("/glosario#CF");}}>Costos y gastos fijos (CF)</a></li>
+                    <li><a onClick={() => {history.push("/glosario#CT");}}>Costo total (CT) </a></li>
+                    <li><a onClick={() => {history.push("/glosario#IngresoVentas");}}>Ingreso o ventas</a></li>
+                    <li><a onClick={() => {history.push("/glosario#MCU");}}>Margen de contribución unitario (MCU) o contribución marginal unitaria (CMU) </a></li>
                 </ul>
             </div>
         </section>
