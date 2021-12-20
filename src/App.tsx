@@ -16,10 +16,10 @@ import ActividadesAprendizaje from "./Components/HomeFiles/actividadesAprendizaj
 import Referencias from "./Components/HomeFiles/referencias";
 import PuntoEquilibrio from "./Components/HomeFiles/puntoEquilibrio";
 import PuntoEquilibrioOperacional from "./Components/HomeFiles/indicePuntoEquilibrio/1PuntoDeEquilibrioOperacional";
-import PuntoEquilibrioOperacional1Producto
-  from "./Components/HomeFiles/indicePuntoEquilibrio/1PuntoDeEquilibrioOperacional1Prod";
-import PuntoEquilibrioOperacionalMultiplesProductos
-  from "./Components/HomeFiles/indicePuntoEquilibrio/1PuntoDeEquilibrioOperacionalMultProd";
+import PuntoEquilibrioOperacional1Producto from "./Components/HomeFiles/indicePuntoEquilibrio/1PuntoDeEquilibrioOperacional1Prod";
+import PuntoEquilibrioOperacionalMultiplesProductos from "./Components/HomeFiles/indicePuntoEquilibrio/1PuntoDeEquilibrioOperacionalMultProd";
+import Requerimientos from "./Components/Requerimientos/Requirimientos";
+import Manual from "./Components/Manual/Manual";
 
 function App() {
   return (
@@ -33,10 +33,20 @@ function App() {
             <Route path="/glosario" component={Glosario} />
             <Route path="/actividadesA" component={ActividadesAprendizaje} />
             <Route path="/teoriaPuntoEq" component={PuntoEquilibrio} />
-                <Route path="/teoriaPuntoEq-1" component={PuntoEquilibrioOperacional} />
-                <Route path="/teoriaPuntoEq-1-1" component={PuntoEquilibrioOperacional1Producto} />
-                <Route path="/teoriaPuntoEq-1-2" component={PuntoEquilibrioOperacionalMultiplesProductos} />
+            <Route
+              path="/teoriaPuntoEq-1"
+              component={PuntoEquilibrioOperacional}
+            />
+            <Route
+              path="/teoriaPuntoEq-1-1"
+              component={PuntoEquilibrioOperacional1Producto}
+            />
+            <Route
+              path="/teoriaPuntoEq-1-2"
+              component={PuntoEquilibrioOperacionalMultiplesProductos}
+            />
             <Route path="/referencias" component={Referencias} />
+            <Route path="/manual" component={Manual} />
 
             <Route path="/simulador" component={Simulador} />
             <Route path="/variosproductos" component={VariosProductos} />
@@ -44,12 +54,12 @@ function App() {
             <Route path="/metodologia" component={Metodologia} />
 
             <Route
-                path="/empresa/:_id/producto/:_pr"
-                component={ModificarProducto}
+              path="/empresa/:_id/producto/:_pr"
+              component={ModificarProducto}
             />
 
             <Route path="/empresa/:_id" component={ModificarEmpresa} />
-
+            <Route path="/Requerimientos" component={Requerimientos} />
             <Route path="/error404" component={Error404} />
             <Route path="/">
               <Home />

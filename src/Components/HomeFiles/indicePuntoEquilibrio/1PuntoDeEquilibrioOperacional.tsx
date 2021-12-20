@@ -2,13 +2,17 @@ import { useHistory } from "react-router";
 import "../../../Styles/Teoria.sass";
 import { Card } from "react-bootstrap";
 import grafica1 from "../../../img/grafica1PuntoEquilibrio.png";
+import BotonRegresar from "../../Common/BotonRegresar";
+import BotonSiguiente from "../../Common/BotonSiguiente";
 
 const PuntoEquilibrioOperacional = () => {
     const history = useHistory();
 
     return (
         <section className="textosEncuadre">
-            <h1>Punto de equilibrio operacional </h1>
+            <BotonRegresar/>
+            <BotonSiguiente link="/teoriaPuntoEq-1-1"/>
+            <h1 className="mobileH1">Punto de equilibrio operacional </h1>
             <div>
                 <p>
                     El Punto de equilibrio (PE) es una herramienta que nos da información acerca de cuántas unidades hay que producir y vender para no ganar ni perder; se encuentra cuando:

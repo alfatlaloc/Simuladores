@@ -1,18 +1,19 @@
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router";
-import {RiHomeHeartLine} from "react-icons/ri"
+import {AiOutlineHome} from "react-icons/ai"
 
 const BotonHome = () => {
   const history = useHistory();
 
   return (
     <Button
-      className="m-1 buttonPrimary btnFlotante"
+      className="m-1 btnFlotante"
+      variant="primary"
       onClick={() => {
         history.push("/home");
       }}
     >
-      <RiHomeHeartLine size={"1.25em"} />
+      <AiOutlineHome size={"1.75em"} />
     </Button>
   );
 };

@@ -1,13 +1,15 @@
 import { useHistory } from "react-router";
 import { Table, Card } from "react-bootstrap";
 import "../../../Styles/Teoria.sass";
+import BotonRegresar from "../../Common/BotonRegresar";
 
 const PuntoEquilibrioOperacionalMultiplesProductos = () => {
     const history = useHistory();
 
     return (
         <section className="textosEncuadre">
-            <h1 id="indice2">Modelo matemático del punto de equilibrio con multiproductos
+            <BotonRegresar/>
+            <h1 className="mobileH1" id="indice2">Modelo matemático del punto de equilibrio con multiproductos
                 (mezcla de dos o más productos)</h1>
             <div>
                 <p>Lo más común es encontrar empresas que venden más de dos tipos de productos, si ese es el caso,

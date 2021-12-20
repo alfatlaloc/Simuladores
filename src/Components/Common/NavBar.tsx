@@ -4,9 +4,8 @@ import logoIPN from "../../img/ipn-logo-80x50.png";
 import logoESCOM from "../../img/logoESCOM80x120.png";
 const NavBar = () => {
   return (
-    <Navbar id="navBar" sticky="top" expand="lg">
+    <Navbar id="navBar" variant="dark" sticky="top" expand="lg">
       <Container>
-      
         <img
           alt=""
           src={logoIPN}
@@ -23,6 +22,11 @@ const NavBar = () => {
         />
         <Navbar.Brand>
           <NavLink to="/home" className="navBarBrand">
+            Herramienta digital para el cálculo del punto de equilibrio
+          </NavLink>
+        </Navbar.Brand>
+        <Navbar.Brand>
+          <NavLink to="/home" className="navBarBrand2">
             Simulador punto de equilibrio
           </NavLink>
         </Navbar.Brand>
@@ -30,17 +34,17 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <NavLink to="/manualUsuario" className="navBarItem ms-2">
-              Manual de usuario
+            <NavLink to="/manual" className="navBarItem ms-2">
+              Manual
             </NavLink>
 
             <NavLink to="/simulador" className="navBarItem ms-2">
-              Gestor empresas
+              Gestor de empresas
             </NavLink>
 
             <NavDropdown
               className="d-flex ms-2"
-              title="Mas opciones"
+              title="Más opciones"
               id="navBarDropdown"
             >
               <NavLink className="dropdownItem" to="/unaempresa">
@@ -51,6 +55,10 @@ const NavBar = () => {
 
               <NavLink className="dropdownItem" to="/variosproductos">
                 Varios productos
+              </NavLink>
+              <NavDropdown.Divider />
+              <NavLink className="dropdownItem" to="/Requerimientos">
+                Requerimientos
               </NavLink>
             </NavDropdown>
           </Nav>
