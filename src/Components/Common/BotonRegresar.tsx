@@ -1,19 +1,20 @@
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router";
 
-import { BiArrowBack } from "react-icons/bi";
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 const BotonRegresar = () => {
   const history = useHistory();
 
   return (
     <Button
-      className="m-1 buttonPrimary btnFlotante"
+      className="m-1 btnFlotante"
+      variant="primary"
       onClick={() => {
         history.goBack();
       }}
     >
-      <BiArrowBack />
+      <BsArrowLeftCircleFill size="2em" />
     </Button>
   );
 };

@@ -7,12 +7,14 @@ import Image from 'react-bootstrap/Image'
 import puntoA from "../../../img/puntoA.png";
 import puntoB from "../../../img/puntoB.png";
 import formula3 from "../../../img/teoria1-2.png";
+import BotonRegresar from "../../Common/BotonRegresar";
 
 const PuntoEquilibrioOperacional1Producto = () => {
-    const history = useHistory();
+    
     return (
         <section className="textosEncuadre">
-            <h1 id="indice1">Modelo matemático del punto de equilibrio con un producto</h1>
+            <BotonRegresar/>
+            <h1 className="mobileH1" id="indice1">Modelo matemático del punto de equilibrio con un producto</h1>
             <div>
                 <p>Hay empresas que solo venden un tipo de artículo o prestan un servicio en particular, en tal caso
                     podemos calcular el punto de equilibrio sin utilidad y con utilidad.</p>

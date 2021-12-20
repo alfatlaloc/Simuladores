@@ -1,37 +1,48 @@
 const Footer = () => {
   return (
     <footer className="text-center text-lg-start" id="footer">
-
       <section className="d-block justify-content-center justify-content-lg-between p-4 ">
-        <h3>Herramienta digital para el cálculo del punto de equilibrio operativo</h3>
-        
+        <h5>
+          Herramienta digital para el cálculo del punto de equilibrio operativo
+        </h5>
+
         <div className="container text-center text-md-start mt-5">
           <div className="row mt-3">
-            <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">
-                <i className="fas fa-gem me-3"></i>Requerimientos
-              </h6>
-              <p>
-                QUe se necesita para usarlo
-              </p>
-            </div>
-
-            
-
-            <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <div className="col-md-4 col-lg-3 col-xl-6 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Contactos</h6>
               <p>
-                <i className="fas fa-home me-3"></i> New York, NY 10012, US
+                <strong>Marco Antonio Castro Gutiérrez</strong>
               </p>
               <p>
-                <i className="fas fa-envelope me-3"></i>
-                info@example.com
+                <strong>Github: </strong>
+                <a
+                  className="githubLink"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/alfatlaloc"
+                >
+                  https://github.com/alfatlaloc
+                </a>
               </p>
               <p>
-                <i className="fas fa-phone me-3"></i> + 01 234 567 88
+                <strong>Correo: </strong> macg.ae1313@gmail.com
               </p>
               <p>
-                <i className="fas fa-print me-3"></i> + 01 234 567 89
+                <strong>Arturo Morgado Jimenéz</strong>
+              </p>
+              <p>
+                <strong>Github: </strong>
+                <a
+                  className="githubLink"
+                  target="_blank"
+                  rel="noreferrer"
+                  href="https://github.com/LordMorgado"
+                >
+                  https://github.com/LordMorgado
+                </a>
+              </p>
+              <p>
+                <strong>Correo: </strong> macg.ae1313@gmail.com
               </p>
             </div>
           </div>

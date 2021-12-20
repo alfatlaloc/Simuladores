@@ -6,6 +6,38 @@ import { EmpresaState } from "../../Redux/types";
 import Empresa, { Producto } from "../Classes/Empresa";
 
 import Stepper from "./Stepper";
+interface formProps {
+  empresas: Empresa[];
+  empresa: Empresa;
+  handleChange: (e: React.FormEvent<HTMLSelectElement>) => void;
+}
+const FormEmpresa: React.FC<formProps> = ({
+  empresa,
+  empresas,
+  handleChange,
+}) => {
+  return (
+    <Form className="align-items-center">
+      <Form.Group className="mb-3 justify-content-center">
+        <Form.Label>Empresa</Form.Label>
+        <Form.Select
+          aria-label="Empresa"
+          className="select"
+          value={empresa.nombre}
+          onChange={(e) => handleChange(e)}
+        >
+          {empresas.map((empresa) => {
+            return (
+              <option key={empresa.nombre} value={empresa.nombre}>
+                {empresa.nombre}
+              </option>
+            );
+          })}
+        </Form.Select>
+      </Form.Group>
+    </Form>
+  );
+};
 
 const VariosProductos = () => {
   const empresas = useSelector((state: EmpresaState) => state.empresas);
@@ -15,7 +47,8 @@ const VariosProductos = () => {
   const [contMarginal, setContMarginal] = useState<number[]>([]);
   const [contMarginalPon, setContMarginalPon] = useState<number[]>([]);
   const [CMPP, setCMPP] = useState<number>(0);
-  const hanldeChange = (e: React.FormEvent<HTMLSelectElement>) => {
+
+  const handleChange = (e: React.FormEvent<HTMLSelectElement>) => {
     const empresaChange = empresas.find(
       (emp) => emp.nombre === e.currentTarget.value
     );
@@ -36,28 +69,27 @@ const VariosProductos = () => {
       </div>
     );
 
+  if (empresa.productos.length < 1)
+    return (
+      <div className="pagina">
+        <h2>Mezcla productos</h2>
+        <FormEmpresa
+          empresa={empresa}
+          empresas={empresas}
+          handleChange={handleChange}
+        />
+        <h2>La empresa seleccionada no tiene productos</h2>
+      </div>
+    );
+
   return (
     <div className="pagina">
       <h2>Mezcla productos</h2>
-      <Form className="align-items-center">
-        <Form.Group className="mb-3 justify-content-center">
-          <Form.Label>Empresa</Form.Label>
-          <Form.Select
-            aria-label="Empresa"
-            className="select"
-            value={empresa.nombre}
-            onChange={(e) => hanldeChange(e)}
-          >
-            {empresas.map((empresa) => {
-              return (
-                <option key={empresa.nombre} value={empresa.nombre}>
-                  {empresa.nombre}
-                </option>
-              );
-            })}
-          </Form.Select>
-        </Form.Group>
-      </Form>
+      <FormEmpresa
+        empresa={empresa}
+        empresas={empresas}
+        handleChange={handleChange}
+      />
       <Stepper
         empresa={empresa}
         productos={productos}
