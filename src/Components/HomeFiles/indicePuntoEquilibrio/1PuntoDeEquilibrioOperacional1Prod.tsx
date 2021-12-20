@@ -29,11 +29,11 @@ const PuntoEquilibrioOperacional1Producto = () => {
                     <p>Sustituyendo los dator en las fórmulas tenemos:</p>
                     <ol type="I">
                         <li>Punto de equilibrio en número de unidades</li>
-                        <Card style={{ width: '32rem' }}>
+                        <Card style={{ width: '32rem' }} className="Imagenes">
                             <Card.Img variant="top" src={puntoA} />
                         </Card>
                         <li>Punto de equilibrio en ingresos; es decir, la cantidad de dinero que se recibe por concepto de ventas: </li>
-                        <Card style={{ width: '18rem' }}>
+                        <Card style={{ width: '18rem' }} className="Imagenes">
                             <Card.Img variant="top" src={puntoB} />
                         </Card>
                     </ol>
@@ -74,7 +74,7 @@ const PuntoEquilibrioOperacional1Producto = () => {
                     <p>También podemos calcular el punto de equilibrio con utilidad. Continuando con
                         nuestro ejemplo (venta de hamburguesas sencillas) y considerando que se desea una
                         utilidad de $40,000 mensuales, entonces el punto de equilibrio se calcula así: </p>
-                    <Card style={{ width: '72rem', margin: 'auto' }}>
+                    <Card className="formulaLarga">
                         <Card.Img variant="top" src={formula3} />
                     </Card>
                     <br/>
@@ -266,7 +266,7 @@ const Tabla4 = () => {
 
 const Tabla5 = () => {
     return (
-        <Table striped bordered hover size="sm" className="tabla1">
+        <Table striped bordered hover size="sm" className="tabla5">
             <thead>
             <tr>
                 <th colSpan={2}>Comprobacion</th>
