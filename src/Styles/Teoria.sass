@@ -16,8 +16,7 @@ $fontColorDark: #000000
   font-weight: bold
 
 
-.textosEncuadre a
-  text-decoration: none !important
+.textosEncuadre span
   color: $primaryColor !important
   cursor: pointer
 
@@ -47,17 +46,46 @@ Table
   margin: auto
 
 .tabla1
+  @media (max-width: 800px)
+    width: 90% !important
   width: 40% !important
 
 .tabla2
+  @media (max-width: 800px)
+    width: 100% !important
   width: 50% !important
 
 .tabla3
+  @media (max-width: 800px)
+    width: 90% !important
   width: 50% !important
 
 .tabla4
+  @media (max-width: 1050px)
+    width: 100% !important
   width: 55% !important
   text-align: center
 
+.tabla5
+  @media (max-width: 900px)
+    width: 80% !important
+  @media (max-width: 500px)
+    width: 130% !important
+  width: 50% !important
+
 .azul
   color: $primaryColor
+
+.scrollTabla
+  overflow-x: auto !important
+
+.formulaLarga
+  width: 100%
+  margin: auto
+
+.imagenTabla
+  width: 280px
+
+.Imagenes
+  @media (max-width: 800px)
+    width: 95% !important

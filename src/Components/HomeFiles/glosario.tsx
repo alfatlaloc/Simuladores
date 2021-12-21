@@ -1,7 +1,5 @@
-import { useHistory } from "react-router";
 
 const Glosario = () => {
-  const history = useHistory();
 
   return (
     <section className="textosEncuadre">

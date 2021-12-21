@@ -7,7 +7,6 @@ import BotonSiguiente from "../../Common/BotonSiguiente";
 
 const PuntoEquilibrioOperacional = () => {
     const history = useHistory();
-
     return (
         <section className="textosEncuadre">
             <BotonRegresar/>
@@ -23,7 +22,7 @@ const PuntoEquilibrioOperacional = () => {
                 <p>
                     El punto de equilibrio, tal y como se aprecia en la figura 1 se obtiene cuando las ventas o ingresos son iguales al costo total; es decir, no hay ganancias y tampoco hay pérdidas y solo se recupera el costo total.
                 </p>
-                <Card style={{ width: '35rem', margin: 'auto'}}>
+                <Card style={{ width: '35rem', margin: 'auto'}} className="Imagenes">
                     <Card.Img variant="top" src={grafica1} />
                     <Card.Body>
                         <Card.Title>Figura 1.
@@ -32,15 +31,15 @@ const PuntoEquilibrioOperacional = () => {
                 </Card>
                 Para calcular y analizar el punto de equilibrio necesitas conocer los siguientes términos:
                 <ul>
-                    <li><a onClick={() => {history.push("/glosario#CV");}}>
+                    <li><span onClick={() => {history.push("/glosario#CV");}}>
                         Costos y gastos variables (CV)
-                    </a></li>
-                    <li><a onClick={() => {history.push("/glosario#CVU");}}>Costo variable unitario (CVU)</a></li>
-                    <li><a onClick={() => {history.push("/glosario#CVT");}}>Costo variable total (CVT)</a></li>
-                    <li><a onClick={() => {history.push("/glosario#CF");}}>Costos y gastos fijos (CF)</a></li>
-                    <li><a onClick={() => {history.push("/glosario#CT");}}>Costo total (CT) </a></li>
-                    <li><a onClick={() => {history.push("/glosario#IngresoVentas");}}>Ingreso o ventas</a></li>
-                    <li><a onClick={() => {history.push("/glosario#MCU");}}>Margen de contribución unitario (MCU) o contribución marginal unitaria (CMU) </a></li>
+                    </span></li>
+                    <li><span onClick={() => {history.push("/glosario#CVU");}}>Costo variable unitario (CVU)</span></li>
+                    <li><span onClick={() => {history.push("/glosario#CVT");}}>Costo variable total (CVT)</span></li>
+                    <li><span onClick={() => {history.push("/glosario#CF");}}>Costos y gastos fijos (CF)</span></li>
+                    <li><span onClick={() => {history.push("/glosario#CT");}}>Costo total (CT) </span></li>
+                    <li><span onClick={() => {history.push("/glosario#IngresoVentas");}}>Ingreso o ventas</span></li>
+                    <li><span onClick={() => {history.push("/glosario#MCU");}}>Margen de contribución unitario (MCU) o contribución marginal unitaria (CMU) </span></li>
                 </ul>
             </div>
         </section>

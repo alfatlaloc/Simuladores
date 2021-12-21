@@ -1,7 +1,5 @@
-import { useHistory } from "react-router";
 
 const ActividadesAprendizaje = () => {
-  const history = useHistory();
 
   return (
     <section className="textosEncuadre">
