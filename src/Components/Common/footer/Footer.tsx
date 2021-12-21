@@ -28,7 +28,7 @@ const Footer = () => {
                 <strong>Correo: </strong> macg.ae1313@gmail.com
               </p>
               <p>
-                <strong>Arturo Morgado Jimenéz</strong>
+                <strong>Arturo Morgado Jiménez</strong>
               </p>
               <p>
                 <strong>Github: </strong>
@@ -42,7 +42,7 @@ const Footer = () => {
                 </a>
               </p>
               <p>
-                <strong>Correo: </strong> macg.ae1313@gmail.com
+                <strong>Correo: </strong> arturomorgado117@gmail.com
               </p>
             </div>
           </div>

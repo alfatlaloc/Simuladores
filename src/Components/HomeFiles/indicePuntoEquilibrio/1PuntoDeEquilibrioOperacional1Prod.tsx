@@ -1,4 +1,3 @@
-import { useHistory } from "react-router";
 import "../../../Styles/Teoria.sass";
 import formula1 from "../../../img/Tabla3Imagen1.png";
 import formula2 from "../../../img/Tabla3Imagen2.png";
@@ -70,7 +69,6 @@ const PuntoEquilibrioOperacional1Producto = () => {
                     <h5>Tabla 4. Información para graficar el punto de equilibrio </h5>
                     <Tabla4 />
                 </div>
-
                 <h4 id="subindice2">Punto de equilibrio con un producto con utilidad</h4>
                 <div>
                     <p>También podemos calcular el punto de equilibrio con utilidad. Continuando con
@@ -174,129 +172,135 @@ const Tabla2 = () => {
 
 const Tabla3 = () => {
     return (
-        <Table striped bordered hover size="sm" className="tabla3">
-            <thead>
-            <tr>
-                <th colSpan={2}>Punto de equilibrio para un producto <a className="azul">sin utilidad</a></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td className="alinearCentro">Punto de equilibrio en número de unidades </td>
-                <td><Image src={formula1} rounded style={{ margin: 'auto'}}/></td>
-            </tr>
-            <tr>
-                <td className="alinearCentro">Punto de equilibrio expresado en cantidad de dinero (pesos) </td>
-                <td><Image src={formula2} rounded style={{ margin: 'auto'}}/></td>
-            </tr>
-            </tbody>
-        </Table>
+        <div className='scrollTabla'>
+            <Table striped bordered hover size="sm" className="tabla3">
+                <thead>
+                <tr>
+                    <th colSpan={2}>Punto de equilibrio para un producto <span className="azul">sin utilidad</span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td className="alinearCentro">Punto de equilibrio en número de unidades </td>
+                    <td><Image src={formula1} rounded style={{ margin: 'auto'}}/></td>
+                </tr>
+                <tr>
+                    <td className="alinearCentro">Punto de equilibrio expresado en cantidad de dinero (pesos) </td>
+                    <td><Image src={formula2} rounded style={{ margin: 'auto'}}/></td>
+                </tr>
+                </tbody>
+            </Table>
+        </div>
     );
 };
 
 const Tabla4 = () => {
     return (
-        <Table striped bordered hover size="sm" className="tabla4">
-            <thead>
-                <tr>
-                    <th>Q</th>
-                    <th>C.F</th>
-                    <th>C.V.U</th>
-                    <th>C.V.T</th>
-                    <th>C.T</th>
-                    <th>P</th>
-                    <th>Ingresos</th>
-                    <th>Utilidad o pérdida</th>
-                </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0</td>
-                <td>30,000</td>
-                <td>15</td>
-                <td>0</td>
-                <td>30,000</td>
-                <td>35</td>
-                <td>0</td>
-                <td>-30,000</td>
-              </tr>
-              <tr>
-                  <td>500</td>
-                  <td>30,000</td>
-                  <td>15</td>
-                  <td>7,500</td>
-                  <td>37,500</td>
-                  <td>35</td>
-                  <td>17,500</td>
-                  <td>-20,000</td>
-              </tr>
-              <tr>
-                  <td>1000</td>
-                  <td>30,000</td>
-                  <td>15</td>
-                  <td>15,000</td>
-                  <td>45,000</td>
-                  <td>35</td>
-                  <td>35,000</td>
-                  <td>-15,000</td>
-              </tr>
-              <tr>
-                  <td>1500</td>
-                  <td>30,000</td>
-                  <td>15</td>
-                  <td>22,500</td>
-                  <td>52,500</td>
-                  <td>35</td>
-                  <td>52,500</td>
-                  <td>0</td>
-              </tr>
-              <tr>
-                  <td>2000</td>
-                  <td>30,000</td>
-                  <td>15</td>
-                  <td>30,000</td>
-                  <td>60,000</td>
-                  <td>35</td>
-                  <td>70,000</td>
-                  <td>10,000</td>
-              </tr>
+        <div className='scrollTabla'>
+            <Table striped bordered hover size="sm" className="tabla4">
+                <thead>
+                    <tr>
+                        <th>Q</th>
+                        <th>C.F</th>
+                        <th>C.V.U</th>
+                        <th>C.V.T</th>
+                        <th>C.T</th>
+                        <th>P</th>
+                        <th>Ingresos</th>
+                        <th>Utilidad o pérdida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>0</td>
+                    <td>30,000</td>
+                    <td>15</td>
+                    <td>0</td>
+                    <td>30,000</td>
+                    <td>35</td>
+                    <td>0</td>
+                    <td>-30,000</td>
+                  </tr>
+                  <tr>
+                      <td>500</td>
+                      <td>30,000</td>
+                      <td>15</td>
+                      <td>7,500</td>
+                      <td>37,500</td>
+                      <td>35</td>
+                      <td>17,500</td>
+                      <td>-20,000</td>
+                  </tr>
+                  <tr>
+                      <td>1000</td>
+                      <td>30,000</td>
+                      <td>15</td>
+                      <td>15,000</td>
+                      <td>45,000</td>
+                      <td>35</td>
+                      <td>35,000</td>
+                      <td>-15,000</td>
+                  </tr>
+                  <tr>
+                      <td>1500</td>
+                      <td>30,000</td>
+                      <td>15</td>
+                      <td>22,500</td>
+                      <td>52,500</td>
+                      <td>35</td>
+                      <td>52,500</td>
+                      <td>0</td>
+                  </tr>
+                  <tr>
+                      <td>2000</td>
+                      <td>30,000</td>
+                      <td>15</td>
+                      <td>30,000</td>
+                      <td>60,000</td>
+                      <td>35</td>
+                      <td>70,000</td>
+                      <td>10,000</td>
+                  </tr>
 
-            </tbody>
-        </Table>
+                </tbody>
+            </Table>
+        </div>
     );
 };
 
 const Tabla5 = () => {
     return (
-        <Table striped bordered hover size="sm" className="tabla5">
-            <thead>
-            <tr>
-                <th colSpan={2}>Comprobacion</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td><b>+</b> Ventas = (3,500) ($35)</td>
-                <td>$ 122,500.00</td>
-            </tr>
-            <tr>
-                <td><b>-</b> Costo variable total  (CVT) = (3,500) (15)</td>
-                <td>$ 52,500.00</td>
-            </tr>
-            <tr>
-                <td className="alinearDerecha"><b>=</b> Margen de contribución (MC)</td>
-                <th>$ 70,000.00</th>
-            </tr>
-            <tr>
-                <td><b>-</b> Costos fijos (CF)</td>
-                <td>$ 30,000.00</td>
-            </tr>
-            <tr>
-                <td className="alinearDerecha"><b>=</b> Utilidad</td>
-                <th>$ 40,000.00</th>
-            </tr>
-            </tbody>
-        </Table>
+        <div className='scrollTabla'>
+            <Table striped bordered hover size="sm" className="tabla5">
+                <thead>
+                <tr>
+                    <th colSpan={2}>Comprobacion</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>+</b> Ventas = (3,500) ($35)</td>
+                    <td>$ 122,500.00</td>
+                </tr>
+                <tr>
+                    <td><b>-</b> Costo variable total  (CVT) = (3,500) (15)</td>
+                    <td>$ 52,500.00</td>
+                </tr>
+                <tr>
+                    <td className="alinearDerecha"><b>=</b> Margen de contribución (MC)</td>
+                    <th>$ 70,000.00</th>
+                </tr>
+                <tr>
+                    <td><b>-</b> Costos fijos (CF)</td>
+                    <td>$ 30,000.00</td>
+                </tr>
+                <tr>
+                    <td className="alinearDerecha"><b>=</b> Utilidad</td>
+                    <th>$ 40,000.00</th>
+                </tr>
+                </tbody>
+            </Table>
+        </div>
     );
 };
 

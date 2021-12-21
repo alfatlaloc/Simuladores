@@ -20,17 +20,7 @@ const NavBar = () => {
           height="25"
           className="d-inline-block align-top"
         />
-        <Navbar.Brand>
-          <NavLink to="/home" className="navBarBrand">
-            Herramienta digital para el cálculo del punto de equilibrio
-          </NavLink>
-        </Navbar.Brand>
-        <Navbar.Brand>
-          <NavLink to="/home" className="navBarBrand2">
-            Simulador punto de equilibrio
-          </NavLink>
-        </Navbar.Brand>
-
+        <TituloMostrar />
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
@@ -66,6 +56,19 @@ const NavBar = () => {
       </Container>
     </Navbar>
   );
+};
+
+const TituloMostrar = () => {
+  return (window.innerWidth > 770 ?
+      <Navbar.Brand>
+        <NavLink to="/home" className="navBarBrand">
+          Herramienta digital para el cálculo del punto de equilibrio
+        </NavLink>
+      </Navbar.Brand> : <Navbar.Brand>
+        <NavLink to="/home" className="navBarBrand2">
+          Simulador punto de equilibrio
+        </NavLink>
+      </Navbar.Brand>)
 };
 
 export default NavBar;
