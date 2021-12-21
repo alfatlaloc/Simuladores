@@ -13,7 +13,7 @@ const InformacionProporciones: React.FC<props> = ({
   costosFijos,
 }) => {
   return (
-    <Table className="tablaEmpresas" striped bordered hover>
+    <Table responsive={true} className="tablaEmpresas" striped bordered hover>
       <thead>
         <tr>
           <th className="tdTitulo">Producto</th>

@@ -44,8 +44,7 @@ const ProporcionProduccion: React.FC<props> = ({
   };
 
   useEffect(() => {
-    if (proporciones.length === productos.length) return;
-    setProporciones([]);
+    if (auxProporciones.length > 0) return;
     let auxArr: number[] = [];
     let auxArrS: string[] = [];
     productos.forEach((prd) => {
@@ -54,9 +53,8 @@ const ProporcionProduccion: React.FC<props> = ({
     });
     setAuxProporciones(auxArrS);
     setProporciones(auxArr);
-  }, [productos, setProporciones, proporciones.length]);
+  }, [productos, setProporciones, auxProporciones.length]);
 
-  if (productos.length < 1) return <h4>Aun no se selecciona productos</h4>;
   if (auxProporciones.length > 0)
     return (
       <div className="stepCard">

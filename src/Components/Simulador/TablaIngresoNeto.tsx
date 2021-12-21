@@ -201,7 +201,7 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
     if (toogle)
       return (
         <>
-          <Table striped bordered hover className="overflowForce">
+          <Table striped responsive bordered hover className="">
             <thead>
               <tr>
                 <th className="celdaSticky">Unidades</th>
@@ -279,13 +279,7 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
               <strong>Costos Variables</strong>
             </td>
             <td>
-              <Table
-                borderless
-                className="no-margin"
-                hover
-                responsive
-                size="sm"
-              >
+              <Table borderless hover responsive size="sm">
                 <tbody>
                   <tr className="tdTitulo">
                     <td className="tablaCostosVar">Nombre del costo</td>

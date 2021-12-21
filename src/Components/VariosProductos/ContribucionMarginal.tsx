@@ -68,7 +68,7 @@ const ContribucionMarginal: React.FC<props> = ({
   return (
     <div className="">
       <h5>Contribucion Marginal</h5>
-      <Table className="tablaEmpresas" striped bordered hover>
+      <Table responsive={true} className="tablaEmpresas" striped bordered hover>
         <thead>
           <tr>
             <th className="tdTitulo">Producto</th>
@@ -104,7 +104,7 @@ const ContribucionMarginal: React.FC<props> = ({
         Punto de equilibrio unidades mezcladas: <strong>{PE.toFixed(2)}</strong>
       </h5>
 
-      <Table className="tablaEmpresas" bordered striped hover size="sm">
+      <Table responsive={true} className="tablaEmpresas" bordered striped hover size="sm">
         <thead>
           <tr>
             <th>Producto</th>

@@ -21,7 +21,7 @@ const FormEyP: React.FC<props> = ({
         <Form.Label>Empresa</Form.Label>
         <Form.Select
           aria-label="Empresa"
-          className="select"
+          className="select inputMargin"
           value={empresa.nombre}
           onChange={(e) => handleChange(e)}
         >
@@ -39,7 +39,7 @@ const FormEyP: React.FC<props> = ({
         <Form.Label>Producto</Form.Label>
         <Form.Select
           aria-label="Producto"
-          className="select"
+          className="select inputMargin"
           value={producto.nombre}
           onChange={(e) => {
             let res = empresa.productos.find(

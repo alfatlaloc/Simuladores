@@ -54,8 +54,8 @@ const UtilidadDeseada: React.FC<props> = ({
           </Form.Group>
         </Form>
 
-        <h5> Punto de equilibrio en unidades: {PEU}</h5>
-        <Table className="tablaEmpresas" bordered striped hover size="sm">
+        <h5> Punto de equilibrio en unidades: {PEU.toFixed(2)}</h5>
+        <Table responsive={true} className="tablaEmpresas" bordered striped hover size="sm">
           <thead>
             <tr>
               <th>Producto</th>
@@ -80,7 +80,7 @@ const UtilidadDeseada: React.FC<props> = ({
 
             <tr>
               <td className="tdTitulo">Total</td>
-              <td>{unidades.reduce((prev, current) => prev + current)}</td>
+              <td>{unidades.reduce((prev, current) => prev + current).toFixed(2)}</td>
 
               <td>
                 ${" "}

@@ -6,6 +6,7 @@ import { EmpresaState } from "../../Redux/types";
 import Empresa, { Producto } from "../Classes/Empresa";
 
 import Stepper from "./Stepper";
+import BotonHome from "../Common/BotonHome";
 interface formProps {
   empresas: Empresa[];
   empresa: Empresa;
@@ -22,7 +23,7 @@ const FormEmpresa: React.FC<formProps> = ({
         <Form.Label>Empresa</Form.Label>
         <Form.Select
           aria-label="Empresa"
-          className="select"
+          className="select inputMargin"
           value={empresa.nombre}
           onChange={(e) => handleChange(e)}
         >
@@ -65,6 +66,7 @@ const VariosProductos = () => {
   if (!empresa)
     return (
       <div className="pagina">
+        <BotonHome />
         <h2>Aun no se agregan empresas</h2>
       </div>
     );
@@ -72,6 +74,7 @@ const VariosProductos = () => {
   if (empresa.productos.length < 1)
     return (
       <div className="pagina">
+        <BotonHome />
         <h2>Mezcla productos</h2>
         <FormEmpresa
           empresa={empresa}
@@ -84,12 +87,17 @@ const VariosProductos = () => {
 
   return (
     <div className="pagina">
+      <BotonHome />
       <h2>Mezcla productos</h2>
       <FormEmpresa
         empresa={empresa}
         empresas={empresas}
         handleChange={handleChange}
       />
+      <p className="m-2"><small>
+        Para que un producto aparezca aqui debe de tener costos variables (Mayor
+        que 0).
+      </small></p>
       <Stepper
         empresa={empresa}
         productos={productos}

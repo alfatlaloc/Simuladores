@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { EmpresaState } from "../../Redux/types";
 import Empresa, { Producto } from "../Classes/Empresa";
+import BotonHome from "../Common/BotonHome";
 import FormEyP from "./FormEyP";
 import TablaIngresoNeto from "./TablaIngresoNeto";
 
@@ -32,6 +33,7 @@ const UnaEmpresa = () => {
     if (productoO.costosTotales() > 0)
       return (
         <div className="pagina">
+          <BotonHome />
           <h2>Calculo del punto de equilibrio</h2>
           <FormEyP
             handleChange={handleCHange}
@@ -46,6 +48,7 @@ const UnaEmpresa = () => {
     else {
       return (
         <div className="pagina">
+          <BotonHome />
           <h2>Calculo del punto de equilibrio</h2>
           <FormEyP
             handleChange={handleCHange}
@@ -62,6 +65,7 @@ const UnaEmpresa = () => {
   else if (empresaA)
     return (
       <div className="pagina">
+        <BotonHome />
         <h2>La empresa seleccionada no tiene productos</h2>
         <h4>Por favor seleccione otra o agregue productos</h4>
         <Form className="align-items-center">
@@ -95,6 +99,7 @@ const UnaEmpresa = () => {
     );
   return (
     <div className="pagina">
+      <BotonHome />
       <h2>No hay ninguna empresa</h2>
       <h4>Por favor agregue una empresa en el Gestor de Empresas</h4>
       <Button
