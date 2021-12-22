@@ -12,7 +12,7 @@ import UnaEmpresa from "./Components/Simulador/UnaEmpresa";
 import ModificarProducto from "./Components/Productos/ModificarProducto";
 import VariosProductos from "./Components/VariosProductos/VariosProductos";
 import Metodologia from "./Components/HomeFiles/Metodologia";
-import ActividadesAprendizaje from "./Components/HomeFiles/actividadesAprendizaje";
+import Practica from "./Components/HomeFiles/Practica";
 import Referencias from "./Components/HomeFiles/referencias";
 import PuntoEquilibrio from "./Components/HomeFiles/puntoEquilibrio";
 import PuntoEquilibrioOperacional from "./Components/HomeFiles/indicePuntoEquilibrio/1PuntoDeEquilibrioOperacional";
@@ -31,7 +31,7 @@ function App() {
             <Route path="/simulador" component={Simulador} />
 
             <Route path="/glosario" component={Glosario} />
-            <Route path="/actividadesA" component={ActividadesAprendizaje} />
+            <Route path="/practica" component={Practica} />
             <Route path="/teoriaPuntoEq" component={PuntoEquilibrio} />
             <Route
               path="/teoriaPuntoEq-1"

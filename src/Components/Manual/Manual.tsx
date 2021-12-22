@@ -1,10 +1,13 @@
 import BotonHome from "../Common/BotonHome";
+import Indice from "./Indice";
+import '../../Styles/ManualUsuario.sass';
 
 const Manual = () => {
   return (
     <div className="pagina">
       <h2>Manual de usuario</h2>
-      <BotonHome/>
+      <BotonHome />
+      <Indice />
     </div>
   );
 };

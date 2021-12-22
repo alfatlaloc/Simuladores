@@ -160,7 +160,7 @@ const Home = () => {
 
         <Card className="text-center tarjeta">
           <Card.Header className="cardHeader">
-            Actividades de aprendizaje
+            Práctica
           </Card.Header>
           <Card.Body>
             <Card.Text className="textoTrjetas">
@@ -170,7 +170,7 @@ const Home = () => {
             <Button
               className="buttonPrimary m-2"
               onClick={() => {
-                history.push("actividadesA");
+                history.push("practica");
               }}
             >
               <ImEnter />
