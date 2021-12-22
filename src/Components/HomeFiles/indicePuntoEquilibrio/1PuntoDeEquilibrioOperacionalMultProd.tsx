@@ -16,7 +16,7 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
             <div>
                 <p>Lo más común es encontrar empresas que venden más de dos tipos de productos, si ese es el caso,
                     podemos calcular el punto de equilibrio de la mezcla sin utilidad y con utilidad. </p>
-                <h4 id="subindice1">Punto de equilibrio para una mezcla de productos sin utilidad </h4>
+                <h4 id="subindice3">Punto de equilibrio para una mezcla de productos sin utilidad </h4>
                 <div>
                     <p>Continuando con el ejemplo de las hamburguesas, supongamos que ahora venderemos hamburguesas
                         sencillas y hamburguesas hawaianas. Del total de las hamburguesas vendidas al mes se estima
@@ -50,7 +50,7 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
                         si se vende una cantidad menor que la del punto de equilibrio se obtendrá pérdida.</p>
                     <h5>Tabla 11.</h5>
                 </div>
-                <h4 id="subindice1">Punto de equilibrio para una mezcla de productos con utilidad </h4>
+                <h4 id="subindice4">Punto de equilibrio para una mezcla de productos con utilidad </h4>
                 <div>
                     <p>También podemos calcular el punto de equilibrio, para una mezcla de productos, con utilidad.
                         Continuando con nuestro ejemplo y considerando que la empresa desea obtener una utilidad de
