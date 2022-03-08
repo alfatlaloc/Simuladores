@@ -6,6 +6,12 @@ import { ImEnter } from "react-icons/im";
 import { GiStairsGoal } from "react-icons/gi";
 import whiteBack from "../img/whiteBackground.png";
 
+import intrd from "../img/Carrusel/introduccion.svg";
+import bienv from "../img/Carrusel/bienvenida.svg";
+import obj from "../img/Carrusel/objetivo.svg";
+import meto from "../img/Carrusel/metodologia.svg";
+import evalu from "../img/Carrusel/eval.svg";
+
 const TablaEvaluacion = () => {
   return (
     <Table striped bordered hover size="sm smallFont">
@@ -64,53 +70,72 @@ const Carrusel = () => {
         />
 
         <Carousel.Caption className="carrusel">
-          <div className="scrollText">
-            <h3>Introducción</h3>
-            <p>{Texto.introduccion}</p>
-          </div>
+          <section className="scrollText carruselScreen">
+            <div className="carruselCont">
+              <h3>Introducción</h3>
+              <p>{Texto.introduccion}</p>
+            </div>
+            <img alt="recurso1" className="carruselIMG" src={intrd} />
+          </section>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img className="d-block w-100 imgC" src={whiteBack} alt="First slide" />
         <Carousel.Caption className="carrusel">
-          <h3>Bienvenida</h3>
-          <p>{Texto.bienvenida}</p>
+          <section className="scrollText carruselScreen">
+            <div className="carruselCont">
+              <h3>Bienvenida</h3>
+              <p>{Texto.bienvenida}</p>
+            </div>
+            <img alt="recurso1" className="carruselIMG" src={bienv} />
+          </section>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <img className="d-block w-100 imgC" src={whiteBack} alt="Third slide" />
+        <Carousel.Caption className="carrusel">
+          <section className="scrollText carruselScreen">
+            <div className="carruselCont">
+              <h3>Objetivo</h3>
+              <GiStairsGoal size="2.5em" />
+              <p>{Texto.objetivoAprendizaje}</p>
+            </div>
+            <img alt="recurso1" className="carruselIMG" src={obj} />
+          </section>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img className="d-block w-100 imgC" src={whiteBack} alt="Third slide" />
 
         <Carousel.Caption className="carrusel">
-          <h3>Objetivo</h3>
-          <GiStairsGoal size="2.5em" />
-          <p>{Texto.objetivoAprendizaje}</p>
+          <section className="scrollText carruselScreen">
+            <div className="carruselCont">
+              <h3>Metología</h3>
+              <p>{Texto.metodologia}</p>
+              <Button
+                className="buttonSecondary m-2"
+                onClick={() => {
+                  history.push("/metodologia");
+                }}
+              >
+                Leer más
+              </Button>
+            </div>
+            <img alt="recurso1" className="carruselIMG" src={meto} />
+          </section>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img className="d-block w-100 imgC" src={whiteBack} alt="Third slide" />
 
         <Carousel.Caption className="carrusel">
-          <h3>Metología</h3>
-          <p>{Texto.metodologia}</p>
-          <Button
-            className="buttonSecondary m-2"
-            onClick={() => {
-              history.push("/metodologia");
-            }}
-          >
-            Leer más
-          </Button>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100 imgC" src={whiteBack} alt="Third slide" />
+          <section className="scrollText">
+              <h4>Evaluación</h4>
+              La evaluación de los aprendizajes se llevará a cabo como se
+              muestra en la siguiente tabla: <TablaEvaluacion />
 
-        <Carousel.Caption className="carrusel">
-          <div className="scrollText">
-            <h4>Evaluación</h4>
-            La evaluación de los aprendizajes se llevará a cabo como se muestra
-            en la siguiente tabla: <TablaEvaluacion />
-          </div>
+            <img alt="recurso1" className="carruselIMGEval" src={evalu} />
+          </section>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
@@ -159,9 +184,7 @@ const Home = () => {
         </Card>
 
         <Card className="text-center tarjeta">
-          <Card.Header className="cardHeader">
-            Práctica
-          </Card.Header>
+          <Card.Header className="cardHeader">Práctica</Card.Header>
           <Card.Body>
             <Card.Text className="textoTrjetas">
               Definición de las actividades de aprendizaje que tienen valor para

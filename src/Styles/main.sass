@@ -1,10 +1,7 @@
 $fontStack: Helvetica, sans-serif
-$primaryColor: #0277bd
-$secondaryColor: #7986cb
-$secondaryColorLigth: #aab6fe
-$secondaryColorDark: #49599a
-$darkColor: #004c8c
-$ligthColor: #58a5f0
+$primaryColor: #2a9d8f
+$darkColor: #0f5e4f
+$ligthColor: #2a9d8f
 $fontColor: #ffffff
 $fontColorDark: #000000
 
@@ -70,7 +67,7 @@ body
     padding: 4px auto 4px auto !important
 
 .peUnidades
-    background-color: $secondaryColorLigth !important
+    background-color: $ligthColor !important
 
 .btnFlotante
     position: absolute
@@ -91,7 +88,7 @@ body
 .btnBkHome
     background-color: $primaryColor
     padding: 1px !important
-    
+
 .generalBody
     padding-bottom: 2vw
     padding-top: 2vw
@@ -109,14 +106,14 @@ body
     height: 100% !important
 
 .imgC
-    max-height: 330px
-    min-height: 330px
+    max-height: 450px
+    min-height: 450px
     @media (max-width: 780px)
         max-height: 465px !important
         min-height: 465px !important
 
 .scrollText
-    @media (max-width: 665px)
+    @media (max-width: 700px)
         overflow-y: scroll
         max-height: 410px !important
         min-height: 410px !important
@@ -157,6 +154,43 @@ body
     text-decoration: none
     color: white
 
-
 .license a
     color: white
+
+.carruselScreen
+    display: flex
+    flex-wrap: nowrap
+    text-align: center
+
+.carruselCont
+    flex: 0 0 70%
+    @media screen and (max-width: 700px)
+        flex: 0 0 100%
+        z-index: 1
+
+.carruselIMG
+    max-width: 30%
+    flex: 0 0 30%
+    max-height: 350px
+    margin-left: auto
+    @media screen and (max-width: 700px)
+        position: absolute
+        z-index: 0
+        flex: 0 0 100%
+        max-width: 100%
+        opacity: 0.25
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+
+
+.carruselIMGEval
+    position: absolute
+    z-index: 0
+    flex: 0 0 100%
+    max-width: 100%
+    opacity: 0.25
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    max-height: 350px
