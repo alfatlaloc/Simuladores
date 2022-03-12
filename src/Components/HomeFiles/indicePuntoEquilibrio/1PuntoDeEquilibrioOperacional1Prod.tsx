@@ -27,7 +27,7 @@ const PuntoEquilibrioOperacional1Producto = () => {
                     <p>Para calcular el Punto de equilibrio en número de unidades y en cantidad de dinero sin utilidad ocuparemos las fórmulas contenidas en la tabla 3.</p>
                     <h5>Tabla 3. Fórmulas del punto de equilibrio para un producto sin utilidad </h5>
                     <Tabla3 />
-                    <p>Sustituyendo los dator en las fórmulas tenemos:</p>
+                    <p>Sustituyendo los datos en las fórmulas tenemos:</p>
                     <ol type="I">
                         <li>Punto de equilibrio en número de unidades</li>
                         <Card style={{ width: '32rem' }} className="Imagenes">
