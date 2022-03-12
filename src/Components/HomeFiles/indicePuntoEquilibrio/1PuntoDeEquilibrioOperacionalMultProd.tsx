@@ -3,7 +3,6 @@ import Image from 'react-bootstrap/Image'
 import "../../../Styles/Teoria.sass";
 import BotonRegresar from "../../Common/BotonRegresar";
 import formula1 from "../../../img/Tabla9Imagen1.png";
-import formula2 from "../../../img/Tabla3Imagen2.png";
 import puntoE from "../../../img/PEmezcla.png";
 import formulaLarga2 from "../../../img/formulaLarga2.png";
 
@@ -37,7 +36,8 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
                     </Card>
                     <p>Conocemos los costos fijos y necesitamos calcular el margen de contribución ponderado promedio
                         (MCP), se determina así:</p>
-                    <h5>Tabla 10.</h5>
+                    <h5>Tabla 10. Cálculo del margen de contribución ponderado promedio</h5>
+                    <Tabla10 />
                     <p>PE Mezcla = 30,000/24 = 1,250 hamburguesas (incluye tanto sencillas como hawaianas). Para saber
                         cuántas sencillas y cuántas hawaianas solo hay que multiplicar por su proporción en las ventas:
                     </p>
@@ -48,7 +48,8 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
                     </p>
                     <p>Por cada unidad vendida, por arriba del punto de equilibrio, se tendría utilidad; sin embargo,
                         si se vende una cantidad menor que la del punto de equilibrio se obtendrá pérdida.</p>
-                    <h5>Tabla 11.</h5>
+                    <h5>Tabla 11. Comprobación del punto de equilibrio multiproducto sin utilida</h5>
+                    <Tabla11 />
                 </div>
                 <h4 id="subindice4">Punto de equilibrio para una mezcla de productos con utilidad </h4>
                 <div>
@@ -68,7 +69,8 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
                     <p>= (2,000) (0.40) = 800</p>
                     <p>Ahora, comprobemos que con ese volumen de ventas se obtiene una utilidad de $45,000
                         (ver tabla 12).</p>
-                    <h5>Tabla 12</h5>
+                    <h5>Tabla 12. Comprobación del punto de equilibrio multiproducto con utilidad</h5>
+                    <Tabla12 />
                 </div>
             </div>
         </section>
@@ -230,12 +232,147 @@ const Tabla9 = () => {
                 </tr>
                 <tr>
                     <td className="alinearCentro">Punto de equilibrio expresado en cantidad de dinero (pesos) </td>
-                    <td><Image src={formula2} rounded style={{ margin: 'auto'}}/></td>
+                    <td>---</td>
                 </tr>
                 </tbody>
             </Table>
         </div>
     );
 };
+
+const Tabla10 = () => {
+    return (
+        <Table striped bordered hover size="sm" className="tabla4">
+            <thead>
+            <tr>
+                <th rowSpan={2} className="verticalAlign">Datos</th>
+                <th colSpan={2}>Hamburguesas</th>
+            </tr>
+            <tr>
+                <th>Sencilla</th>
+                <th>Hawaiana</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Precio de venta unitario (P)</td>
+                <td className="alinearCentro">$ 35.00</td>
+                <td className="alinearCentro">$ 45.00</td>
+            </tr>
+            <tr>
+                <td>Costo variable unitario (CVU)</td>
+                <td className="alinearCentro">$ 15.00</td>
+                <td className="alinearCentro">$ 20.00</td>
+            </tr>
+            <tr>
+                <td>Margen de contribución unitario (MCU)</td>
+                <td className="alinearCentro">$ 20.00</td>
+                <td className="alinearCentro">$ 25.00</td>
+            </tr>
+            <tr>
+                <td>Porcentaje de proporción en las ventas</td>
+                <td className="alinearCentro">0.20</td>
+                <td className="alinearCentro">0.80</td>
+            </tr>
+            <tr>
+                <th>Margen de contribución ponderado (MCP)</th>
+                <th className="alinearCentro">($20) (0.20)= $4</th>
+                <th className="alinearCentro">($25) (0.80) = $20</th>
+            </tr>
+            <tr>
+                <th>Margen de contribución ponderado promedio (MCPP)</th>
+                <th colSpan={2} className="alinearCentro">0.80</th>
+            </tr>
+            </tbody>
+        </Table>
+    );
+};
+
+const Tabla11 = () => {
+    return (
+        <Table striped bordered hover size="sm" className="tabla4">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Sencillas</th>
+                <th>Hawaianas</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td className="alinearIzquierda">+ Ventas = (Q)(P)</td>
+                <td className="alinearCentro">$ 8,750.00</td>
+                <td className="alinearCentro">$ 45,000.00</td>
+                <td className="alinearCentro">$ 53,750.00</td>
+            </tr>
+            <tr>
+                <td className="alinearIzquierda">- Costo variable</td>
+                <td className="alinearCentro">$ 3,750.00</td>
+                <td className="alinearCentro">$ 20,000.00</td>
+                <td className="alinearCentro">$ 23,750.00</td>
+            </tr>
+            <tr>
+                <td className="alinearIzquierda">= Margen de contribución</td>
+                <td className="alinearCentro">$ 5,000.00</td>
+                <td className="alinearCentro">$ 25,000.00</td>
+                <td className="alinearCentro">$ 30,000.00</td>
+            </tr>
+            <tr>
+                <td colSpan={3} className="alinearIzquierda">- Costos fijos</td>
+                <td className="alinearCentro">$ 30,000.00</td>
+            </tr>
+            <tr>
+                <th colSpan={3} className="alinearIzquierda">= Ganancia</th>
+                <th className="alinearCentro">$ -</th>
+            </tr>
+            </tbody>
+        </Table>
+    );
+};
+
+const Tabla12 = () => {
+    return (
+        <Table striped bordered hover size="sm" className="tabla4">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Sencillas</th>
+                <th>Hawaianas</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td className="alinearIzquierda">+ Ventas = (Q)(P)</td>
+                <td className="alinearCentro">$ 21,875.00</td>
+                <td className="alinearCentro">$ 112,500.00</td>
+                <td className="alinearCentro">$ 134,375.00</td>
+            </tr>
+            <tr>
+                <td className="alinearIzquierda">- Costo variable</td>
+                <td className="alinearCentro">$ 9,375.00</td>
+                <td className="alinearCentro">$ 50,000.00</td>
+                <td className="alinearCentro">$ 59,375.00</td>
+            </tr>
+            <tr>
+                <td className="alinearIzquierda">= Margen de contribución</td>
+                <td className="alinearCentro">$ 12,500.00</td>
+                <td className="alinearCentro">$ 62,500.00</td>
+                <td className="alinearCentro">$ 75,000.00</td>
+            </tr>
+            <tr>
+                <td colSpan={3} className="alinearIzquierda">- Costos fijos</td>
+                <td className="alinearCentro">$ 30,000.00</td>
+            </tr>
+            <tr>
+                <th colSpan={3} className="alinearIzquierda">= Ganancia</th>
+                <th className="alinearCentro">$ 45,000.00</th>
+            </tr>
+            </tbody>
+        </Table>
+    );
+};
+
 
 export default PuntoEquilibrioOperacionalMultiplesProductos;
