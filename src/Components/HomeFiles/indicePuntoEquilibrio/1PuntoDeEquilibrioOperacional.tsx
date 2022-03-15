@@ -6,44 +6,108 @@ import BotonRegresar from "../../Common/BotonRegresar";
 import BotonSiguiente from "../../Common/BotonSiguiente";
 
 const PuntoEquilibrioOperacional = () => {
-    const history = useHistory();
-    return (
-        <section className="textosEncuadre">
-            <BotonRegresar/>
-            <BotonSiguiente link="/teoriaPuntoEq-1-1"/>
-            <h1 className="mobileH1">Punto de equilibrio operacional </h1>
-            <div>
-                <p>
-                    El Punto de equilibrio (PE) es una herramienta que nos da información acerca de cuántas unidades hay que producir y vender para no ganar ni perder; se encuentra cuando:
-                </p>
-                <p className="CentrarTexto">
-                    Ingresos = costo total &nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp; Ingresos – costo total = 0
-                </p>
-                <p>
-                    El punto de equilibrio, tal y como se aprecia en la figura 1 se obtiene cuando las ventas o ingresos son iguales al costo total; es decir, no hay ganancias y tampoco hay pérdidas y solo se recupera el costo total.
-                </p>
-                <Card style={{ width: '35rem', margin: 'auto'}} className="Imagenes">
-                    <Card.Img variant="top" src={grafica1} />
-                    <Card.Body>
-                        <Card.Title>Figura 1.
-                            Representación gráfica del punto de equilibrio </Card.Title>
-                    </Card.Body>
-                </Card>
-                Para calcular y analizar el punto de equilibrio necesitas conocer los siguientes términos:
-                <ul>
-                    <li><span onClick={() => {history.push("/glosario#CV");}}>
-                        Costos y gastos variables (CV)
-                    </span></li>
-                    <li><span onClick={() => {history.push("/glosario#CVU");}}>Costo variable unitario (CVU)</span></li>
-                    <li><span onClick={() => {history.push("/glosario#CVT");}}>Costo variable total (CVT)</span></li>
-                    <li><span onClick={() => {history.push("/glosario#CF");}}>Costos y gastos fijos (CF)</span></li>
-                    <li><span onClick={() => {history.push("/glosario#CT");}}>Costo total (CT) </span></li>
-                    <li><span onClick={() => {history.push("/glosario#IngresoVentas");}}>Ingreso o ventas</span></li>
-                    <li><span onClick={() => {history.push("/glosario#MCU");}}>Margen de contribución unitario (MCU) o contribución marginal unitaria (CMU) </span></li>
-                </ul>
-            </div>
-        </section>
-    );
+  const history = useHistory();
+  return (
+    <section className="textosEncuadre">
+      <BotonRegresar />
+      <BotonSiguiente link="/teoriaPuntoEq-1-1" />
+      <h1 className="mobileH1">Punto de equilibrio operacional </h1>
+      <div>
+        <p>
+          El Punto de equilibrio (PE) es una herramienta que nos da información
+          acerca de cuántas unidades hay que producir y vender para no ganar ni
+          perder; se encuentra cuando:
+        </p>
+        <p className="CentrarTexto">
+          Ingresos = costo total &nbsp;&nbsp;&nbsp;o&nbsp;&nbsp;&nbsp; Ingresos
+          – costo total = 0
+        </p>
+        <p>
+          El punto de equilibrio, tal y como se aprecia en la figura 1 se
+          obtiene cuando las ventas o ingresos son iguales al costo total; es
+          decir, no hay ganancias y tampoco hay pérdidas y solo se recupera el
+          costo total.
+        </p>
+        <Card style={{ width: "35rem", margin: "auto" }} className="Imagenes">
+          <Card.Header>
+            Figura 1. Representación gráfica del punto de equilibrio{" "}
+          </Card.Header>
+          <Card.Body>
+            <Card.Img variant="top" src={grafica1} />
+          </Card.Body>
+          <Card.Footer>Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022).</Card.Footer>
+        </Card>
+        Para calcular y analizar el punto de equilibrio necesitas conocer los
+        siguientes términos:
+        <ul>
+          <li>
+            <span
+              onClick={() => {
+                history.push("/glosario#CV");
+              }}
+            >
+              Costos y gastos variables (CV)
+            </span>
+          </li>
+          <li>
+            <span
+              onClick={() => {
+                history.push("/glosario#CVU");
+              }}
+            >
+              Costo variable unitario (CVU)
+            </span>
+          </li>
+          <li>
+            <span
+              onClick={() => {
+                history.push("/glosario#CVT");
+              }}
+            >
+              Costo variable total (CVT)
+            </span>
+          </li>
+          <li>
+            <span
+              onClick={() => {
+                history.push("/glosario#CF");
+              }}
+            >
+              Costos y gastos fijos (CF)
+            </span>
+          </li>
+          <li>
+            <span
+              onClick={() => {
+                history.push("/glosario#CT");
+              }}
+            >
+              Costo total (CT){" "}
+            </span>
+          </li>
+          <li>
+            <span
+              onClick={() => {
+                history.push("/glosario#IngresoVentas");
+              }}
+            >
+              Ingreso o ventas
+            </span>
+          </li>
+          <li>
+            <span
+              onClick={() => {
+                history.push("/glosario#MCU");
+              }}
+            >
+              Margen de contribución unitario (MCU) o contribución marginal
+              unitaria (CMU){" "}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  );
 };
 
 export default PuntoEquilibrioOperacional;
