@@ -1,19 +1,21 @@
 import { useHistory } from "react-router";
 import "../../../Styles/Teoria.sass";
-import { Card } from "react-bootstrap";
+
 import grafica1 from "../../../img/grafica1PuntoEquilibrio.png";
 import BotonRegresar from "../../Common/BotonRegresar";
 import BotonSiguiente from "../../Common/BotonSiguiente";
+import { useEffect } from "react";
 
 const PuntoEquilibrioOperacional = () => {
   const history = useHistory();
+  
   return (
     <section className="textosEncuadre">
       <BotonRegresar />
       <BotonSiguiente link="/teoriaPuntoEq-1-1" />
-      <h1 className="mobileH1">Punto de equilibrio operacional </h1>
+      <h2 className="mobileH1">Punto de equilibrio operacional </h2>
       <div>
-        <p>
+        <p className="mt-4">
           El Punto de equilibrio (PE) es una herramienta que nos da información
           acerca de cuántas unidades hay que producir y vender para no ganar ni
           perder; se encuentra cuando:
@@ -28,15 +30,15 @@ const PuntoEquilibrioOperacional = () => {
           decir, no hay ganancias y tampoco hay pérdidas y solo se recupera el
           costo total.
         </p>
-        <Card style={{ width: "35rem", margin: "auto" }} className="Imagenes">
-          <Card.Header>
-            Figura 1. Representación gráfica del punto de equilibrio{" "}
-          </Card.Header>
-          <Card.Body>
-            <Card.Img variant="top" src={grafica1} />
-          </Card.Body>
-          <Card.Footer>Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022).</Card.Footer>
-        </Card>
+        <section className="teoriaSection mb-4">
+          <h5 className="mt-5">
+            Figura 1. Representación gráfica del punto de equilibrio
+          </h5>
+          <img className="max-width-600 mt-4 mb-3" src={grafica1} alt="" />
+          <br />
+          Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022).
+        </section>
+
         Para calcular y analizar el punto de equilibrio necesitas conocer los
         siguientes términos:
         <ul>

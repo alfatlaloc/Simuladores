@@ -44,7 +44,7 @@ const ModificarNombre: React.FC<props> = ({ empresa }) => {
         className="m-3"
         onClick={cambiarNombre}
       >
-        Submit
+        Aceptar
       </Button>
     </Form>
   );

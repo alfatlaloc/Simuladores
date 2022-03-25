@@ -7,6 +7,12 @@ import formulaLarga2 from "../../../img/formulaLarga2.png";
 import formula_mazcla_1 from "../../../img/formula_mazcla_con_utilidad.png";
 import formula_mazcla_2 from "../../../img/formula_mazcla_sin_utilidad.png";
 import { useEffect } from "react";
+import t6 from "../../../img/tablas/tabla6.png";
+import t7 from "../../../img/tablas/tabla7.png";
+import t8 from "../../../img/tablas/tabla8.png";
+import t9 from "../../../img/tablas/tabla9.png";
+import t11 from "../../../img/tablas/tabla11.png";
+import t12 from "../../../img/tablas/tabla12.png";
 
 const PuntoEquilibrioOperacionalMultiplesProductos = () => {
   useEffect(() => {
@@ -16,6 +22,7 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
       });
     }
   });
+
   return (
     <section className="textosEncuadre">
       <BotonRegresar />
@@ -32,7 +39,7 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
         <h4 id="subindice3">
           Punto de equilibrio para una mezcla de productos sin utilidad{" "}
         </h4>
-        <div>
+        <div className="teoriaSection">
           <p>
             Continuando con el ejemplo de las hamburguesas, supongamos que ahora
             venderemos hamburguesas sencillas y hamburguesas hawaianas. Del
@@ -41,11 +48,12 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
           </p>
 
           <h5>Tabla 6. Relación de costos fijos mensuales</h5>
-          <Tabla6 />
+
+          <img className="max-width-1000 mt-4 mb-4" src={t6} alt="" />
           <h5>Tabla 7. Información del producto 1 (hamburguesa sencilla) </h5>
-          <Tabla7 />
+          <img className="max-width-1000 mt-4 mb-4" src={t7} alt="" />
           <h5>Tabla 8. Información del producto 2 (hamburguesa hawaiana) </h5>
-          <Tabla8 />
+          <img className="max-width-1000 mt-4 mb-4" src={t8} alt="" />
           <p>
             Para calcular el Punto de equilibrio de una mezcla en número de
             unidades y en cantidad de dinero sin utilidad ocuparemos las
@@ -55,7 +63,7 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
             Tabla 9. Fórmula del punto de equilibrio para una mezcla de
             productos sin utilidad
           </h5>
-          <Tabla9 />
+          <img className="max-width-1000 mt-4 mb-4" src={t9} alt="" />
           <p>
             Para calcular el punto de equilibrio utilizamos la fórmula de la
             mezcla:
@@ -92,7 +100,7 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
             Tabla 11. Comprobación del punto de equilibrio multiproducto sin
             utilida
           </h5>
-          <Tabla11 />
+          <img className="max-width-1000 mt-4 mb-4" src={t11} alt="" />
         </div>
         <h4 id="subindice4">
           Punto de equilibrio para una mezcla de productos con utilidad{" "}
@@ -128,7 +136,7 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
             Tabla 12. Comprobación del punto de equilibrio multiproducto con
             utilidad
           </h5>
-          <Tabla12 />
+          <img className="max-width-1000 mt-4 mb-4" src={t12} alt="" />
         </div>
       </div>
     </section>
