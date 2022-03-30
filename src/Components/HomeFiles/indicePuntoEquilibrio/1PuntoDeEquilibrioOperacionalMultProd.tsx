@@ -11,6 +11,7 @@ import t6 from "../../../img/tablas/tabla6.png";
 import t7 from "../../../img/tablas/tabla7.png";
 import t8 from "../../../img/tablas/tabla8.png";
 import t9 from "../../../img/tablas/tabla9.png";
+import t10 from "../../../img/tablas/tabla10.png";
 import t11 from "../../../img/tablas/tabla11.png";
 import t12 from "../../../img/tablas/tabla12.png";
 
@@ -49,36 +50,31 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
 
           <h5>Tabla 6. Relación de costos fijos mensuales</h5>
 
-          <img className="max-width-1000 mt-4 mb-4" src={t6} alt="" />
+          <img className="max-width-1000 mb-5" src={t6} alt="" />
           <h5>Tabla 7. Información del producto 1 (hamburguesa sencilla) </h5>
-          <img className="max-width-1000 mt-4 mb-4" src={t7} alt="" />
+          <img className="max-width-1000 mb-5" src={t7} alt="" />
           <h5>Tabla 8. Información del producto 2 (hamburguesa hawaiana) </h5>
-          <img className="max-width-1000 mt-4 mb-4" src={t8} alt="" />
+          <img className="max-width-1000 mb-5" src={t8} alt="" />
           <p>
             Para calcular el Punto de equilibrio de una mezcla en número de
             unidades y en cantidad de dinero sin utilidad ocuparemos las
             fórmulas contenidas en la tabla 9
           </p>
-          <h5>
+          <h5 className="mt-4">
             Tabla 9. Fórmula del punto de equilibrio para una mezcla de
             productos sin utilidad
           </h5>
-          <img className="max-width-1000 mt-4 mb-4" src={t9} alt="" />
+          <img className="max-width-1000 mb-4" src={t9} alt="" />
           <p>
-            Para calcular el punto de equilibrio utilizamos la fórmula de la
-            mezcla:
+            Para calcular el punto de equilibrio utilizamos la fórmula anterior,
+            conocemos los costos fijos y necesitamos calcular el margen de
+            contribución ponderado promedio (MCPP), el cual se determina así:
           </p>
-          <Card style={{ width: "20rem", margin: "auto" }} className="Imagenes">
-            <Card.Img variant="top" src={puntoE} />
-          </Card>
-          <p>
-            Conocemos los costos fijos y necesitamos calcular el margen de
-            contribución ponderado promedio (MCP), se determina así:
-          </p>
-          <h5>
+
+          <h5 className="mt-4">
             Tabla 10. Cálculo del margen de contribución ponderado promedio
           </h5>
-          <Tabla10 />
+          <img className="max-width-1000 mt-2 mb-4" src={t10} alt="" />
           <p>
             PE Mezcla = 30,000/24 = 1,250 hamburguesas (incluye tanto sencillas
             como hawaianas). Para saber cuántas sencillas y cuántas hawaianas
@@ -96,11 +92,11 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
             tendría utilidad; sin embargo, si se vende una cantidad menor que la
             del punto de equilibrio se obtendrá pérdida.
           </p>
-          <h5>
+          <h5 className="mt-4">
             Tabla 11. Comprobación del punto de equilibrio multiproducto sin
-            utilida
+            utilidad
           </h5>
-          <img className="max-width-1000 mt-4 mb-4" src={t11} alt="" />
+          <img className="max-width-1000 mb-4" src={t11} alt="" />
         </div>
         <h4 id="subindice4">
           Punto de equilibrio para una mezcla de productos con utilidad{" "}
@@ -116,9 +112,8 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
             obtener una utilidad de 45,000 pesos mensuales, entonces el punto de
             equilibrio se calcula así:
           </p>
-          <Card className="formulaLarga max-width-1000">
-            <Card.Img variant="top" src={formulaLarga2} />
-          </Card>
+
+          <img className="max-width-800 mt-4 mb-4" src={formulaLarga2} alt="" />
           <p>
             Para obtener el punto de equilibrio para cada uno de los productos
             de la mezcla, simplemente se multiplica el punto de equilibrio de la
@@ -132,11 +127,11 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
             Ahora, comprobemos que con ese volumen de ventas se obtiene una
             utilidad de $45,000 (ver tabla 12).
           </p>
-          <h5>
+          <h5 className="mt-4">
             Tabla 12. Comprobación del punto de equilibrio multiproducto con
             utilidad
           </h5>
-          <img className="max-width-1000 mt-4 mb-4" src={t12} alt="" />
+          <img className="max-width-1000 mb-4" src={t12} alt="" />
         </div>
       </div>
     </section>

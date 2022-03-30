@@ -7,6 +7,7 @@ const Glosario = () => {
       let tokens = window.location.href.split("#");
       let id = tokens[tokens.length - 1];
       let element = document.getElementById(id);
+      
       if (element) {
         element.className = element.className + "glosarioSelected";
         element.scrollIntoView({

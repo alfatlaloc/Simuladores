@@ -17,9 +17,9 @@ interface puntoE {
 }
 
 const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
-  const [inicio, setInicio] = useState<string>("");
+  const [inicio, setInicio] = useState<string>("0");
   const [final, setFinal] = useState<string>("");
-  const [intervalo, setIntervalo] = useState<string>("");
+  const [intervalo, setIntervalo] = useState<string>("100");
 
   const [arrayUnidades, setArrayUnidades] = useState<number[]>([]);
   const [ingresoVentas, setIngresoVentas] = useState<number[]>([]);
@@ -109,7 +109,11 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
   };
 
   useEffect(() => {
-    if (producto) calcularPuntoEquilibrio();
+    if (producto) {
+      calcularPuntoEquilibrio();
+      let f = Math.ceil(puntoEquilibrio.unidades).toFixed();
+      setFinal(f);
+    }
   }, [producto]);
 
   const formularioYPuntodeEquilibrio = () => {
