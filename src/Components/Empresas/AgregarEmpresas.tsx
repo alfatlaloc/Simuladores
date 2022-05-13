@@ -8,6 +8,7 @@ import "../../Styles/Tablas.sass";
 import { useHistory } from "react-router";
 import { BsFillTrashFill, BsPencil } from "react-icons/bs";
 import BotonHome from "../Common/BotonHome";
+import ModalUnProducto from "./ModalUnProducto";
 
 interface propsListaCosto {
   arregloCostos: Costo[];
@@ -107,6 +108,11 @@ const Simulador = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const [empresa, setEmpresa] = useState(new Empresa(""));
+
   return (
     <div className="pagina">
       <BotonHome />
@@ -143,9 +149,12 @@ const Simulador = () => {
       <Button
         type="button"
         className="m-1 buttonPrimary"
-        onClick={(e) => {
+        onClick={() => {
           if (name === " " || name === "") return;
-          dispatch(agregarEmpresa(new Empresa(name)));
+          let auxEmpresa = new Empresa(name);
+          dispatch(agregarEmpresa(auxEmpresa));
+          setEmpresa(auxEmpresa);
+          handleShow();
           setName("");
         }}
       >
@@ -153,6 +162,12 @@ const Simulador = () => {
       </Button>
 
       <MapearEmpresas empresas={Empresas} />
+
+      <ModalUnProducto
+        show={show}
+        handleClose={handleClose}
+        empresa={empresa}
+      />
     </div>
   );
 };

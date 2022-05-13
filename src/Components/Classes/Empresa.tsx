@@ -28,10 +28,16 @@ export class Producto {
   costosVariablesUnitario: Costo[];
   precio: number = 0;
 
-  constructor(nombre?: string, precio?: number) {
+  constructor(
+    nombre?: string,
+    precio?: number,
+    costosVariablesUnitario?: Costo[]
+  ) {
     this.costosVariablesUnitario = [];
     if (nombre) this.nombre = nombre;
     if (precio) this.precio = precio;
+    if (costosVariablesUnitario)
+      this.costosVariablesUnitario = costosVariablesUnitario;
   }
 
   static jsonToProducto(producto: Producto): Producto {
@@ -57,11 +63,9 @@ export class Producto {
   costosTotales(): number {
     return this.costosVariablesUnitario.reduce((acc, next) => {
       return acc + Number(next.valor);
-    }, 0.00);
+    }, 0.0);
   }
 }
-
-
 
 class Empresa {
   public nombre: string;
@@ -121,7 +125,7 @@ class Empresa {
   costoFijoTotal(): number {
     return this.costosFijos.reduce((acummulator, costoFijo) => {
       return acummulator + Number(costoFijo.valor);
-    }, 0.00);
+    }, 0.0);
   }
 
   obtenerProducto(nombreProducto: string) {

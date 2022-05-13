@@ -11,6 +11,12 @@ import bienv from "../img/Carrusel/bienvenida.svg";
 import obj from "../img/Carrusel/objetivo.svg";
 import meto from "../img/Carrusel/metodologia.svg";
 import evalu from "../img/Carrusel/eval.svg";
+import practicaImg from "../img/Carrusel/practica.png";
+
+import glosario from "../img/tarjetas/glosario.svg";
+import practica from "../img/tarjetas/practica.svg";
+import punto from "../img/tarjetas/punto.svg";
+import referencias from "../img/tarjetas/referencias.svg";
 
 const TablaEvaluacion = () => {
   return (
@@ -130,10 +136,11 @@ const Carrusel = () => {
 
         <Carousel.Caption className="carrusel">
           <section className="scrollText">
-              <h4>Evaluación</h4>
-              La evaluación de los aprendizajes se llevará a cabo como se
-              muestra en la siguiente tabla: <TablaEvaluacion />
-
+            <h4>Evaluación</h4>
+            La evaluación de los aprendizajes se llevará a cabo como se muestra
+            en la siguiente tabla: 
+            <br/>
+            <img className="w-100" src={practicaImg} alt="" />
             <img alt="recurso1" className="carruselIMGEval" src={evalu} />
           </section>
         </Carousel.Caption>
@@ -155,12 +162,17 @@ const Home = () => {
               Teoria sobre el punto de equilibrio.
             </Card.Text>
             <Button
-              className="buttonPrimary m-2"
+              className="buttonPrimary m-2 transparente"
               onClick={() => {
                 history.push("teoriaPuntoEq");
               }}
             >
-              <ImEnter />
+              <img
+                alt="Punto de equilibrio"
+                width="50px"
+                height="50px"
+                src={punto}
+              />
             </Button>
           </Card.Body>
         </Card>
@@ -173,12 +185,12 @@ const Home = () => {
               aprendizaje del tema.
             </Card.Text>
             <Button
-              className="buttonPrimary m-2"
+              className="buttonPrimary m-2 transparente"
               onClick={() => {
                 history.push("glosario");
               }}
             >
-              <ImEnter />
+              <img alt="Glosario" width="50px" height="50px" src={glosario} />
             </Button>
           </Card.Body>
         </Card>
@@ -191,12 +203,12 @@ const Home = () => {
               la evaluación.
             </Card.Text>
             <Button
-              className="buttonPrimary m-2"
+              className="buttonPrimary m-2 transparente"
               onClick={() => {
                 history.push("practica");
               }}
             >
-              <ImEnter />
+              <img alt="Glosario" width="50px" height="50px" src={practica} />
             </Button>
           </Card.Body>
         </Card>
@@ -209,12 +221,17 @@ const Home = () => {
               temas.
             </Card.Text>
             <Button
-              className="buttonPrimary m-2"
+              className="buttonPrimary m-2 transparente"
               onClick={() => {
                 history.push("referencias");
               }}
             >
-              <ImEnter />
+              <img
+                alt="Referencias"
+                width="50px"
+                height="50px"
+                src={referencias}
+              />
             </Button>
           </Card.Body>
         </Card>
