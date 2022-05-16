@@ -19,6 +19,7 @@ interface puntoE {
 const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
   const [inicio, setInicio] = useState<string>("0");
   const [final, setFinal] = useState<string>("");
+  const [ganancia, setGanancia] = useState<string>("");
   const [intervalo, setIntervalo] = useState<string>("100");
 
   const [arrayUnidades, setArrayUnidades] = useState<number[]>([]);
@@ -158,11 +159,30 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
             <Form.Control
               type="text"
               value={final}
+              disabled={ganancia !== ""}
               placeholder="Ej. 1-500-2000"
               onChange={(e) => {
                 const entrada = e.currentTarget.value;
                 if (numerosEnteros(entrada)) setFinal(entrada);
               }}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Ganancia deseada</Form.Label>
+            <Form.Control
+                type="text"
+                value={ganancia}
+                placeholder="Ej. 10000"
+                onChange={(e) => {
+                  const entrada = e.currentTarget.value;
+                  if (numerosEnteros(entrada)) {
+                    setGanancia(entrada);
+                    let utlAux = Number.parseInt(entrada) + empresa.costoFijoTotal();
+                    let auxUnidades = utlAux /(producto.precio - producto.costosTotales());
+                    if (Math.ceil(auxUnidades))
+                      setFinal(Math.ceil(auxUnidades).toString());
+                  }
+                }}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
