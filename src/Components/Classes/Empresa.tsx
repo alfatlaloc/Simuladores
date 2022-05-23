@@ -85,6 +85,10 @@ class Empresa {
     return aux;
   }
 
+  setCostosFijos(costos: Costo[]) {
+    this.costosFijos = costos;
+  }
+
   agregarCostoFijo(costoFijo: Costo) {
     const costoFijoYaExiste = this.costosFijos.find(
       (costo) => costo.nombre === costoFijo.nombre
