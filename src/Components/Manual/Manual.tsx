@@ -1,7 +1,7 @@
 import BotonHome from "../Common/BotonHome";
 import Indice from "./Indice";
 import '../../Styles/ManualUsuario.sass';
-import homeImg from '../../img/ManualUsuario/home.png'
+
 const Manual = () => {
   return (
     <div className="pagina manual">

@@ -1,8 +1,4 @@
 import "../../../Styles/Teoria.sass";
-import formula1 from "../../../img/Tabla3Imagen1.png";
-import formula2 from "../../../img/Tabla3Imagen2.png";
-import { Table, Card } from "react-bootstrap";
-import Image from "react-bootstrap/Image";
 import puntoA from "../../../img/puntoA.png";
 import puntoB from "../../../img/puntoB.png";
 import formula3 from "../../../img/teoria1-2.png";

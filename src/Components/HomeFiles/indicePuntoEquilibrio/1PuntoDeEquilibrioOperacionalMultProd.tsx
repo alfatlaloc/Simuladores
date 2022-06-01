@@ -1,11 +1,8 @@
-import { Table, Card } from "react-bootstrap";
-import Image from "react-bootstrap/Image";
 import "../../../Styles/Teoria.sass";
 import BotonRegresar from "../../Common/BotonRegresar";
-import puntoE from "../../../img/PEmezcla.png";
 import formulaLarga2 from "../../../img/formulaLarga2.png";
 import formula_mazcla_1 from "../../../img/formula_mazcla_con_utilidad.png";
-import formula_mazcla_2 from "../../../img/formula_mazcla_sin_utilidad.png";
+
 import { useEffect } from "react";
 import t6 from "../../../img/tablas/tabla6.png";
 import t7 from "../../../img/tablas/tabla7.png";
@@ -28,8 +25,8 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
     <section className="textosEncuadre">
       <BotonRegresar />
       <h1 className="mobileH1" id="indice2">
-        1.2 Modelo matemático del punto de equilibrio con multiproductos (mezcla de
-        dos o más productos)
+        1.2 Modelo matemático del punto de equilibrio con multiproductos (mezcla
+        de dos o más productos)
       </h1>
       <div>
         <p>
@@ -107,7 +104,8 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
             productos, con utilidad utilizando la siguiente fórmula:
           </p>
           <h5 className="mt-4">
-            Tabla 12. Fórmula del punto de equilibrio con utilidad para una mezcla de productos.
+            Tabla 12. Fórmula del punto de equilibrio con utilidad para una
+            mezcla de productos.
           </h5>
           <img className="max-width-1000" src={formula_mazcla_1} alt="" />
           <p>
@@ -138,304 +136,6 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
         </div>
       </div>
     </section>
-  );
-};
-
-const Tabla6 = () => {
-  return (
-    <Table striped bordered hover size="sm" className="tabla1">
-      <thead>
-        <tr>
-          <th colSpan={2}>Costos Fijos Mensuales</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Renta</td>
-          <td>$ 10,000.00</td>
-        </tr>
-        <tr>
-          <td>Sueldos</td>
-          <td>$ 18,000.00</td>
-        </tr>
-        <tr>
-          <td>Productos de limpieza</td>
-          <td>$ 1,000.00</td>
-        </tr>
-        <tr>
-          <td>Servicios</td>
-          <td>$ 1,000.00</td>
-        </tr>
-        <tr>
-          <td>Total</td>
-          <td>$ 30,000.00</td>
-        </tr>
-      </tbody>
-    </Table>
-  );
-};
-
-const Tabla7 = () => {
-  return (
-    <Table striped bordered hover size="sm" className="tabla2">
-      <thead>
-        <tr>
-          <th colSpan={3}>Hamburguesa sencilla</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th colSpan={2}>Precio de venta unitario (P)</th>
-          <th>$ 35.00</th>
-        </tr>
-        <tr>
-          <th colSpan={2}>Costo variable unitario (CVU) </th>
-          <th>$ 15.00</th>
-        </tr>
-        <tr className="alinearDerecha">
-          <td>Carne</td>
-          <td>$ 7.00</td>
-          <td></td>
-        </tr>
-        <tr className="alinearDerecha">
-          <td>Pan</td>
-          <td>$ 4.00</td>
-          <td></td>
-        </tr>
-        <tr className="alinearDerecha">
-          <td>Gas</td>
-          <td>$ 2.00</td>
-          <td></td>
-        </tr>
-        <tr className="alinearDerecha">
-          <td>Varios</td>
-          <td>$ 2.00</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th colSpan={2}>Margen de contribución unitario (MCU) </th>
-          <th>$ 20.00</th>
-        </tr>
-        <tr>
-          <th colSpan={2}>Proporción en las ventas totales </th>
-          <th>0.20</th>
-        </tr>
-      </tbody>
-    </Table>
-  );
-};
-
-const Tabla8 = () => {
-  return (
-    <Table striped bordered hover size="sm" className="tabla2">
-      <thead>
-        <tr>
-          <th colSpan={3}>Hamburguesa hawaiana</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th colSpan={2}>Precio de venta unitario (P)</th>
-          <th>$ 45.00</th>
-        </tr>
-        <tr>
-          <th colSpan={2}>Costo variable unitario (CVU) </th>
-          <th>$ 20.00</th>
-        </tr>
-        <tr className="alinearDerecha">
-          <td>Carne</td>
-          <td>$ 7.00</td>
-          <td></td>
-        </tr>
-        <tr className="alinearDerecha">
-          <td>Pan</td>
-          <td>$ 4.00</td>
-          <td></td>
-        </tr>
-        <tr className="alinearDerecha">
-          <td>Gas</td>
-          <td>$ 2.00</td>
-          <td></td>
-        </tr>
-        <tr className="alinearDerecha">
-          <td>Piña</td>
-          <td>$ 3.00</td>
-          <td></td>
-        </tr>
-        <tr className="alinearDerecha">
-          <td>Varios</td>
-          <td>$ 4.00</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th colSpan={2}>Margen de contribución unitario (MCU) </th>
-          <th>$ 25.00</th>
-        </tr>
-        <tr>
-          <th colSpan={2}>Proporción en las ventas totales </th>
-          <th>0.80</th>
-        </tr>
-      </tbody>
-    </Table>
-  );
-};
-
-const Tabla9 = () => {
-  return (
-    <div className="teoriaSection">
-      <Image
-        src={formula_mazcla_2}
-        rounded
-        style={{ margin: "auto" }}
-        className="max-width-1000"
-      />
-    </div>
-  );
-};
-
-const Tabla10 = () => {
-  return (
-    <Table striped bordered hover size="sm" className="tabla4">
-      <thead>
-        <tr>
-          <th rowSpan={2} className="verticalAlign">
-            Datos
-          </th>
-          <th colSpan={2}>Hamburguesas</th>
-        </tr>
-        <tr>
-          <th>Sencilla</th>
-          <th>Hawaiana</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Precio de venta unitario (P)</td>
-          <td className="alinearCentro">$ 35.00</td>
-          <td className="alinearCentro">$ 45.00</td>
-        </tr>
-        <tr>
-          <td>Costo variable unitario (CVU)</td>
-          <td className="alinearCentro">$ 15.00</td>
-          <td className="alinearCentro">$ 20.00</td>
-        </tr>
-        <tr>
-          <td>Margen de contribución unitario (MCU)</td>
-          <td className="alinearCentro">$ 20.00</td>
-          <td className="alinearCentro">$ 25.00</td>
-        </tr>
-        <tr>
-          <td>Porcentaje de proporción en las ventas</td>
-          <td className="alinearCentro">0.20</td>
-          <td className="alinearCentro">0.80</td>
-        </tr>
-        <tr>
-          <th>Margen de contribución ponderado (MCP)</th>
-          <th className="alinearCentro">($20) (0.20)= $4</th>
-          <th className="alinearCentro">($25) (0.80) = $20</th>
-        </tr>
-        <tr>
-          <th>Margen de contribución ponderado promedio (MCPP)</th>
-          <th colSpan={2} className="alinearCentro">
-            0.80
-          </th>
-        </tr>
-      </tbody>
-    </Table>
-  );
-};
-
-const Tabla11 = () => {
-  return (
-    <Table striped bordered hover size="sm" className="tabla4">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Sencillas</th>
-          <th>Hawaianas</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="alinearIzquierda">+ Ventas = (Q)(P)</td>
-          <td className="alinearCentro">$ 8,750.00</td>
-          <td className="alinearCentro">$ 45,000.00</td>
-          <td className="alinearCentro">$ 53,750.00</td>
-        </tr>
-        <tr>
-          <td className="alinearIzquierda">- Costo variable</td>
-          <td className="alinearCentro">$ 3,750.00</td>
-          <td className="alinearCentro">$ 20,000.00</td>
-          <td className="alinearCentro">$ 23,750.00</td>
-        </tr>
-        <tr>
-          <td className="alinearIzquierda">= Margen de contribución</td>
-          <td className="alinearCentro">$ 5,000.00</td>
-          <td className="alinearCentro">$ 25,000.00</td>
-          <td className="alinearCentro">$ 30,000.00</td>
-        </tr>
-        <tr>
-          <td colSpan={3} className="alinearIzquierda">
-            - Costos fijos
-          </td>
-          <td className="alinearCentro">$ 30,000.00</td>
-        </tr>
-        <tr>
-          <th colSpan={3} className="alinearIzquierda">
-            = Ganancia
-          </th>
-          <th className="alinearCentro">$ -</th>
-        </tr>
-      </tbody>
-    </Table>
-  );
-};
-
-const Tabla12 = () => {
-  return (
-    <Table striped bordered hover size="sm" className="tabla4">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Sencillas</th>
-          <th>Hawaianas</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td className="alinearIzquierda">+ Ventas = (Q)(P)</td>
-          <td className="alinearCentro">$ 21,875.00</td>
-          <td className="alinearCentro">$ 112,500.00</td>
-          <td className="alinearCentro">$ 134,375.00</td>
-        </tr>
-        <tr>
-          <td className="alinearIzquierda">- Costo variable</td>
-          <td className="alinearCentro">$ 9,375.00</td>
-          <td className="alinearCentro">$ 50,000.00</td>
-          <td className="alinearCentro">$ 59,375.00</td>
-        </tr>
-        <tr>
-          <td className="alinearIzquierda">= Margen de contribución</td>
-          <td className="alinearCentro">$ 12,500.00</td>
-          <td className="alinearCentro">$ 62,500.00</td>
-          <td className="alinearCentro">$ 75,000.00</td>
-        </tr>
-        <tr>
-          <td colSpan={3} className="alinearIzquierda">
-            - Costos fijos
-          </td>
-          <td className="alinearCentro">$ 30,000.00</td>
-        </tr>
-        <tr>
-          <th colSpan={3} className="alinearIzquierda">
-            = Ganancia
-          </th>
-          <th className="alinearCentro">$ 45,000.00</th>
-        </tr>
-      </tbody>
-    </Table>
   );
 };
 

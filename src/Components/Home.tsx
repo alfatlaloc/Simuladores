@@ -1,8 +1,7 @@
-import { Button, Carousel, Table } from "react-bootstrap";
+import { Button, Carousel } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import { Container, Card } from "react-bootstrap";
 import { Texto } from "./HomeFiles/textConsts";
-import { ImEnter } from "react-icons/im";
 import { GiStairsGoal } from "react-icons/gi";
 import whiteBack from "../img/whiteBackground.png";
 
@@ -18,52 +17,6 @@ import practica from "../img/tarjetas/practica.svg";
 import punto from "../img/tarjetas/punto.svg";
 import referencias from "../img/tarjetas/referencias.svg";
 
-const TablaEvaluacion = () => {
-  return (
-    <Table striped bordered hover size="sm smallFont">
-      <thead>
-        <tr>
-          <th>Actividad de aprendizaje</th>
-          <th>Evidencia de aprendizaje</th>
-          <th>Valor en la evaluación</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <strong>Actividad 1.</strong> Cálculo del punto de equilibrio para
-            un solo producto
-          </td>
-          <td>
-            Reporte con el análisis del punto del equilibrio de tres empresas
-            que venden un mismo producto. <br />
-            Solución del cuestionario.
-          </td>
-          <td>5 puntos</td>
-        </tr>
-        <tr>
-          <td>
-            <strong>Actividad 2.</strong> Cálculo del punto de equilibrio para
-            varios productos (mezcla){" "}
-          </td>
-          <td>
-            Reporte con el análisis del punto de equilibrio de tres empresas que
-            venden variedad de productos <br />
-            Solución del cuestionario.
-          </td>
-          <td>5 puntos</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>
-            <strong>Total</strong>
-          </td>
-          <td>10 puntos</td>
-        </tr>
-      </tbody>
-    </Table>
-  );
-};
 const Carrusel = () => {
   const history = useHistory();
   return (

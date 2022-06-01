@@ -10,7 +10,7 @@ const Practica = () => {
         punto de equilibrio, realiza la siguiente práctica:
       </p>
       <Button type="button" className="m-1 buttonPrimary">
-        <a className="decoNone" href={pdf} download="practica.pdf" target="_blank">
+        <a className="decoNone" href={pdf} download="practica.pdf" rel="noreferrer" target="_blank">
           Descargar
         </a>
       </Button>

@@ -4,7 +4,6 @@ import "../../../Styles/Teoria.sass";
 import grafica1 from "../../../img/grafica1PuntoEquilibrio.png";
 import BotonRegresar from "../../Common/BotonRegresar";
 import BotonSiguiente from "../../Common/BotonSiguiente";
-import { useEffect } from "react";
 
 const PuntoEquilibrioOperacional = () => {
   const history = useHistory();
