@@ -9,13 +9,13 @@ export const Texto = {
     "productos se tendrían que producir y vender para no generar utilidades pero tampoco pérdidas, es decir " +
     "alcanzar el punto de equilibrio económico. ",
   bienvenida:
-    "Estimados alumnos y alumnas de la unidad de aprendizaje Finanzas Empresariales que se imparte " +
+    "Estimados alumnos y alumnas de la unidad de aprendizaje Finanzas empresariales que se imparte " +
     "en la Escuela Superior de Cómputo (ESCOM) del Instituto Politécnico Nacional (IPN), reciban la más cordial " +
-    "de las bienvenidas a esta herramienta digital que será un apoyo para tu proceso de aprendizaje del punto de " +
+    "de las bienvenidas a esta herramienta digital que será un apoyo para su proceso de aprendizaje del punto de " +
     "equilibrio.\n" +
-    "Esta herramienta digital te permitirá automatizar el proceso del cálculo del punto de equilibrio y obtener " +
+    "Esta herramienta digital les permitirá automatizar el proceso del cálculo del punto de equilibrio y obtener " +
     "información para su análisis dirigido a la toma de decisiones.\n" +
-    "Esperamos que disfrutes esta experiencia de aprendizaje.",
+    "Esperamos que disfruten esta experiencia de aprendizaje.",
   objetivoAprendizaje:
     "Calcula el punto de equilibrio de uno o más productos con base en el precio de venta, " +
     "los costos fijos y los costos variables, obteniendo información para su análisis dirigida a la toma de " +

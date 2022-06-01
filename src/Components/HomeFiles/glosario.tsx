@@ -3,18 +3,21 @@ import BotonRegresar from "../Common/BotonRegresar";
 
 const Glosario = () => {
   useEffect(() => {
-    if (window.location.href.includes("#")) {
+    
+    if (!window.location.href.includes("#"))  return;
       let tokens = window.location.href.split("#");
       let id = tokens[tokens.length - 1];
       let element = document.getElementById(id);
-      
+
       if (element) {
         element.className = element.className + "glosarioSelected";
-        element.scrollIntoView({
+        window.scroll({
+          top: element.getBoundingClientRect().y - 20,
+          left: 0,
           behavior: "smooth",
         });
       }
-    }
+    
   });
   return (
     <section className="textosEncuadre">
@@ -43,7 +46,7 @@ const Glosario = () => {
           <p>
             Es el costo variable de producir y vender “Q” número de unidades, y
             se obtiene multiplicando la cantidad de unidades producidas y/o
-            vendidas por su costo variable unitario; es decir C.V.T = (Q) (CVU).{" "}
+            vendidas por su costo variable unitario; es decir CVT = (Q) (CVU).{" "}
           </p>
         </li>
 
@@ -68,19 +71,17 @@ const Glosario = () => {
           <strong>Ingreso o ventas</strong>{" "}
           <p>
             Se calcula multiplicando el número de unidades vendidas por su
-            precio de venta unitario.
+            precio de venta unitario; es decir que (P*Q).
           </p>
         </li>
 
         <li id="MCU">
           <strong>
             Margen de contribución unitario (MCU) o contribución marginal
-            unitaria.{" "}
+            unitaria (CMU)
           </strong>
-          (CMU)
           <p>
-            Es el resultado que queda de restar al precio de venta unitario (P)
-            el costo variable unitario (CVU).
+            Se obtiene: precio de venta unitario (P) - costo variable unitario (CVU).
           </p>
         </li>
       </ul>

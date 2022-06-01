@@ -1,5 +1,6 @@
 import { Button } from "react-bootstrap";
 import pdf from "../../docs/practica.pdf";
+
 const Practica = () => {
   return (
     <section className="pagina">

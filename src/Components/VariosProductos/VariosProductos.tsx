@@ -88,14 +88,14 @@ const VariosProductos = () => {
   return (
     <div className="pagina">
       <BotonHome />
-      <h2>Mezcla productos</h2>
+      <h2>Mezcla de productos</h2>
       <FormEmpresa
         empresa={empresa}
         empresas={empresas}
         handleChange={handleChange}
       />
       <p className="m-2"><small>
-        Para que un producto aparezca aqui debe de tener costos variables (Mayor
+        Para que un producto aparezca aqui debe de tener costos variables (mayor
         que 0).
       </small></p>
       <Stepper

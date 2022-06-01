@@ -30,7 +30,7 @@ const PuntoEquilibrioOperacional1Producto = () => {
     <section className="textosEncuadre">
       <BotonRegresar />
       <h2 className="mobileH1" id="indice1">
-        Modelo matemático del punto de equilibrio con un producto
+        1.1 Modelo matemático del punto de equilibrio con un producto
       </h2>
       <div>
         <p>
@@ -39,7 +39,7 @@ const PuntoEquilibrioOperacional1Producto = () => {
           utilidad y con utilidad.
         </p>
         <h4 id="subindice1">
-          I. Punto de equilibrio con un producto sin utilidad
+          1.1.1 Punto de equilibrio con un producto sin utilidad
         </h4>
         <div className="teoriaSection">
           <p>
@@ -103,17 +103,17 @@ const PuntoEquilibrioOperacional1Producto = () => {
           <section className="leftAlign mt-5">
             Para realizar la gráfica del punto de equilibrio se necesita de:
             <ol type="1">
-              <li>Cantidad "Q"</li>
-              <li>Costo fijo</li>
-              <li>Costo total</li>
-              <li>Ingresos o ventas</li>
+              <li>Cantidad (Q)</li>
+              <li>Costo fijo (CF)</li>
+              <li>Costo total (CT)</li>
+              <li>Ingresos o ventas (I)</li>
             </ol>
           </section>
           <img className="max-width-600 mt-3" src={g2} alt="" />
         </div>
         <section id="subindice2">
           <h4 className="mt-5">
-            II. Punto de equilibrio con un producto con utilidad
+            1.1.2 Punto de equilibrio con un producto con utilidad
           </h4>
           <div className="teoriaSection">
             <p>

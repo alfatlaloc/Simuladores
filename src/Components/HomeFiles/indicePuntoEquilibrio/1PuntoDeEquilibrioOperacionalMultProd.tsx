@@ -28,7 +28,7 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
     <section className="textosEncuadre">
       <BotonRegresar />
       <h1 className="mobileH1" id="indice2">
-        Modelo matemático del punto de equilibrio con multiproductos (mezcla de
+        1.2 Modelo matemático del punto de equilibrio con multiproductos (mezcla de
         dos o más productos)
       </h1>
       <div>
@@ -38,7 +38,7 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
           de la mezcla sin utilidad y con utilidad.{" "}
         </p>
         <h4 id="subindice3">
-          Punto de equilibrio para una mezcla de productos sin utilidad{" "}
+          1.2.1 Punto de equilibrio para una mezcla de productos sin utilidad{" "}
         </h4>
         <div className="teoriaSection">
           <p>
@@ -56,7 +56,7 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
           <h5>Tabla 8. Información del producto 2 (hamburguesa hawaiana) </h5>
           <img className="max-width-1000 mb-5" src={t8} alt="" />
           <p>
-            Para calcular el Punto de equilibrio de una mezcla en número de
+            Para calcular el punto de equilibrio de una mezcla en número de
             unidades y en cantidad de dinero sin utilidad ocuparemos las
             fórmulas contenidas en la tabla 9
           </p>
@@ -99,13 +99,16 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
           <img className="max-width-1000 mb-4" src={t11} alt="" />
         </div>
         <h4 id="subindice4">
-          Punto de equilibrio para una mezcla de productos con utilidad{" "}
+          1.2.2 Punto de equilibrio para una mezcla de productos con utilidad{" "}
         </h4>
         <div className="teoriaSection">
           <p>
             También podemos calcular el punto de equilibrio, para una mezcla de
             productos, con utilidad utilizando la siguiente fórmula:
           </p>
+          <h5 className="mt-4">
+            Tabla 12. Fórmula del punto de equilibrio con utilidad para una mezcla de productos.
+          </h5>
           <img className="max-width-1000" src={formula_mazcla_1} alt="" />
           <p>
             Continuando con nuestro ejemplo y considerando que la empresa desea
@@ -128,7 +131,7 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
             utilidad de $45,000 (ver tabla 12).
           </p>
           <h5 className="mt-4">
-            Tabla 12. Comprobación del punto de equilibrio multiproducto con
+            Tabla 13. Comprobación del punto de equilibrio multiproducto con
             utilidad
           </h5>
           <img className="max-width-1000 mb-4" src={t12} alt="" />

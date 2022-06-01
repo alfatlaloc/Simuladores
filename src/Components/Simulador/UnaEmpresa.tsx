@@ -34,7 +34,7 @@ const UnaEmpresa = () => {
       return (
         <div className="pagina">
           <BotonHome />
-          <h2>Calculo del punto de equilibrio</h2>
+          <h2>Cálculo del punto de equilibrio</h2>
           <FormEyP
             handleChange={handleCHange}
             empresa={empresaA}
@@ -49,7 +49,7 @@ const UnaEmpresa = () => {
       return (
         <div className="pagina">
           <BotonHome />
-          <h2>Calculo del punto de equilibrio</h2>
+          <h2>Cálculo del punto de equilibrio</h2>
           <FormEyP
             handleChange={handleCHange}
             empresa={empresaA}

@@ -141,7 +141,7 @@ const Simulador = () => {
             }}
           />
           <Form.Text className="text-muted">
-            El nombre solo puede tener letras, numeros y espacios.
+            El nombre solo puede tener letras, números y espacios.
           </Form.Text>
         </Form.Group>
       </Form>
@@ -158,7 +158,7 @@ const Simulador = () => {
           setName("");
         }}
       >
-        Agregar Empresa
+        Agregar empresa
       </Button>
 
       <MapearEmpresas empresas={Empresas} />

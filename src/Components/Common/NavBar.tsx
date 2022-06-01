@@ -4,7 +4,7 @@ import logoIPN from "../../img/ipn-logo-80x50.png";
 import logoESCOM from "../../img/logoESCOM80x120.png";
 const NavBar = () => {
   return (
-    <Navbar id="navBar" variant="dark" sticky="top" expand="lg">
+    <Navbar id="navBar" variant="dark" sticky="top" expand="xxl">
       <Container>
         <img
           alt=""
@@ -28,13 +28,17 @@ const NavBar = () => {
               Manual
             </NavLink>
 
+            <NavLink to="/teoriaPuntoEq" className="navBarItem ms-2">
+              Contenido
+            </NavLink>
+
             <NavLink to="/simulador" className="navBarItem ms-2">
               Gestor de empresas
             </NavLink>
 
             <NavDropdown
               className="d-flex ms-2"
-              title="Más opciones"
+              title="Simulador"
               id="navBarDropdown"
             >
               <NavLink className="dropdownItem" to="/unaempresa">
@@ -46,11 +50,17 @@ const NavBar = () => {
               <NavLink className="dropdownItem" to="/variosproductos">
                 Varios productos
               </NavLink>
-              <NavDropdown.Divider />
-              <NavLink className="dropdownItem" to="/Requerimientos">
-                Requerimientos
-              </NavLink>
             </NavDropdown>
+
+            <NavLink to="/referencias" className="navBarItem ms-2">
+              Referencias
+            </NavLink>
+
+            <NavLink to="/Requerimientos" className="navBarItem ms-2">
+              Requerimientos
+            </NavLink>
+
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

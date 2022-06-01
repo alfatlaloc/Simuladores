@@ -13,7 +13,7 @@ const PuntoEquilibrioOperacional = () => {
     <section className="textosEncuadre">
       <BotonRegresar />
       <BotonSiguiente link="/teoriaPuntoEq-1-1" />
-      <h2 className="mobileH1">Punto de equilibrio operacional </h2>
+      <h2 className="mobileH1">1. Punto de equilibrio operacional </h2>
       <div>
         <p className="mt-4">
           El Punto de equilibrio (PE) es una herramienta que nos da información

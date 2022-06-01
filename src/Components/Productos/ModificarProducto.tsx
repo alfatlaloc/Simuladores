@@ -57,7 +57,7 @@ const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
         className="mb-3 justify-content-center"
         controlId="formBasicEmail"
       >
-        <Form.Label>Precio</Form.Label>
+        <Form.Label>Valor</Form.Label>
         <Form.Control
           className="empresaInputForm"
           type="text"
@@ -77,7 +77,7 @@ const FormCostoVariableUnitario: React.FC<props> = ({ empresa, producto }) => {
           agregarCV();
         }}
       >
-        Agregar Costo Variable
+        Agregar costo variable
       </Button>
     </Form>
   );
@@ -158,7 +158,7 @@ const ModificarProducto = () => {
         defaultActiveKey="costosVariables"
         className="mb-3 justify-content-center"
       >
-        <Tab eventKey="costosVariables" title="Costos Variables">
+        <Tab eventKey="costosVariables" title="Costos variables">
           <h5 className="m-2">Nuevo costo variable</h5>
           <FormCostoVariableUnitario empresa={empresaA} producto={productoS} />
 
@@ -167,10 +167,10 @@ const ModificarProducto = () => {
           </h5>
           <MapearCostosVariables empresa={empresaA} producto={productoS} />
         </Tab>
-        <Tab eventKey="Nombre" title="Cambiar Nombre">
+        <Tab eventKey="Nombre" title="Cambiar nombre">
           <ModificarNombreProducto empresa={empresaA} producto={productoS} />
         </Tab>
-        <Tab eventKey="Precio" title="Cambiar Precio">
+        <Tab eventKey="Precio" title="Cambiar precio">
           <p>Precio actual: $ {productoS.precio}</p>
           <ModificarPrecioProducto empresa={empresaA} producto={productoS} />
         </Tab>

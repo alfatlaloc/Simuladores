@@ -28,62 +28,57 @@ const Metodologia = () => {
       <p>
         En el menú podrás seleccionar alguno de los siguientes botones de
         navegación: contenidos, simulador del punto de equilibrio para uno o
-        para varios productos, actividades de aprendizaje, glosario y
-        referencias.   
+        para varios productos, práctica, glosario y referencias.   
       </p>
       <p>
         A continuación se describen brevemente las secciones antes
         mencionadas:  
       </p>
-      <ListGroup as="ol" >
+      <ListGroup as="ol">
         <ListGroup.Item as="li">
           <strong>Contenidos</strong>
-          <br/>
-          En este apartado encontrarás los
-          fundamentos teóricos del tema.
+          <br />
+          En este apartado encontrarás los fundamentos teóricos del tema.
         </ListGroup.Item>
         <ListGroup.Item as="li">
           <strong>Simulador</strong>
-          <br/>
-          En esta sección podrás ingresar el nombre
-          de la empresa y del producto o productos; los costos variables
-          unitarios, los costos fijos y el volumen de producción y ventas. Dando
-          clic en un botón podrás obtener el cálculo del punto de equilibrio en
-          forma algebraica y gráfica, así como un reporte en PDF con el resumen
-          del escenario simulado para su respectivo análisis.
+          <br />
+          En esta sección podrás ingresar el nombre de la empresa y del producto
+          o productos; los costos variables unitarios, los costos fijos y el
+          volumen de producción y ventas. Dando clic en un botón podrás obtener
+          el cálculo del punto de equilibrio en forma algebraica y gráfica, así
+          como un reporte en PDF con el resumen del escenario simulado para su
+          respectivo análisis.
         </ListGroup.Item>
         <ListGroup.Item as="li">
-          <strong>Actividades de aprendizaje</strong>
-          <br/>
-          Las actividades de
-          aprendizaje tienen valor para la evaluación; se realizarán en el
-          aula (en el horario de clase); se desarrollarán en
-          forma individual o en equipo y se subirán en la plataforma indicada
-          por el profesor(a).
+          <strong>Práctica</strong>
+          <br />
+          La práctica tiene valor para la evaluación; se realizarán en el
+          aula (en el horario de clase); se desarrollará en
+          forma individual o en equipo y se subirá en la plataforma indicada por
+          el profesor(a).
         </ListGroup.Item>
         <ListGroup.Item as="li">
           <strong>Glosario</strong>
-          <br/>
-          En esta parte del menú, encontrarás el
-          significado de algunos términos que hemos considerado importantes para
-          el aprendizaje del tema.
+          <br />
+          En esta parte del menú, encontrarás el significado de algunos términos
+          que hemos considerado importantes para el aprendizaje del tema.
         </ListGroup.Item>
         <ListGroup.Item as="li">
           <strong>Referencias </strong>
-          <br/>
-          En esta opción del menú encontrarás las
-          fuentes de consulta que se utilizaron como base para el desarrollo de
-          este tema.
+          <br />
+          En esta opción del menú encontrarás las referencias que se
+          utilizaron para el desarrollo de este recurso.
         </ListGroup.Item>
       </ListGroup>
-      <br/>
-
-      <p>Cabe destacar que esta herramienta digital fue elaborada por
-      curaduría de contenidos con información adaptada y recuperada de manera
-      intacta de obras de distintos autores, por consiguiente, son citados en el
-      apartado fuentes de consulta y con su respectiva referencia a lo largo de
-      los textos, respetando así, su autoría para el desarrollo de este
-      recurso.</p> 
+      <br />
+      <p>
+        Cabe destacar que esta herramienta digital fue elaborada por curaduría
+        de contenidos con información adaptada y recuperada de manera intacta de
+        obras de distintos autores, por consiguiente, son citados en el apartado
+        fuentes de consulta respetando así, su autoría para el desarrollo de este recurso.
+      </p>
+       
     </section>
   );
 };

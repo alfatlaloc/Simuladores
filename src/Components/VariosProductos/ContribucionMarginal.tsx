@@ -67,7 +67,7 @@ const ContribucionMarginal: React.FC<props> = ({
 
   return (
     <div className="">
-      <h5>Contribucion Marginal</h5>
+      <h5>Contribución marginal</h5>
       <Table responsive={true} className="tablaEmpresas" striped bordered hover>
         <thead>
           <tr>
@@ -79,20 +79,20 @@ const ContribucionMarginal: React.FC<props> = ({
         </thead>
         <tbody>
           <tr>
-            <td className="tdTitulo">Contribución Marginal</td>
+            <td className="tdTitulo">Contribución marginal</td>
             {contMarginal.map((cont) => (
               <td key={cont}>$ {cont.toFixed(2)}</td>
             ))}
           </tr>
           <tr>
-            <td className="tdTitulo">Contribución Marginal Ponderada</td>
+            <td className="tdTitulo">Contribución marginal ponderada</td>
             {contMarginalPon.map((cont) => (
               <td key={cont}>$ {cont.toFixed(2)}</td>
             ))}
           </tr>
           <tr>
             <td className="tdTitulo">
-              Contribución Marginal Ponderada Promedio
+              Contribución marginal ponderada promedio
             </td>
             <td colSpan={productos.length}>$ {CMPP.toFixed(2)}</td>
           </tr>
@@ -131,7 +131,7 @@ const ContribucionMarginal: React.FC<props> = ({
       </Table>
 
       <br />
-      <h5>Proporción en los Ingresos Totales</h5>
+      <h5>Proporción en los ingresos totales</h5>
       <Chart
         width={"auto"}
         height={"500px"}

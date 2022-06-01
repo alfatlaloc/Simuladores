@@ -43,6 +43,9 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
       (1 - producto.costosTotales() / producto.precio);
 
     setPuntoEquilibrio({ unidades, pesos });
+    unidades > 100 ? setIntervalo("100") : setIntervalo("10");
+    let f = Math.ceil(unidades).toFixed();
+    setFinal(f);
   }, [producto, puntoEquilibrio, empresa]);
 
   const calcularUnidades = () => {
@@ -54,7 +57,7 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
     let auxUnidades: number[] = [];
     for (
       let i = Number.parseInt(inicio);
-      i <= Number.parseInt(final);
+      i <= Number.parseInt(final) + Number.parseInt(intervalo);
       i += Number.parseInt(intervalo)
     ) {
       auxUnidades.push(i);
@@ -112,10 +115,8 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
   useEffect(() => {
     if (producto) {
       calcularPuntoEquilibrio();
-      let f = Math.ceil(puntoEquilibrio.unidades).toFixed();
-      setFinal(f);
     }
-  }, [producto]);
+  }, [empresa, producto]);
 
   const formularioYPuntodeEquilibrio = () => {
     return (
@@ -128,7 +129,7 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
           <strong>Punto de equilibrio en pesos:</strong> $
           {puntoEquilibrio.pesos.toFixed(2)}
         </p>
-        <h5>Calculo del Ingreso Neto</h5>
+        <h5>Cálculo del ingreso neto</h5>
         <InstruccionesUaEmpresa />
 
         <Form className=" d-flex flex-row justify-content-around flex-wrap">
@@ -170,25 +171,26 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
           <Form.Group className="mb-3">
             <Form.Label>Ganancia deseada</Form.Label>
             <Form.Control
-                type="text"
-                value={ganancia}
-                placeholder="Ej. 10000"
-                onChange={(e) => {
-                  const entrada = e.currentTarget.value;
-                  if (numerosEnteros(entrada)) {
-                    setGanancia(entrada);
-                    let utlAux = Number.parseInt(entrada) + empresa.costoFijoTotal();
-                    let auxUnidades = utlAux /(producto.precio - producto.costosTotales());
-                    if (Math.ceil(auxUnidades))
-                      setFinal(Math.ceil(auxUnidades).toString());
-                  }
-                }}
+              type="text"
+              value={ganancia}
+              placeholder="Ej. 10000"
+              onChange={(e) => {
+                const entrada = e.currentTarget.value;
+                if (numerosEnteros(entrada)) {
+                  setGanancia(entrada);
+                  let utlAux =
+                    Number.parseInt(entrada) + empresa.costoFijoTotal();
+                  let auxUnidades =
+                    utlAux / (producto.precio - producto.costosTotales());
+                  if (Math.ceil(auxUnidades))
+                    setFinal(Math.ceil(auxUnidades).toString());
+                }
+              }}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Label>
-              Maximo intervalo:
-              {Number.parseInt(final) - Number.parseInt(inicio)}
+              Maximo interválo: {Number.parseInt(final) - Number.parseInt(inicio)}
             </Form.Label>
             <Form.Control
               type="text"
@@ -276,6 +278,12 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
               <tr>
                 <td className="tdTitulo celdaSticky">Utilidad</td>
                 {utilidad?.map((utilidad) => {
+                  if (utilidad === 0)
+                    return (
+                      <th key={utilidad} className="peUnidades">
+                        {utilidad.toFixed(2)}
+                      </th>
+                    );
                   return <td key={utilidad}>{utilidad.toFixed(2)}</td>;
                 })}
               </tr>
