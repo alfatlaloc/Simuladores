@@ -9,13 +9,13 @@ const MezclaProductos = () => {
       <h3>4. Mezcla de productos</h3>
 
       <p className="maxWidth-800">
-        En esta sección podemos generar la mezcla de varios productos. Debemos
-        de seleccionar alguna empresa, para que un producto dentro de dicha
-        empresa aparezca debe de tener todos los datos necesarios. Para avanzar
-        deben de haber por lo menos dos productos seleccionados.
+        En esta sección podemos generar la mezcla de varios productos. Hay que
+        seleccionar alguna empresa, para que un producto dentro de dicha empresa
+        aparezca debe de tener todos los datos necesarios. Para avanzar debemos
+        tener por lo menos dos productos seleccionados.
       </p>
       <p className="maxWidth-800">
-        Para movernos a través de los diferentes pasos usaremos las flechas que
+        Para movernos a través de los diferentes pasos se usan las flechas que
         aparecen en la parte superior.
       </p>
       <img
@@ -26,9 +26,10 @@ const MezclaProductos = () => {
 
       <h5>4.1 Eligir porcentajes de cada producto</h5>
       <p className="maxWidth-800">
-        En este paso hay que asignar el porcentaje deseado a cada producto, cada
-        uno debe de ser mayor a 0 y la suma de todos debe de ser el 100% para
-        pasar al siguiente paso.
+        En este paso hay que asignar el porcentaje de participación en las
+        ventas de cada uno de los productos. Dicho porcentaje debe de ser mayor
+        a 0 y la suma de todos debe ser el 100% para continuar con el siguiente
+        paso.
       </p>
       <img
         className="max-width-1000 mt-4 mb-3"
@@ -49,9 +50,9 @@ const MezclaProductos = () => {
 
       <h5>4.3 Utilidad deseada</h5>
       <p className="maxWidth-800">
-        Si se desea calcular utilidad a lo ya mostrado, se debe de color la
-        ganancia que se desea obtener, lo que generara la tabla de abajo de
-        acuerdo al valor ingresado.
+        Si se desea calcular el punto de equilibrio con una utilidad deseada, se
+        debe de ingresar dicha utilidad, lo que generará
+        dinámicamente la tabla de abajo de acuerdo al valor que se ingresó.
       </p>
       <img
         className="max-width-1000 mt-4 mb-3"

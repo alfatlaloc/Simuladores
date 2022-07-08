@@ -6,11 +6,11 @@ import img4 from "../../../img/ManualUsuario/GestorProductos/4.png";
 const GestorDeProductos = () => {
   return (
     <section id="GestorDeProductos" className="manual">
-      <h3>2. Gestor de Productos</h3>
+      <h3>2. Gestor de productos</h3>
       <p className="maxWidth-800">
         En esta sección se crean, modifican y eliminan los productos dentro de
         una empresa. Para acceder a esta sección hay que presionar el botón de
-        editar en cualquier producto de alguna empresa.
+        "Editar" en cualquier producto de alguna empresa.
       </p>
       <img
         className="max-width-1000 mt-4 mb-3"
@@ -21,9 +21,9 @@ const GestorDeProductos = () => {
       <h5>2.1 Agregar costo variable</h5>
       <p className="maxWidth-800">
         Una vez en la sección gestor de productos hay que cambiar a la pestaña
-        costos variables. Aqui se debe colocar un nombre y precio al nuevo
+        "Costos variables". Aqui se debe colocar un nombre y valor al nuevo
         costo. El nombre no pude ser igual al de otro costo variable en el mismo
-        producto. Los costos variables existentes se van agregando a la tabla de
+        producto. Los costos variables existentes se muestran en la tabla de
         abajo.
       </p>
       <img
@@ -35,8 +35,8 @@ const GestorDeProductos = () => {
       <h5>2.2 Cambiar nombre</h5>
       <p className="maxWidth-800">
         Una vez en la sección gestor de productos hay que cambiar a la pestaña
-        Cambiar nombre. Ingresar un nuevo nombre que no exista en la misma
-        empresa y presionar "Aceptar".
+        "Cambiar nombre", posteriormente ingresar un nuevo nombre que no exista
+        en la misma empresa y presionar "Aceptar".
       </p>
       <img
         className="max-width-600 mt-4 mb-3"
@@ -46,9 +46,9 @@ const GestorDeProductos = () => {
 
       <h5>2.3 Cambiar precio</h5>
       <p className="maxWidth-800">
-        Una vez en la sección gestor de productos hay que cambiar a la pestaña:
-        Cambiar precio. aquí se ingresa el nuevo precio, después presiona el
-        botón "Aceptar".
+        Una vez en la sección gestor de productos hay que cambiar a la pestaña
+        "Cambiar precio", aquí se ingresa el nuevo precio y después se presiona
+        el botón "Aceptar".
       </p>
       <img
         className="max-width-600 mt-4 mb-3"
