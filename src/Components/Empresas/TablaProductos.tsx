@@ -13,7 +13,7 @@ const ListaCostosVariables: React.FC<propsLista> = ({ arregloP }) => {
   return arregloP.length > 0 ? (
     <ul className="listaElementos">
       {arregloP.map((e, index) => {
-         return <li>{e.nombre}</li>;
+        return <li>{e.nombre}</li>;
       })}
     </ul>
   ) : (

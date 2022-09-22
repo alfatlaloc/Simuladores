@@ -1,13 +1,6 @@
 export const Texto = {
   introduccion:
-    "El punto de equilibrio es una de las herramientas de análisis y control financiero " +
-    "que muestra la relación que existe entre el volumen de ventas y la utilidad operativa; se obtiene cuando " +
-    "los ingresos generados a partir de las ventas son iguales a los costos operativos totales, esto incluye " +
-    "tanto a los costos directamente atribuibles a la producción de cada unidad (costos variables) así como a " +
-    "los costos operativos fijos que permanecen constantes independientemente del volumen de producción.\n" +
-    "La importancia de utilizar este método, consiste en saber cuántas unidades de un producto o de varios " +
-    "productos se tendrían que producir y vender para no generar utilidades pero tampoco pérdidas, es decir " +
-    "alcanzar el punto de equilibrio económico. ",
+    "El punto de equilibrio es uno de los temas que estudiarás en la Unidad temática 3 de la Unidad de aprendizaje Finanzas empresariales. \n En el ámbito de las finanzas el punto de equilibrio es considerado como una de las herramientas de análisis y control financiero que muestra la relación que existe entre el volumen de ventas y la utilidad operativa; se obtiene cuando los ingresos generados a partir de las ventas son iguales a los costos operativos totales, esto incluye tanto a los costos directamente atribuibles a la producción de cada unidad (costos variables) así como a los costos operativos fijos que permanecen constantes independientemente del volumen de producción. La importancia de utilizar este método consiste en saber cuántas unidades de un producto o de varios productos se tendrían que producir y vender para no generar utilidades pero tampoco pérdidas, es decir alcanzar el punto de equilibrio económico.",
   bienvenida:
     "Estimados alumnos y alumnas de la unidad de aprendizaje Finanzas empresariales que se imparte " +
     "en la Escuela Superior de Cómputo (ESCOM) del Instituto Politécnico Nacional (IPN), reciban la más cordial " +
@@ -22,9 +15,8 @@ export const Texto = {
     "decisiones económicas de la empresa.",
   metodologia:
     "Con el uso de esta herramienta digital para el cálculo del punto de equilibrio lograrás favorecer tu " +
-      "aprendizaje autónomo, lo que posibilitará que las estrategias dentro del aula se modifiquen y se " +
-      "centren en actividades de aprendizaje que te permitan desarrollar otras competencias como por ejemplo: " +
-      "la de análisis, la argumentativa, propositiva, solución de problemas, trabajo colaborativo y la " +
-      "toma de decisiones, entre otras.  ",
-
+    "aprendizaje autónomo, lo que posibilitará que las estrategias dentro del aula se modifiquen y se " +
+    "centren en actividades de aprendizaje que te permitan desarrollar otras competencias como por ejemplo: " +
+    "la de análisis, la argumentativa, propositiva, solución de problemas, trabajo colaborativo y la " +
+    "toma de decisiones, entre otras.  ",
 };

@@ -32,7 +32,11 @@ const ModificarNombre: React.FC<props> = ({ empresa }) => {
           value={nuevoNombre}
           placeholder="Nuevo nombre de la empresa"
           onChange={(e) => {
-            if (/^[a-zA-Z0-9_.ÑñáéíóúÁÉÍÓÚüÜ\s]{0,60}$/.test(e.currentTarget.value))
+            if (
+              /^[a-zA-Z0-9_.ÑñáéíóúÁÉÍÓÚüÜ\s]{0,60}$/.test(
+                e.currentTarget.value
+              )
+            )
               setNuevoNombre(e.currentTarget.value);
           }}
         />

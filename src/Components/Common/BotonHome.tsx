@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import { useHistory } from "react-router";
-import {SiHomebridge} from "react-icons/si"
+import { SiHomebridge } from "react-icons/si";
 
 const BotonHome = () => {
   const history = useHistory();

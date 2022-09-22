@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { modalInterface } from "../Interfaces/Components";
 import empresaForm from "./agregarEmpresaForm";
-import '../../Styles/Modal.sass';
+import "../../Styles/Modal.sass";
 
 const Modal: React.FC<modalInterface> = (ModalProps) => {
   return ModalProps.isShowing

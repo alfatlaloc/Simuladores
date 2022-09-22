@@ -1,26 +1,32 @@
 import { NavLink } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import logoIPN from "../../img/ipn-logo-80x50.png";
+import logoIPN from "../../img/logoBlanco64x80.png";
 import logoESCOM from "../../img/logoESCOM80x120.png";
 const NavBar = () => {
   return (
     <Navbar id="navBar" variant="dark" sticky="top" expand="xxl">
-      <Container>
-        <img
-          alt=""
-          src={logoIPN}
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-        />
+      <Container id="navBar2">
+        <img alt="" src={logoIPN} width="30" height="30" className="logoHide" />
+        <div id="barra" className="centerText">
+          <p>
+            Herramienta digital para el cálculo del punto de equilibrio
+            operativo
+          </p>
+        </div>
         <img
           alt=""
           src={logoESCOM}
           width="45"
           height="25"
-          className="d-inline-block align-top"
+          className="logoHide"
         />
-        <TituloMostrar />
+      </Container>
+      <br></br>
+      <Container>
+        <NavLink to="/Contactos" className="navBarItem ms-2">
+          Home
+        </NavLink>
+
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
@@ -60,25 +66,14 @@ const NavBar = () => {
               Requerimientos
             </NavLink>
 
-            
+            <NavLink to="/contactos" className="navBarItem ms-2">
+              Contactos
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-};
-
-const TituloMostrar = () => {
-  return (window.innerWidth > 770 ?
-      <Navbar.Brand>
-        <NavLink to="/home" className="navBarBrand">
-          Herramienta digital para el cálculo del punto de equilibrio
-        </NavLink>
-      </Navbar.Brand> : <Navbar.Brand>
-        <NavLink to="/home" className="navBarBrand2">
-          Simulador punto de equilibrio
-        </NavLink>
-      </Navbar.Brand>)
 };
 
 export default NavBar;

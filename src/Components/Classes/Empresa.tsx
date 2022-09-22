@@ -1,17 +1,3 @@
-/**
- * Una empresa puede producir más de un producto
- * Un producto tiene las características de:
- *  Precio de venta, ¿costos fijos?, costos variables
- *
- * Calculo del ingreso neto
- * Se compone de Unidades (del producto)
- * Ingreso Neto (unidades*precio de venta)
- * Costos variables Totales (costos variables*unidades)
- * Margen de contribución = Ingreso Neto - Costos variables Totales
- * Ingreso Neto = Margen de contribución - Costos Fijos
- */
-
-/** Variable o Fijo */
 export class Costo {
   nombre: string = "";
   valor: number = 0;

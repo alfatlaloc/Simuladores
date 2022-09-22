@@ -11,7 +11,6 @@ interface props {
 const TablaCostos: React.FC<props> = ({ empresa }) => {
   const dispatch = useDispatch();
 
-
   const eliminarProducto = (costoFijoNombre: string) => {
     empresa.eliminarCostoFijo(costoFijoNombre);
     dispatch(actualizarEmpresa(empresa));

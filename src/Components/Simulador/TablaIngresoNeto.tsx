@@ -190,7 +190,8 @@ const TablaIngresoNeto: React.FC<props> = ({ empresa, producto }) => {
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Label>
-              Maximo interválo: {Number.parseInt(final) - Number.parseInt(inicio)}
+              Maximo interválo:{" "}
+              {Number.parseInt(final) - Number.parseInt(inicio)}
             </Form.Label>
             <Form.Control
               type="text"

@@ -44,34 +44,68 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
             total de las hamburguesas vendidas al mes se estima que el 20% son
             sencillas y el 80% son hawaianas.
           </p>
+          <p>
+            Retomemos los datos de los costos fijos mensuales y la información
+            del producto 1 (hamburguesa sencilla) con los que hemos venido
+            trabajando (tablas 5 y 6). Para determinar el punto de equilibrio de
+            la mezcla, en este caso, también necesitamos la información del
+            producto 2 (hamburguesa hawaiana) que se muestra en la tabla 7.
+          </p>
 
-          <h5>Tabla 6. Relación de costos fijos mensuales</h5>
-
+          <i>Tabla 5. Relación de costos fijos mensuales</i>
+          <br />
           <img className="max-width-1000 mb-5" src={t6} alt="" />
-          <h5>Tabla 7. Información del producto 1 (hamburguesa sencilla) </h5>
+          <br />
+          <div className="fuente">
+            Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022)
+          </div>
+          <br />
+          <i>Tabla 6. Información del producto 1 (hamburguesa sencilla) </i>
+          <br />
           <img className="max-width-1000 mb-5" src={t7} alt="" />
-          <h5>Tabla 8. Información del producto 2 (hamburguesa hawaiana) </h5>
+          <br />
+          <div className="fuente">
+            Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022)
+          </div>
+          <br />
+          <i>Tabla 7. Información del producto 2 (hamburguesa hawaiana) </i>
+          <br />
           <img className="max-width-1000 mb-5" src={t8} alt="" />
+          <div className="fuente">
+            Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022)
+          </div>
+          <br />
           <p>
             Para calcular el punto de equilibrio de una mezcla en número de
-            unidades y en cantidad de dinero sin utilidad ocuparemos las
-            fórmulas contenidas en la tabla 9
+            unidades y en cantidad de dinero sin utilidad ocuparemos la
+            fórmula contenida en la figura 5.
           </p>
-          <h5 className="mt-4">
-            Tabla 9. Fórmula del punto de equilibrio para una mezcla de
+          <i className="mt-4">
+            Figura 5. Fórmula del punto de equilibrio para una mezcla de
             productos sin utilidad
-          </h5>
-          <img className="max-width-1000 mb-4" src={t9} alt="" />
+          </i>
+          <br/>
+          <img className="max-width-1000 mb-2" src={t9} alt="" />
+          <div className="fuente">
+            Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022)
+          </div>
+          <br/>
           <p>
             Para calcular el punto de equilibrio utilizamos la fórmula anterior,
             conocemos los costos fijos y necesitamos calcular el margen de
-            contribución ponderado promedio (MCPP), el cual se determina así:
+            contribución ponderado promedio (MCPP), el cual se determina como se muestra en la tabla 8:
           </p>
 
-          <h5 className="mt-4">
-            Tabla 10. Cálculo del margen de contribución ponderado promedio
-          </h5>
-          <img className="max-width-1000 mt-2 mb-4" src={t10} alt="" />
+          <i className="mt-4">
+            Tabla 8. Cálculo del margen de contribución ponderado promedio
+          </i>
+          <br/>
+          <img className="max-width-1000 mt-2 mb-1" src={t10} alt="" />
+          <div className="fuente">
+            Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022)
+          </div>
+          <br/>
+
           <p>
             PE Mezcla = 30,000/24 = 1,250 hamburguesas (incluye tanto sencillas
             como hawaianas). Para saber cuántas sencillas y cuántas hawaianas
@@ -82,32 +116,42 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
           <p>
             Es decir, el punto de equilibrio se obtiene vendiendo 250
             hamburguesas sencillas y 1,000 hawaianas y recibiendo de esa venta
-            $53,750 pesos, así no se gana y no se pierde (Tabla 11).
+            $53,750 pesos, así no se gana y no se pierde (Tabla 9).
           </p>
           <p>
             Por cada unidad vendida, por arriba del punto de equilibrio, se
             tendría utilidad; sin embargo, si se vende una cantidad menor que la
             del punto de equilibrio se obtendrá pérdida.
           </p>
-          <h5 className="mt-4">
-            Tabla 11. Comprobación del punto de equilibrio multiproducto sin
+          <i className="mt-4">
+            Tabla 9. Comprobación del punto de equilibrio multiproducto sin
             utilidad
-          </h5>
+          </i>
+          <br/>
           <img className="max-width-1000 mb-4" src={t11} alt="" />
+          <div className="fuente">
+            Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022)
+          </div>
+          <br/>
         </div>
         <h4 id="subindice4">
           1.2.2 Punto de equilibrio para una mezcla de productos con utilidad{" "}
         </h4>
         <div className="teoriaSection">
           <p>
-            También podemos calcular el punto de equilibrio, para una mezcla de
-            productos, con utilidad utilizando la siguiente fórmula:
+            También podemos calcular el punto de equilibrio para una mezcla de
+            productos con utilidad utilizando fórmula de la figura 6.
           </p>
-          <h5 className="mt-4">
-            Tabla 12. Fórmula del punto de equilibrio con utilidad para una
+          <i className="mt-4">
+            Figura 6. Fórmula del punto de equilibrio con utilidad para una
             mezcla de productos.
-          </h5>
+          </i>
+          <br/>
           <img className="max-width-1000" src={formula_mazcla_1} alt="" />
+          <div className="fuente">
+            Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022)
+          </div>
+          <br/>
           <p>
             Continuando con nuestro ejemplo y considerando que la empresa desea
             obtener una utilidad de 45,000 pesos mensuales, entonces el punto de
@@ -126,13 +170,18 @@ const PuntoEquilibrioOperacionalMultiplesProductos = () => {
           <p>= (2,000) (0.40) = 800</p>
           <p>
             Ahora, comprobemos que con ese volumen de ventas se obtiene una
-            utilidad de $45,000 (ver tabla 12).
+            utilidad de $45,000 (ver tabla 10).
           </p>
-          <h5 className="mt-4">
-            Tabla 13. Comprobación del punto de equilibrio multiproducto con
+          <i className="mt-4">
+            Tabla 10. Comprobación del punto de equilibrio multiproducto con
             utilidad
-          </h5>
+          </i>
+          <br/>
           <img className="max-width-1000 mb-4" src={t12} alt="" />
+          <div className="fuente">
+            Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022)
+          </div>
+          <br/>
         </div>
       </div>
     </section>

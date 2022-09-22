@@ -2,29 +2,9 @@ const Footer = () => {
   return (
     <footer className="text-center text-lg-start" id="footer">
       <section className="d-block justify-content-center justify-content-lg-between p-4 ">
-        <h5>
-          Herramienta digital para el cálculo del punto de equilibrio operativo
-        </h5>
-
         <div className="container text-center text-md-start mt-5">
-          <div className="row mt-3">
-            <div className="col-lg-3 col-xl-6 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Contactos</h6>
-              <p>
-                <strong>Josefina Hernández Jaime</strong>{"   "}|
-                <strong> Correo: </strong> johernandezja@ipn.mx
-              </p>
-              <p>
-                <strong>Eduardo Rodríguez Flores</strong>{"   "}|
-                <strong> Correo: </strong> erodrigrezf@ipn.mx
-              </p>
-
-              <p>
-                <strong>Yasmin Ivette Jiménez Galán</strong>{"   "}|
-                <strong> Correo: </strong> yjimenezg@ipn.mx
-              </p>
-            </div>
-            <div className="col-lg-3 col-xl-6 mx-auto mb-4">
+          <div className="row">
+            <div className="mx-auto mb-4">
               <strong>
                 <div
                   className="license"

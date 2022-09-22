@@ -29,13 +29,15 @@ const PuntoEquilibrioOperacional = () => {
           decir, no hay ganancias y tampoco hay pérdidas y solo se recupera el
           costo total.
         </p>
-        <section className="teoriaSection mb-4">
-          <h5 className="mt-5">
+        <section className="teoriaSection mb-4 mx-auto">
+          <br/>
+          <i className="mt-5 cursiva">
             Figura 1. Representación gráfica del punto de equilibrio
-          </h5>
+          </i>
+          <br/>
           <img className="max-width-600 mt-4 mb-3" src={grafica1} alt="" />
           <br />
-          Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022).
+          <div className="fuente">Fuente: Hernández, J., Rodríguez, E. & Jiménez, Y. (2022)</div>
         </section>
 
         Para calcular y analizar el punto de equilibrio necesitas conocer los

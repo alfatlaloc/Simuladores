@@ -20,6 +20,7 @@ import PuntoEquilibrioOperacional1Producto from "./Components/HomeFiles/indicePu
 import PuntoEquilibrioOperacionalMultiplesProductos from "./Components/HomeFiles/indicePuntoEquilibrio/1PuntoDeEquilibrioOperacionalMultProd";
 import Requerimientos from "./Components/Requerimientos/Requirimientos";
 import Manual from "./Components/Manual/Manual";
+import Contactos from "./Components/Contactos/Contactos";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
             <Route path="/variosproductos" component={VariosProductos} />
             <Route path="/unaempresa" component={UnaEmpresa} />
             <Route path="/metodologia" component={Metodologia} />
+            <Route path="/contactos" component={Contactos}/>
 
             <Route
               path="/empresa/:_id/producto/:_pr"
