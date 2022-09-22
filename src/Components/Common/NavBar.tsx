@@ -23,7 +23,7 @@ const NavBar = () => {
       </Container>
       <br></br>
       <Container>
-        <NavLink to="/Contactos" className="navBarItem ms-2">
+        <NavLink to="/" className="navBarItem ms-2">
           Home
         </NavLink>
 

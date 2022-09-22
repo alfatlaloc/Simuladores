@@ -20,7 +20,7 @@ const Metodologia = () => {
       </p>
       <p>
         Esta herramienta digital se construyó como apoyo educativo a las clases
-        presenciales; es dinámica, ya que te permite calcular el punto de
+        presenciales e híbridas; es dinámica, ya que te permite calcular el punto de
         equilibrio de manera automatizada y visualizar información importante
         del tema; adicionalmente, también podrás obtener un reporte de dicha
         información que te servirá de apoyo para la toma de decisiones.
