@@ -3,7 +3,7 @@ import BotonRegresar from "../Common/BotonRegresar";
 
 const Glosario = () => {
   useEffect(() => {
-    
+    window.scrollTo(0, 0);
     if (!window.location.href.includes("#"))  return;
       let tokens = window.location.href.split("#");
       let id = tokens[tokens.length - 1];
@@ -12,7 +12,7 @@ const Glosario = () => {
       if (element) {
         element.className = element.className + "glosarioSelected";
         window.scroll({
-          top: element.getBoundingClientRect().y - 20,
+          top: element.getBoundingClientRect().y - 50,
           left: 0,
           behavior: "smooth",
         });

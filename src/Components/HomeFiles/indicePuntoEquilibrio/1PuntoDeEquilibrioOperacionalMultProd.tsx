@@ -14,8 +14,15 @@ import t12 from "../../../img/tablas/tabla12.png";
 
 const PuntoEquilibrioOperacionalMultiplesProductos = () => {
   useEffect(() => {
-    if (window.location.href.endsWith("#subindice4")) {
-      document.getElementById("subindice4")?.scrollIntoView({
+    if (!window.location.href.includes("#")) return;
+    let tokens = window.location.href.split("#");
+    let id = tokens[tokens.length - 1];
+    let element = document.getElementById(id);
+
+    if (element) {
+      window.scroll({
+        top: element.getBoundingClientRect().y - 100,
+        left: 0,
         behavior: "smooth",
       });
     }

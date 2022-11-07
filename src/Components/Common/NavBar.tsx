@@ -1,14 +1,16 @@
 import { NavLink } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import logoIPN from "../../img/logoBlanco64x80.png";
-import logoESCOM from "../../img/logoESCOM80x120.png";
+import logoIPN from "../../img/ipn-logo-80x50.png";
+import logoESCOM from "../../img/logoESCOMAzul80x120.png";
+import inicio from "../../img/inicio.png";
+
 const NavBar = () => {
   return (
     <Navbar id="navBar" variant="dark" sticky="top" expand="xxl">
       <Container id="navBar2">
         <img alt="" src={logoIPN} width="30" height="30" className="logoHide" />
         <div id="barra" className="centerText">
-          <p>
+          <p className="barraTexto">
             Herramienta digital para el cálculo del punto de equilibrio
             operativo
           </p>
@@ -24,7 +26,7 @@ const NavBar = () => {
       <br></br>
       <Container>
         <NavLink to="/" className="navBarItem ms-2">
-          Home
+          <img src={inicio} alt="inicio" />
         </NavLink>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

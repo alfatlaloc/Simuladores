@@ -15,7 +15,7 @@ const Indice = () => {
 
     if (element)
       window.scroll({
-        top: element.getBoundingClientRect().y - 60,
+        top: element.getBoundingClientRect().y - 90,
         left: 0,
         behavior: "smooth",
       });

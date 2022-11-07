@@ -6,6 +6,7 @@ const Footer = () => {
           <div className="row">
             <div className="mx-auto mb-4">
               <strong>
+                <p>Fecha de elaboración: junio 2022</p>
                 <div
                   className="license"
                   dangerouslySetInnerHTML={{

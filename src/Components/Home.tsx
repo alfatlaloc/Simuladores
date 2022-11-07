@@ -16,17 +16,14 @@ import glosario from "../img/tarjetas/glosario.svg";
 import practica from "../img/tarjetas/practica.svg";
 import punto from "../img/tarjetas/punto.svg";
 import referencias from "../img/tarjetas/referencias.svg";
+import rubrica from "../docs/rubrica.docx";
 
 const Carrusel = () => {
   const history = useHistory();
   return (
     <Carousel variant="dark" wrap fade>
       <Carousel.Item>
-        <img
-          className="d-block w-100 imgC"
-          src={whiteBack}
-          alt="Second slide"
-        />
+        <img className="d-block w-100 imgC" src={whiteBack} alt="Second slide" />
 
         <Carousel.Caption className="carrusel">
           <section className="scrollText carruselScreen">
@@ -69,7 +66,7 @@ const Carrusel = () => {
         <Carousel.Caption className="carrusel">
           <section className="scrollText carruselScreen">
             <div className="carruselCont">
-              <h3>Metología</h3>
+              <h3>Metodología</h3>
               <p>{Texto.metodologia}</p>
               <Button
                 className="buttonSecondary m-2"
@@ -90,11 +87,19 @@ const Carrusel = () => {
         <Carousel.Caption className="carrusel">
           <section className="scrollText">
             <h4>Evaluación</h4>
-            La evaluación de los aprendizajes se llevará a cabo como se muestra
-            en la siguiente tabla: 
-            <br/>
+            <p>
+              La evaluación de los aprendizajes se llevará a cabo como se muestra a continuación y con base en una lista
+              de cotejo.
+            </p>
+            <p>
+              <a className="textButton" href={rubrica} download="rubrica.docx" rel="noreferrer" target="_blank">
+                Descargar 
+              </a>
+              {" "}
+              lista de cotejo.
+            </p>
+
             <img className="w-100" src={practicaImg} alt="" />
-            <img alt="recurso1" className="carruselIMGEval" src={evalu} />
           </section>
         </Carousel.Caption>
       </Carousel.Item>
@@ -111,21 +116,14 @@ const Home = () => {
         <Card className="text-center tarjeta">
           <Card.Header className="cardHeader">Punto de equilibrio</Card.Header>
           <Card.Body>
-            <Card.Text className="textoTrjetas">
-              Teoria sobre el punto de equilibrio.
-            </Card.Text>
+            <Card.Text className="textoTrjetas">Teoria sobre el punto de equilibrio.</Card.Text>
             <Button
               className="buttonPrimary m-2 transparente"
               onClick={() => {
                 history.push("teoriaPuntoEq");
               }}
             >
-              <img
-                alt="Punto de equilibrio"
-                width="50px"
-                height="50px"
-                src={punto}
-              />
+              <img alt="Punto de equilibrio" width="50px" height="50px" src={punto} />
             </Button>
           </Card.Body>
         </Card>
@@ -134,8 +132,7 @@ const Home = () => {
           <Card.Header className="cardHeader">Glosario</Card.Header>
           <Card.Body>
             <Card.Text className="textoTrjetas">
-              Significados de términos que se consideran importantes para el
-              aprendizaje del tema.
+              Significados de términos que se consideran importantes para el aprendizaje del tema.
             </Card.Text>
             <Button
               className="buttonPrimary m-2 transparente"
@@ -152,8 +149,7 @@ const Home = () => {
           <Card.Header className="cardHeader">Práctica</Card.Header>
           <Card.Body>
             <Card.Text className="textoTrjetas">
-              Definición de las actividades de aprendizaje que tienen valor para
-              la evaluación.
+              Definición de las actividades de aprendizaje que tienen valor para la evaluación.
             </Card.Text>
             <Button
               className="buttonPrimary m-2 transparente"
@@ -170,8 +166,7 @@ const Home = () => {
           <Card.Header className="cardHeader">Referencias</Card.Header>
           <Card.Body>
             <Card.Text className="textoTrjetas">
-              Fuentes de consulta utilizadas como base para el desarrollo de los
-              temas.
+              Fuentes de consulta utilizadas como base para el desarrollo de los temas.
             </Card.Text>
             <Button
               className="buttonPrimary m-2 transparente"
@@ -179,12 +174,7 @@ const Home = () => {
                 history.push("referencias");
               }}
             >
-              <img
-                alt="Referencias"
-                width="50px"
-                height="50px"
-                src={referencias}
-              />
+              <img alt="Referencias" width="50px" height="50px" src={referencias} />
             </Button>
           </Card.Body>
         </Card>
