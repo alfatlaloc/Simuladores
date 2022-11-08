@@ -1,7 +1,13 @@
+import { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import pdf from "../../docs/practica.pdf";
 
 const Practica = () => {
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+  
   return (
     <section className="pagina">
       <h1>Práctica</h1>

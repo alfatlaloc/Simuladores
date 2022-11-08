@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { ListGroup } from "react-bootstrap";
 
 const Metodologia = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+  
   return (
     <section className="textosEncuadre">
       <h3 className="mb-2">Metodología</h3>

@@ -88,15 +88,14 @@ const Carrusel = () => {
           <section className="scrollText">
             <h4>Evaluación</h4>
             <p>
-              La evaluación de los aprendizajes se llevará a cabo como se muestra a continuación y con base en una lista
-              de cotejo.
+              La evaluación de los aprendizajes se llevará a cabo como se muestra a continuación y con base en una
+              rúbrica.
             </p>
             <p>
               <a className="textButton" href={rubrica} download="rubrica.docx" rel="noreferrer" target="_blank">
-                Descargar 
-              </a>
-              {" "}
-              lista de cotejo.
+                Descargar
+              </a>{" "}
+              rúbrica.
             </p>
 
             <img className="w-100" src={practicaImg} alt="" />
